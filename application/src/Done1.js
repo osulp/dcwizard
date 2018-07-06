@@ -18,7 +18,7 @@ class Done1 extends Component {
     this.toggle = this.toggle.bind(this);
   }
   handleBack() {
-    this.props.history.push('/');
+    this.props.history.push('/Q1_2_1');
   }
   toggle() {
     this.setState({
@@ -27,8 +27,7 @@ class Done1 extends Component {
   }
   render() {
     return (
-      <BrowserRouter>
-     <Route>
+
  <div>
 <h4>
 Excellent! Hopefully you now know exactly what you can and cannot do with the dataset.
@@ -41,8 +40,7 @@ Excellent! Hopefully you now know exactly what you can and cannot do with the da
 
 
    </div>
-           </Route>
-              </BrowserRouter>
+
   );
   }
 }

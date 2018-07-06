@@ -7,7 +7,7 @@ import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
 import {ModalFooter} from 'reactstrap';
-class Q1_2_1 extends Component {
+class Q1_2_2_no extends Component {
   constructor(props) {
     super(props);
     this.handleBack = this.handleBack.bind(this); // you are missing this line
@@ -19,7 +19,7 @@ class Q1_2_1 extends Component {
     this.toggle = this.toggle.bind(this);
   }
   handleBack() {
-    this.props.history.push('/Q1_2');
+    this.props.history.push('/Q1_2_2');
   }
   toggle() {
     this.setState({
@@ -30,24 +30,12 @@ class Q1_2_1 extends Component {
     return (
 
  <div>
-<h1>
-Does the license permit you to do what you want to do with the data?
-</h1>
+<h4>
+In this case, the data is not protected and you can use, reuse, modify and redistribute the dataset as you want. </h4>
 <div className="navigationButtonsLeft">
      <Button onClick={this.handleBack} bsStyle="success">&lt; Back</Button>
    </div>
-<div>
-  <Button color="primary" onClick={this.toggle}>More Info</Button>
-  <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-    <ModalHeader toggle={this.toggle}>  Datasets </ModalHeader>
-    <ModalBody>
-Many datasets have Creative Commons licenses that explain how the dataset may be used.  </ModalBody>
-    <ModalFooter>
-      <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-    </ModalFooter>
-  </Modal>
-</div>
+
 
 
    </div>
@@ -56,4 +44,4 @@ Many datasets have Creative Commons licenses that explain how the dataset may be
   }
 }
 
-export default Q1_2_1;
+export default Q1_2_2_no;

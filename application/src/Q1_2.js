@@ -18,7 +18,7 @@ class Q1_2 extends Component {
     this.toggle = this.toggle.bind(this);
   }
   handleBack() {
-    this.props.history.push('/');
+    this.props.history.push('/Q1_1');
   }
   toggle() {
     this.setState({
@@ -27,8 +27,7 @@ class Q1_2 extends Component {
   }
   render() {
     return (
-      <BrowserRouter>
-     <Route>
+
  <div>
 <h1>
 Does the data have a license?
@@ -51,20 +50,9 @@ If a license has been applied to a copyrighted work that includes terms of use, 
 </div>
 
 
-<ul className="header">
 
-
-
- <li><NavLink to="/Q1_1/Q1_2/Q1_2_1">Yes</NavLink></li>
-<li><NavLink to="/Q1_1/Q1_2/Q1_2_2">No</NavLink></li>
-</ul>
-<div className="content">
-<Route exact path="/Q1_1/Q1_2/Q1_2_1" component={Q1_2_1}/>
-
-</div>
    </div>
-           </Route>
-              </BrowserRouter>
+
   );
   }
 }

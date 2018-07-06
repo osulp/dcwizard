@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink,HashRouter, BrowserRouter } from 'react-router-dom';
+import { Route, NavLink,HashRouter, BrowserRouter,Switch, Link } from 'react-router-dom';
 import Start from "./Start";
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
@@ -8,58 +8,406 @@ import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
 import {ModalFooter} from 'reactstrap';
 import {StepWizard, Step} from 'react-step-wizard';
-
+import Home from "./Home";
+import Q1_2 from "./Q1_2";
+import Done1 from "./Done1";
 import Q1_2_1 from "./Q1_2_1";
+import Q1_1_2 from "./Q1_1_2";
+import Q1_1_2_yes from "./Q1_1_2_yes";
+import Q1_1_2_no from "./Q1_1_2_no";
+import Q1_2_2 from "./Q1_2_2";
+import Q1_2_2_yes from "./Q1_2_2_yes";
+import Q1_2_2_no from "./Q1_2_2_no";
+import Q1_2_1_1 from "./Q1_2_1_1";
+import Q1_2_1_1_yes from "./Q1_2_1_1_yes";
+import Q1_2_1_1_no from "./Q1_2_1_1_no";
 class App extends Component {
   constructor (props) {
       super(props)
-      this.state = {
-    show: true};
-    this.toggleT = this.toggleT.bind(this)
-    this.SetTrue = this.SetTrue.bind(this)
-  }
-  toggleT = () =>{
-    this.setState({show: !this.state.show});
-  }
-SetTrue = () => {
-    this.setState({show: true});
-  }
-    render() {
-      var show = {
-        display: this.state.show ? "block" : "none"
-      };
+      this.reset = this.reset.bind(this); // you are missing this line
 
-      var hidden = {
-        display: this.state.show ? "none" : "block"
-      }
+
+  }
+  reset(){
+    window.location.href="/";
+  }
+Q1_1check(){
+  if (window.location.href.indexOf("Q1_1") != -1 || window.location.href.indexOf("Q1_2") != -1 ||window.location.href.indexOf("Q1_2_1") != -1 || window.location.href.indexOf("Done1") != -1){
+return(<div/>);
+  }
+  else{
+    return(
+  <li><NavLink to="/Q1_1"><Button >Start</Button></NavLink></li>
+);
+}
+}
+Q1_2check(){
+  {/*the extra if case is for making the button not appear... there has to be a better way of doign all of this */}
+  if (window.location.href.indexOf("Q1_1") > -1 && window.location.href.indexOf("Q1_1_2") == -1 ){
+return(<li><Link to="/Q1_2"><Button >Yes</Button></Link>
+        <Link to="/Q1_1_2"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+Q1_2_1check(){
+  if (window.location.href.indexOf("Q1_2") > -1 && window.location.href.indexOf("Q1_2_1") == -1 && window.location.href.indexOf("Q1_2_2") == -1 ){
+return(<li><Link to="/Q1_2_1"><Button >Yes</Button></Link>  <Link to="/Q1_2_2"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+Done1check(){
+  if (window.location.href.indexOf("Q1_2_1") > -1 && window.location.href.indexOf("Q1_2_1_1") == -1){
+return(<li><Link to="/Done1"><Button >Yes</Button></Link><Link to="/Q1_2_1_1"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+finalcheck1(){
+  if (window.location.href.indexOf("Done1") > -1){
+return(<li><Link to="/"><Button >Start Again</Button></Link></li>);
+  }
+
+  else{
+    return(
+
+<div/>
+);
+}
+}
+Q1_1_2check(){
+  if (window.location.href.indexOf("Q1_1_2") > -1 && window.location.href.indexOf("Q1_1_2_yes") == -1 && window.location.href.indexOf("Q1_1_2_no") == -1 ){
+return(<li><Link to="/Q1_1_2_yes"><Button >Yes</Button></Link>
+      <Link to="/Q1_1_2_no"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+Q1_1_2_yesnocheck(){
+  if (window.location.href.indexOf("Q1_1_2_yes") > -1 || window.location.href.indexOf("Q1_1_2_no") > -1){
+return(<li><Link to="/"><Button >Start Again</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+Q1_2_2check(){
+  if (window.location.href.indexOf("Q1_2_2") > -1 && window.location.href.indexOf("Q1_2_2_yes") == -1 && window.location.href.indexOf("Q1_2_2_no") == -1){
+return(<li><Link to="/Q1_2_2_yes"><Button >Yes</Button></Link>
+<Link to="/Q1_2_2_no"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+Q1_2_2_yesnocheck(){
+  if (window.location.href.indexOf("Q1_2_2_yes") > -1 || window.location.href.indexOf("Q1_2_2_no") > -1){
+return(<li><Link to="/"><Button >Start Again</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+
+Q1_2_1_1check(){
+  if (window.location.href.indexOf("Q1_2_1_1") > -1 && window.location.href.indexOf("Q1_2_1_1_yes") == -1 && window.location.href.indexOf("Q1_2_1_1_no") == -1){
+return(<li><Link to="/Q1_2_1_1_yes"><Button >Yes</Button></Link><Link to="/Q1_2_1_1_no"><Button >No</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+
+Q1_2_1_1yesnocheck(){
+  if (window.location.href.indexOf("Q1_2_1_1_yes") > -1 || window.location.href.indexOf("Q1_2_1_1_no") > -1){
+return(<li><Link to="/"><Button >Start Again</Button></Link></li>);
+  }
+
+  else{
+    return(
+<div/>
+);
+}
+}
+traverser(){
+
+  if(window.location.pathname == '/'){
+    return(
+
+   <h1 className ="title"><a className = "link" href="/">
+    » Digital Copyright Wizard</a>
+    </h1>
+
+
+  )
+}
+  else if(window.location.pathname == '/Q1_1'){
+    return(
+    <h1 className ="title"><a className = "link" href="/">
+    » Digital Copyright Wizard<span className="tooltiptext">Previous Question: Confused?
+    Answer: Start</span> </a> <a className = "link" href="/Q1_1">
+    » Q1_1</a>
+    </h1>
+
+
+  )
+}
+else if(window.location.pathname == '/Q1_2'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1 <span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2">
+  » Q1_2</a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_2_1'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
+  » Q1_2_1</a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_2_1_1'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
+  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
+  » Q1_2_1_1</a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_2_1_1_yes'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
+  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
+  » Q1_2_1_1 <span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1_1_yes">   » Done</a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_2_1_1_no'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
+  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
+  » Q1_2_1_1 <span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1_no">   » Done</a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Done1'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
+  » Q1_2_1 <span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2_1"> » Done </a>
+
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_1_2'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
+  » Q1_1_2 </a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_1_2_no'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
+  » Q1_1_2 <span className="tooltiptext">Previous Question: Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?
+  Answer: No</span> </a> <a className = "link" href="/Q1_1_2_no">
+  » Done </a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_1_2_yes'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
+  » Q1_1_2 <span className="tooltiptext">Previous Question: Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_1_2_yes">
+  » Done </a>
+  </h1>
+
+
+)
+}
+else if(window.location.pathname == '/Q1_2_2'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
+  » Q1_2_2</a>
+  </h1>
+)
+}
+else if(window.location.pathname == '/Q1_2_2_yes'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
+  » Q1_2_2<span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
+  Answer: Yes</span></a> <a className = "link" href="/Q1_2_2_yes">
+  » Done</a>
+  </h1>
+)
+}
+else if(window.location.pathname == '/Q1_2_2_no'){
+  return(
+  <h1 className ="title"><a className = "link" href="/">
+  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
+  Answer: Start</span></a> <a className = "link" href="/Q1_1">
+  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
+  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
+  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
+  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
+  » Q1_2_2<span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
+  Answer: No</span></a><a className = "link" href="/Q1_2_2_no">
+  » Done</a>
+  </h1>
+)
+}
+}
+    render() {
+let location = this.props.location
 
     return (
 
-         <BrowserRouter>
-      <Route>
-        <div >
-        <h2 style={ show }>this.state.show = true</h2>
-      <h2 style={ hidden }>this.state.show = false</h2>
-     <h1 className = "titlebg" >
-                  <img className = "osuimg" src="https://dl.boxcloud.com/api/2.0/internal_files/167857248938/versions/178236347306/representations/png_paged_2048x2048/content/1.png?access_token=1!d0AAG7hAPUsjMrtdWiPebK4a1-WO5jv2D6zEaLcXKF-N_lMpznRkSoux_B__x22D61nZZlXSQ8wiCrWL_a3bmH_Tfxfjoi6XyObIvVWR2sVzaFMIjeqauWRnhBSL22mUSaUHEGX_z15GQNl_I1A6GagBYOaqALmRlkCbKxLiJo1rm7zzNG9jYL3Z_JXqQOso_oaxpViTrL9qn71flkkqczQx7XibI6CAT-F7LynCo8il8IQzxAwM6X8lrt9oaGQI4aV2E2NNukBCzUxpm45DzwqveQ5g3xUxs_5wIXlPY8a63ofQ_QNPXylFtpn7edeEhiwt-WTulRtPuWkbHuG6TyRAkQPDuHDM4R_kqqNGwQ5pxblpZlfdjZOACrEABy5bO-4ZvtVUn6sSbsN41kh92I2CtnjvhnEo01lR-8IZ2MwOL2QMqCSBX4pSLIBwtLkbvvyg6_kAIwYP8Yee29QF&shared_link=https%3A%2F%2Foregonstate.app.box.com%2Fs%2Fef2r8wr5ptzaomck0s6e28gaqw5zjh7q&box_client_name=box-content-preview&box_client_version=1.46.0" alt="osu" width="60" height="60"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={this.SetTrue}>Restart</Button></NavLink></h1>
+<div >
+{this.traverser()}
 
 
-          <ul style={show} className="header">
-          <h2>Confused about what to choose?</h2>
-          <p>Click below to start</p>
+<div className="Restart">
+<Button onClick={this.reset} className="bg-success" >Restart</Button>
+</div>
+    <Switch>
+ <Route exact path='/' component={Home}/>
+    <Route path='/Q1_1' component={Start}/>
+    <Route path='/Q1_2' component={Q1_2}/>
+    <Route path='/Q1_2_1' component={Q1_2_1}/>
+    <Route path='/Done1' component={Done1}/>
+    <Route path='/Q1_1_2' component={Q1_1_2}/>
+    <Route path='/Q1_1_2_yes' component={Q1_1_2_yes}/>
+    <Route path='/Q1_1_2_no' component={Q1_1_2_no}/>
+    <Route path='/Q1_2_2' component={Q1_2_2}/>
+    <Route path='/Q1_2_2_yes' component={Q1_2_2_yes}/>
+    <Route path='/Q1_2_2_no' component={Q1_2_2_no}/>
+      <Route path='/Q1_2_1_1' component={Q1_2_1_1}/>
+      <Route path='/Q1_2_1_1_yes' component={Q1_2_1_1_yes}/>
+      <Route path='/Q1_2_1_1_no' component={Q1_2_1_1_no}/>
+    </Switch>
+    <h2>Options</h2>
+{this.Q1_1check()}
+{this.Q1_2check()}
+{this.Q1_2_1check()}
+{this.Done1check()}
+{this.finalcheck1()}
+{this.Q1_1_2check()}
+{this.Q1_1_2_yesnocheck()}
+{this.Q1_2_2check()}
+{this.Q1_2_2_yesnocheck()}
+{this.Q1_2_1_1check()}
+{this.Q1_2_1_1yesnocheck()}
+</div>
 
-
-            <li><NavLink to="/Q1_1"><Button onClick={this.toggleT.bind(this)}>Start</Button></NavLink></li>
-
-          </ul>
-          <div className="content">
-          <Route exact path="/Q1_1" component={Start}/>
-
-
-          </div>
-        </div>
-        </Route>
-           </BrowserRouter>
     );
   }
 }

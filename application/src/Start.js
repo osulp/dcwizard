@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink,HashRouter,BrowserRouter } from 'react-router-dom';
+import { Route, NavLink,HashRouter,BrowserRouter,BrowserHistory,history } from 'react-router-dom';
 import Q1_2 from "./Q1_2";
 import './Start.css';
 import App from './App';
@@ -23,8 +23,10 @@ class Start extends Component {
   }
 
   handleBack() {
-    this.props.SetTrue;
-    this.props.history.push('/');
+
+
+
+this.props.history.push('/');
   }
   toggle() {
     this.setState({
@@ -34,12 +36,14 @@ class Start extends Component {
   render() {
     return (
 
-         <BrowserRouter>
-        <Route>
+
     <div>
+
   <h1>Is the data publicly available?</h1>
   <div className="navigationButtonsLeft">
-        <Button  onClick={this.handleBack}  bsStyle="success">&lt; Back</Button>
+
+        <NavLink to='/'><Button onClick={this.handleBack}  bsStyle="success">&lt; Back</Button></NavLink>
+
       </div>
   <div>
 
@@ -56,9 +60,8 @@ class Start extends Component {
      </Modal>
    </div>
 
-
+{/*.
   <ul className="header">
-
 
 
     <li><NavLink to="/Q1_1/Q1_2">Yes</NavLink></li>
@@ -67,10 +70,9 @@ class Start extends Component {
   <div className="content">
   <Route exact path="/Q1_1/Q1_2" component={Q1_2}/>
 
-  </div>
+  </div>*/}
       </div>
-              </Route>
-                 </BrowserRouter>
+            
     );
   }
 }
