@@ -382,9 +382,13 @@ else if(window.location.pathname == '/Q1_2_2_no'){
     render() {
 
 let test = this.state.q1
+
+fetch(`${process.env.PUBLIC_URL}/test.yml`)
     return (
 
 <div >
+
+{/*
 {this.select_question()}
 {this.traverser()}
 <h2>q1state: {this.state.qwe}</h2>
@@ -407,7 +411,7 @@ let test = this.state.q1
     <Route path='/Q1_2_1_1' component={Q1_2_1_1}/>
     <Route path='/Q1_2_1_1_yes' component={Q1_2_1_1_yes}/>
     <Route path='/Q1_2_1_1_no' component={Q1_2_1_1_no}/>
-    
+
     </Switch>
     <h2>Options</h2>
 {this.Q1_1check()}
@@ -421,6 +425,8 @@ let test = this.state.q1
 {this.Q1_2_2_yesnocheck()}
 {this.Q1_2_1_1check()}
 {this.Q1_2_1_1yesnocheck()}
+*/}
+
 
 </div>
 
