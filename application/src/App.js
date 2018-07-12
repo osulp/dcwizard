@@ -22,11 +22,23 @@ import Q1_2_1_1 from "./Q1_2_1_1";
 import Q1_2_1_1_yes from "./Q1_2_1_1_yes";
 import Q1_2_1_1_no from "./Q1_2_1_1_no";
 class App extends Component {
-  constructor (props) {
-      super(props)
+  constructor () {
+      super();
+      this.state ={
+         qwe: false
+  }
+
       this.reset = this.reset.bind(this); // you are missing this line
 
 
+this.select_question = this.select_question.bind(this);
+  }
+  select_question(){
+    if (window.location.pathname == Q1_2_2){
+        this.setState({
+          qwe: true
+        });
+    }
   }
   reset(){
     window.location.href="/";
@@ -38,6 +50,7 @@ return(<div/>);
   else{
     return(
   <li><NavLink to="/Q1_1"><Button >Start</Button></NavLink></li>
+
 );
 }
 }
@@ -367,13 +380,14 @@ else if(window.location.pathname == '/Q1_2_2_no'){
 }
 }
     render() {
-let location = this.props.location
 
+let test = this.state.q1
     return (
 
 <div >
+{this.select_question()}
 {this.traverser()}
-
+<h2>q1state: {this.state.qwe}</h2>
 
 <div className="Restart">
 <Button onClick={this.reset} className="bg-success" >Restart</Button>
@@ -390,9 +404,10 @@ let location = this.props.location
     <Route path='/Q1_2_2' component={Q1_2_2}/>
     <Route path='/Q1_2_2_yes' component={Q1_2_2_yes}/>
     <Route path='/Q1_2_2_no' component={Q1_2_2_no}/>
-      <Route path='/Q1_2_1_1' component={Q1_2_1_1}/>
-      <Route path='/Q1_2_1_1_yes' component={Q1_2_1_1_yes}/>
-      <Route path='/Q1_2_1_1_no' component={Q1_2_1_1_no}/>
+    <Route path='/Q1_2_1_1' component={Q1_2_1_1}/>
+    <Route path='/Q1_2_1_1_yes' component={Q1_2_1_1_yes}/>
+    <Route path='/Q1_2_1_1_no' component={Q1_2_1_1_no}/>
+    
     </Switch>
     <h2>Options</h2>
 {this.Q1_1check()}
@@ -406,6 +421,7 @@ let location = this.props.location
 {this.Q1_2_2_yesnocheck()}
 {this.Q1_2_1_1check()}
 {this.Q1_2_1_1yesnocheck()}
+
 </div>
 
     );
