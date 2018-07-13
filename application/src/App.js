@@ -25,13 +25,32 @@ class App extends Component {
   constructor () {
       super();
       this.state ={
-         qwe: false
+         qwe: false,
+         chosen: null
   }
-
-      this.reset = this.reset.bind(this); // you are missing this line
-
-
+this.button_chosen = this.button_chosen.bind(this);
+this.reset = this.reset.bind(this); // you are missing this line
+this.SetStart = this.SetStart.bind(this)
 this.select_question = this.select_question.bind(this);
+  }
+  SetStart = () => {
+    this.setState({chosen: null});
+  }
+  button_chosen = (position)=>{
+    if(this.state.chosen === position){
+      this.setState({chosen: null})
+    }
+    else{
+      this.setState({chosen:position})
+    }
+
+  }
+  chosen_color = (position) =>{
+    if(this.state.chosen === position){
+      return "blue";
+
+    }
+    return "";
   }
   select_question(){
     if (window.location.pathname == Q1_2_2){
@@ -194,7 +213,7 @@ traverser(){
 
   )
 }
-else if(window.location.pathname == '/Q1_2'){
+if(window.location.pathname == '/Q1_1/Q1_2'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -207,7 +226,7 @@ else if(window.location.pathname == '/Q1_2'){
 
 )
 }
-else if(window.location.pathname == '/Q1_2_1'){
+ if(window.location.pathname == '/Q1_1/Q1_2_1'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -381,13 +400,32 @@ else if(window.location.pathname == '/Q1_2_2_no'){
 }
     render() {
 
-let test = this.state.q1
-
-fetch(`${process.env.PUBLIC_URL}/test.yml`)
+      var chosen = {
+          display: this.state.chosen ? "block" : "none"
+        };
+//fetch(`${process.env.PUBLIC_URL}/test.yml`)
     return (
-
+<Route>
 <div >
+<h1 className = "titlebg" >
+                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={this.SetStart}>Restart</Button></NavLink></h1>
 
+
+         <ul  className="header">
+         <h2>Confused about what to choose?</h2>
+         <p>Click below to start</p>
+
+
+           <li><NavLink to="/Q1_1"><Button style={{background: this.chosen_color(0)}} onClick={() => {this.button_chosen(0)}} >Start</Button></NavLink></li>
+
+         </ul>
+         {this.traverser()}
+         <div className="content">
+         <Route exact path="/Q1_1" component={Start}/>
+
+
+         </div>
+       </div>
 {/*
 {this.select_question()}
 {this.traverser()}
@@ -428,7 +466,8 @@ fetch(`${process.env.PUBLIC_URL}/test.yml`)
 */}
 
 
-</div>
+
+</Route>
 
     );
   }

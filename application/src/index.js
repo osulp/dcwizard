@@ -15,7 +15,7 @@ import Start from "./Start";
 ReactDOM.render(
 <div className="fullback">
 
-<Header/>
+{/*<Header/>*/}
 
 <BrowserRouter>
 <App/>
