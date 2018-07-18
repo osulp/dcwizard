@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink,HashRouter, BrowserRouter,Switch, Link } from 'react-router-dom';
-import Start from "./Start";
+
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
@@ -10,34 +10,20 @@ import {ModalFooter} from 'reactstrap';
 import {StepWizard, Step} from 'react-step-wizard';
 import $ from 'jquery';
 import data from './me_with_others_data.json';
-import Home from "./Home";
-import Q1_2 from "./Q1_2";
-import Done1 from "./Done1";
-import Q1_2_1 from "./Q1_2_1";
-import Q1_1_2 from "./Q1_1_2";
-import Q1_1_2_yes from "./Q1_1_2_yes";
-import Q1_1_2_no from "./Q1_1_2_no";
-import Q1_2_2 from "./Q1_2_2";
-import Q1_2_2_yes from "./Q1_2_2_yes";
-import Q1_2_2_no from "./Q1_2_2_no";
-import Q1_2_1_1 from "./Q1_2_1_1";
-import Q1_2_1_1_yes from "./Q1_2_1_1_yes";
-import Q1_2_1_1_no from "./Q1_2_1_1_no";
+
 class App extends Component {
   constructor (props) {
       super(props);
       this.state = {
         modal: false,
         chosen: null,
-        qwe: false,
+
         questions:{ }
       };
 
-      this.toggle = this.toggle.bind(this);
+  this.toggle = this.toggle.bind(this);
 this.button_chosen = this.button_chosen.bind(this);
-this.reset = this.reset.bind(this); // you are missing this line
 this.SetStart = this.SetStart.bind(this)
-this.select_question = this.select_question.bind(this);
 this.question_counter = this.question_counter.bind(this);
   }
   toggle() {
@@ -64,16 +50,7 @@ this.question_counter = this.question_counter.bind(this);
     }
     return "";
   }
-  select_question(){
-    if (window.location.pathname == Q1_2_2){
-        this.setState({
-          qwe: true
-        });
-    }
-  }
-  reset(){
-    window.location.href="/";
-  }
+
 
 
 
