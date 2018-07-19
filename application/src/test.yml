@@ -1,0 +1,126 @@
+---
+# Data Copyright Wizard question configurations
+- question_1:
+    question_id: 1_1
+    question_text: Is the data publicly available?
+    explanation_text: |
+      A dataset is publicly available when it can be accessed freely.
+      Usually this means that you can find it online and download it.
+      It can also be in a physical location, like a library.
+    explanation_resource_url:
+    options:
+      - option_1:
+          option_id: 1
+          option_text: Yes
+          next_step_type: 1
+          next_step_question_id: 1_2
+          question_origin: 1_1
+      - option_2:
+          option_id: 2
+          option_text: No
+          next_step_type: 1
+          next_step_question_id: 1_1_2
+          question_origin: 1_1
+- question_2:
+    question_id: 1_2
+    question_text: Does the data have a license?
+    explanation_text: |
+      If a license has been applied to a copyrighted work that includes terms of use,
+      you are expected to abide the license and its terms.
+      A license usually consists of a sentence like "this dataset is licensed under a Creative Commons Attribution license".
+      It may also appear abbreviated like "Licensed as CC-BY".
+    explanation_resource_url: |
+      Creative commons licenses:
+      https://creativecommons.org/licenses/
+    options:
+      - option 1:
+          option_id: 1
+          option_text: Yes
+          next_step_type: 1
+          next_step_question_id: 1_2_1
+          question_origin: 1_2
+      - option_2:
+          option_id: 2
+          option_text: No
+          next_step_type: 1
+          next_step_question_id: 1_2_1_1
+          question_origin: 1_2
+- question_3:
+    question_id: 1_2_1
+    question_text: Does the license permit you to do what you want to do with the data?
+    explanation_text: |
+      Many datasets have Creative Commons licenses that explain how the dataset may be used.
+    explanation_resource_url: |
+      Creative commons licenses:
+      https://creativecommons.org/licenses/
+    options:
+      - option_1:
+          option_id: 1
+          option_text: Yes
+          next_step_type: 0
+          next_step_content: Excellent! Hopefully you now know exactly what you can and cannot do with the dataset.
+          question_origin: 1_2_1
+      - option_2:
+          option_id: 2
+          option_text: No
+          next_step_type: 1
+          next_step_question_id: 1_2_1_1
+          question_origin: 1_2_1
+- question_4:
+    question_id: 1_2_1_1
+    question_text: Is the dataset covered by Copyright?
+    explanation_text: |
+      Representations of data are also not protectable.
+      Facts and data aren't considered original works of authorship because they are not “created” so much as they are “discovered.”
+      This implies that many datasets are not covered by Copyright.
+      Sometimes datasets are made publicly available with restrictive licenses even though they are not covered by Copyright.
+      To make sure that the restrictions indicated by the license are applicable to the dataset you are interested in,
+      determine first if the dataset is covered by Copyright.
+    explanation_resource_url: |
+    options:
+      - option_1:
+          option_id: 1
+          option_text: Yes
+          next_step_type: 0
+          next_step_content: |
+            In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment.
+            The OSU's copyright page https://guides.library.oregonstate.edu/copyright/fairuse
+            has information and resources to help you make a good fair use assesment.
+          question_origin: 1_2_1_1
+      - option_2:
+          option_id: 2
+          option_text: No
+          next_step_type: 0
+          next_step_content: |
+            In this case, the data is not protected
+            and you can use, reuse, modify and redistribute the dataset as you want.
+          question_origin: 1_2_1_1
+- question_5:
+    question_id: 1_1_2
+    question_text: Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?
+    explanation_text: |
+      If you have a dataset that you have not obtained from a publicly available source (e.g. online),
+      then you probably obtained from a person who gave it to you, or you bought it.
+      Ideally, when the data was handed to you, both of you reached an agreement about the conditions surrounding this dataset.
+      A written agreement, like a Data Sharing Agreement, is the best case scenario.
+    explanation_resource_url: |
+    options:
+      - option_1:
+          option_id: 1
+          option_text: Yes
+          next_step_type: 0
+          next_step_content: |
+            The Data Sharing Agreement or written document should have all the information you need to decide what you can do with the dataset.
+            If it doesn't, answer No to this question.
+          question_origin: 1_1_2
+      - option_2:
+          option_id: 2
+          option_text: No
+          next_step_type: 0
+          next_step_content: |
+            You will need to contact the person who handed you the data.
+            If you had a verbal, non official agreement honor that agreement, and work on making the agreement formal and in writing.
+            If there wasn't any agreement, contact the person who gave you the data or the person who can make decisions over the dataset
+            and talk about how you can use the dataset.
+          question_origin: 1_1_2
+...
