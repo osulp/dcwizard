@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink,HashRouter, BrowserRouter,Switch, Link } from 'react-router-dom';
-import Start from "./Start";
+
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
@@ -10,34 +10,20 @@ import {ModalFooter} from 'reactstrap';
 import {StepWizard, Step} from 'react-step-wizard';
 import $ from 'jquery';
 import data from './me_with_others_data.json';
-import Home from "./Home";
-import Q1_2 from "./Q1_2";
-import Done1 from "./Done1";
-import Q1_2_1 from "./Q1_2_1";
-import Q1_1_2 from "./Q1_1_2";
-import Q1_1_2_yes from "./Q1_1_2_yes";
-import Q1_1_2_no from "./Q1_1_2_no";
-import Q1_2_2 from "./Q1_2_2";
-import Q1_2_2_yes from "./Q1_2_2_yes";
-import Q1_2_2_no from "./Q1_2_2_no";
-import Q1_2_1_1 from "./Q1_2_1_1";
-import Q1_2_1_1_yes from "./Q1_2_1_1_yes";
-import Q1_2_1_1_no from "./Q1_2_1_1_no";
+
 class App extends Component {
   constructor (props) {
       super(props);
       this.state = {
         modal: false,
         chosen: null,
-        qwe: false,
+
         questions:{ }
       };
 
-      this.toggle = this.toggle.bind(this);
+  this.toggle = this.toggle.bind(this);
 this.button_chosen = this.button_chosen.bind(this);
-this.reset = this.reset.bind(this); // you are missing this line
 this.SetStart = this.SetStart.bind(this)
-this.select_question = this.select_question.bind(this);
 this.question_counter = this.question_counter.bind(this);
   }
   toggle() {
@@ -48,8 +34,8 @@ this.question_counter = this.question_counter.bind(this);
   SetStart = () => {
     this.setState({chosen: null});
   }
-  button_chosen = (position)=>{
-    if(this.state.chosen === position){
+  button_chosen = (position,q)=>{
+    if(this.state.chosen === position && q.questionid == window.location.pathname){
       this.setState({chosen: null})
     }
     else{
@@ -57,24 +43,17 @@ this.question_counter = this.question_counter.bind(this);
     }
 
   }
-  chosen_color = (position) =>{
-    if(this.state.chosen === position){
+  chosen_color = (position,q) =>{
+    if(this.state.chosen === position && q.questionid == window.location.pathname){
       return "blue";
 
     }
     return "";
   }
-  select_question(){
-    if (window.location.pathname == Q1_2_2){
-        this.setState({
-          qwe: true
-        });
-    }
-  }
-  reset(){
-    window.location.href="/";
-  }
 
+button_page_check = (positon, q) => {
+  if (q.questionid ){}
+}
 
 
 traverser(){
@@ -330,7 +309,7 @@ question_counter = (q) =>{
          <p>Click below to start</p>
 
 
-           <li><NavLink to="/Q1_1"><Button style={{background: this.chosen_color(0)}} onClick={() => {this.button_chosen(0)}} >Start</Button></NavLink></li>
+           <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button  >Start</Button></NavLink></li>
 
          </ul>
          {this.traverser()}
@@ -347,7 +326,7 @@ question_counter = (q) =>{
               return<div>
               <h1>printing from json:{q.finished}</h1>
               <div className="navigationButtonsLeft">
-              <NavLink to={q.questionorigin}><Button >&lt; Back</Button></NavLink>
+              <NavLink to={process.env.PUBLIC_URL + q.questionorigin}><Button >&lt; Back</Button></NavLink>
 
                  </div>
               </div>
@@ -380,9 +359,9 @@ question_counter = (q) =>{
 {/*}<p>is this here?: {Object.keys(q.optiontype).length}</p>
 <p>is this here?: {q.optiontype[0].nextstepcontent}</p>
 */}
-          <li><NavLink to={q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color(0)}} onClick={() => {this.button_chosen(0)}} >{q.optionid1.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color(0,q)}} onClick={() => {this.button_chosen(0,q)}} >{q.optionid1.option}</Button></NavLink></li>
 
-          <li><NavLink to={q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1)}} onClick={() => {this.button_chosen(1)}} >{q.optionid2.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1,q)}} onClick={() => {this.button_chosen(1,q)}} >{q.optionid2.option}</Button></NavLink></li>
 
 
           </ul>
@@ -398,6 +377,8 @@ question_counter = (q) =>{
 
              </div>
           <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
+          <p>  {q.explanationresources}</p>
+
                 <p>{q.explanationresources}</p>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
@@ -419,6 +400,7 @@ question_counter = (q) =>{
 
           <li><NavLink to={q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1)}} onClick={() => {this.button_chosen(1)}} >{q.optionid2.option}</Button></NavLink></li>
 
+          <li><NavLink to={q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color(2)}} onClick={() => {this.button_chosen(1)}} >{q.optionid2.option}</Button></NavLink></li>
 
        </ul>
      </div>
