@@ -309,7 +309,7 @@ question_counter = (q) =>{
          <p>Click below to start</p>
 
 
-           <li><NavLink to="/Q1_1"><Button  >Start</Button></NavLink></li>
+           <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button  >Start</Button></NavLink></li>
 
          </ul>
          {this.traverser()}
@@ -326,7 +326,7 @@ question_counter = (q) =>{
               return<div>
               <h1>printing from json:{q.finished}</h1>
               <div className="navigationButtonsLeft">
-              <NavLink to={q.questionorigin}><Button >&lt; Back</Button></NavLink>
+              <NavLink to={process.env.PUBLIC_URL + q.questionorigin}><Button >&lt; Back</Button></NavLink>
 
                  </div>
               </div>
@@ -359,9 +359,9 @@ question_counter = (q) =>{
 {/*}<p>is this here?: {Object.keys(q.optiontype).length}</p>
 <p>is this here?: {q.optiontype[0].nextstepcontent}</p>
 */}
-          <li><NavLink to={q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color(1,q)}} onClick={() => {this.button_chosen(0,q)}} >{q.optionid1.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color(0,q)}} onClick={() => {this.button_chosen(0,q)}} >{q.optionid1.option}</Button></NavLink></li>
 
-          <li><NavLink to={q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1,q)}} onClick={() => {this.button_chosen(1,q)}} >{q.optionid2.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1,q)}} onClick={() => {this.button_chosen(1,q)}} >{q.optionid2.option}</Button></NavLink></li>
 
 
           </ul>
