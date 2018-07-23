@@ -6,6 +6,7 @@
         "explanation": "A dataset is publicly available when it can be accessed freely. Usually this means that you can find it online and download it. It can also be in a physical location, like a library. ",
         "numoptions": 2,
         "questionorigin": "Q1_1",
+
         "optionid1":{
         "option": "Yes",
         "nextsteptype": 1,
@@ -25,7 +26,7 @@
         "questionid": "/Q1_2",
         "question": "Does the data have a license?",
         "explanation": "If a license has been applied to a copyrighted work that includes terms of use, you are expected to abide the license and its terms.  A license usually consists of a sentence like \"this dataset is licensed under a Creative Commons Attribution license\". It may also appear abbreviated like \"Licensed as CC-BY\". ",
-            "numoptions": 2,
+        "numoptions": 2,
         "explanationresources": "Creative commons licenses: https://creativecommons.org/licenses/",
         "questionorigin": "Q1_1",
         "optionid1":{

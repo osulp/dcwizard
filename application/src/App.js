@@ -17,6 +17,8 @@ class App extends Component {
       this.state = {
         modal: false,
         chosen: null,
+        buttonHistory: [],
+        currentButton: 0,
 
         questions:{ }
       };
@@ -24,7 +26,7 @@ class App extends Component {
   this.toggle = this.toggle.bind(this);
 this.button_chosen = this.button_chosen.bind(this);
 this.SetStart = this.SetStart.bind(this)
-this.question_counter = this.question_counter.bind(this);
+
   }
   toggle() {
     this.setState({
@@ -35,7 +37,7 @@ this.question_counter = this.question_counter.bind(this);
     this.setState({chosen: null});
   }
   button_chosen = (position,q)=>{
-    if(this.state.chosen === position && q.questionid == window.location.pathname){
+    if(this.state.chosen === position){
       this.setState({chosen: null})
     }
     else{
@@ -43,13 +45,7 @@ this.question_counter = this.question_counter.bind(this);
     }
 
   }
-  chosen_color = (position,q) =>{
-    if(this.state.chosen === position && q.questionid == window.location.pathname){
-      return "blue";
 
-    }
-    return "";
-  }
 
 button_page_check = (positon, q) => {
   if (q.questionid ){}
@@ -265,32 +261,42 @@ else if(window.location.pathname == '/Q1_2_2_no'){
 )
 }
 }
-question_show(q){
-  var i, item, ref = {}, counts = {};
-  function ul() {return document.createElement('ul');}
-  function li(text) {
-      var e = document.createElement('li');
-      e.appendChild(document.createTextNode(text));
-      return e;
-  }
-  ref[0] = ul();
-  counts[0] = 1;
-  for (i = 0; i < q.numoptions; ++i) {
-     ref[q.optiontype[i].nextstepcontent].appendChild(li(q.optiontype[i]['option']));
-  }
-}
-question_counter = (q) =>{
+question_show = (q,type) =>{
+  if(type === 0){
+    sessionStorage.setItem(q.questionid, '0');
 
 
-    var i = 0;
-    for (i = 0; i < q.numoptions; i++){
-      return             <div>
-            </div>
     }
 
+else if(type === 1){
+  sessionStorage.setItem(q.questionid, '1');
 
 }
 
+}
+chosen_color_0 = (q) =>{
+if(sessionStorage.getItem(q.questionid)=== '0'){
+    return "blue";
+
+  }
+
+  else{return "";}
+}
+
+chosen_color_1 = (q) =>{
+if(sessionStorage.getItem(q.questionid)=== '1'){
+    return "blue";
+
+  }
+  else{
+  return "";}
+}
+
+
+clear_storage= () =>{
+  sessionStorage.clear();
+
+}
     render() {
 
       var chosen = {
@@ -301,7 +307,7 @@ question_counter = (q) =>{
 <Route>
 <div >
 <h1 className = "titlebg" >
-                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={this.SetStart}>Restart</Button></NavLink></h1>
+                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{this.SetStart; this.clear_storage()}}>Restart</Button></NavLink></h1>
 
 
          <ul  className="header">
@@ -353,15 +359,10 @@ question_counter = (q) =>{
                </ModalFooter>
              </Modal>
              <ul className="header">
-{/*<p> function:{this.question_show(q)}</p>*/}
-{/*function above work in progress*/}
 
-{/*}<p>is this here?: {Object.keys(q.optiontype).length}</p>
-<p>is this here?: {q.optiontype[0].nextstepcontent}</p>
-*/}
-          <li><NavLink to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color(0,q)}} onClick={() => {this.button_chosen(0,q)}} >{q.optionid1.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></NavLink></li>
 
-          <li><NavLink to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color(1,q)}} onClick={() => {this.button_chosen(1,q)}} >{q.optionid2.option}</Button></NavLink></li>
+          <li><NavLink to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></NavLink></li>
 
 
           </ul>
