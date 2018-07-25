@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink,HashRouter, BrowserRouter,Switch, Link } from 'react-router-dom';
+import { Route, NavLink} from 'react-router-dom';
 
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
 import {ModalFooter} from 'reactstrap';
-import {StepWizard, Step} from 'react-step-wizard';
-import $ from 'jquery';
+
+
 import data from './me_with_others_data.json';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
 
 traverser(){
 
-  if(window.location.pathname == '/'){
+  if(window.location.pathname === '/'){
     return(
 
    <h1 className ="title"><a className = "link" href="/">
@@ -42,7 +42,7 @@ traverser(){
 
   )
 }
-  else if(window.location.pathname == '/Q1_1'){
+  else if(window.location.pathname === '/Q1_1'){
     return(
     <h1 className ="title"><a className = "link" href="/">
     » Digital Copyright Wizard<span className="tooltiptext">Previous Question: Confused?
@@ -53,7 +53,7 @@ traverser(){
 
   )
 }
-else if(window.location.pathname == '/Q1_2'){
+else if(window.location.pathname === '/Q1_2'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -66,7 +66,7 @@ else if(window.location.pathname == '/Q1_2'){
 
 )
 }
- else if(window.location.pathname == '/Q1_2_1'){
+ else if(window.location.pathname === '/Q1_2_1'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -82,7 +82,7 @@ else if(window.location.pathname == '/Q1_2'){
 )
 }
 
-else if(window.location.pathname == '/Q1_2_1_1'){
+else if(window.location.pathname === '/Q1_2_1_1'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -99,7 +99,7 @@ else if(window.location.pathname == '/Q1_2_1_1'){
 
 )
 }
-else if(window.location.pathname == '/Q1_2_1_1_yes'){
+else if(window.location.pathname === '/Q1_2_1_1_yes'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -117,7 +117,7 @@ else if(window.location.pathname == '/Q1_2_1_1_yes'){
 
 )
 }
-else if(window.location.pathname == '/Q1_2_1_1_no'){
+else if(window.location.pathname === '/Q1_2_1_1_no'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -135,7 +135,7 @@ else if(window.location.pathname == '/Q1_2_1_1_no'){
 
 )
 }
-else if(window.location.pathname == '/Done1'){
+else if(window.location.pathname === '/Done1'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -152,7 +152,7 @@ else if(window.location.pathname == '/Done1'){
 
 )
 }
-else if(window.location.pathname == '/Q1_1_2'){
+else if(window.location.pathname === '/Q1_1_2'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -165,7 +165,7 @@ else if(window.location.pathname == '/Q1_1_2'){
 
 )
 }
-else if(window.location.pathname == '/Q1_1_2_no'){
+else if(window.location.pathname === '/Q1_1_2_no'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -180,7 +180,7 @@ else if(window.location.pathname == '/Q1_1_2_no'){
 
 )
 }
-else if(window.location.pathname == '/Q1_1_2_yes'){
+else if(window.location.pathname === '/Q1_1_2_yes'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -195,7 +195,7 @@ else if(window.location.pathname == '/Q1_1_2_yes'){
 
 )
 }
-else if(window.location.pathname == '/Q1_2_2'){
+else if(window.location.pathname === '/Q1_2_2'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -208,7 +208,7 @@ else if(window.location.pathname == '/Q1_2_2'){
   </h1>
 )
 }
-else if(window.location.pathname == '/Q1_2_2_yes'){
+else if(window.location.pathname === '/Q1_2_2_yes'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -223,7 +223,7 @@ else if(window.location.pathname == '/Q1_2_2_yes'){
   </h1>
 )
 }
-else if(window.location.pathname == '/Q1_2_2_no'){
+else if(window.location.pathname === '/Q1_2_2_no'){
   return(
   <h1 className ="title"><a className = "link" href="/">
   » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
@@ -239,15 +239,103 @@ else if(window.location.pathname == '/Q1_2_2_no'){
 )
 }
 }
+
 question_show = (q,type) =>{
+
+
   if(type === 0){
-    sessionStorage.setItem(q.questionid, '0');
+
+
+
+    if(sessionStorage.getItem(q.questionid) === '1'  ) {
+
+
+    var i;
+    for (i = 0; i < Object.keys(q.optionid2.clearsteps).length; i++) {
+      sessionStorage.setItem(q.optionid2.clearsteps[i], null);
+    console.log(q.optionid2.clearsteps[i])
+}
+
 
 
     }
 
+    //focus on bottom part later
+    /*
+    else if(sessionStorage.getItem(q.questionid) === '2'){
+          sessionStorage.setItem(q.optionid3.nextstepcontent, null);
+          sessionStorage.setItem(q.questionid, '0');
+
+        }
+        else if(sessionStorage.getItem(q.questionid) === '3'){
+              sessionStorage.setItem(q.optionid4.nextstepcontent, null);
+              sessionStorage.setItem(q.questionid, '0');
+
+            }
+            else if(sessionStorage.getItem(q.questionid) === '4'){
+                  sessionStorage.setItem(q.optionid5.nextstepcontent, null);
+                  sessionStorage.setItem(q.questionid, '0');
+
+                }
+                else if(sessionStorage.getItem(q.questionid) === '5'){
+                      sessionStorage.setItem(q.optionid6.nextstepcontent, null);
+                      sessionStorage.setItem(q.questionid, '0');
+
+                    }
+                    else if(sessionStorage.getItem(q.questionid) === '6'){
+                          sessionStorage.setItem(q.optionid7.nextstepcontent, null);
+                          sessionStorage.setItem(q.questionid, '0');
+
+                        }
+
+*/
+
+
+    sessionStorage.setItem(q.questionid, '0');
+
+console.log(sessionStorage.getItem(q.questionid))
+
+    }
+
 else if(type === 1){
+
+  if(sessionStorage.getItem(q.questionid) === '0'){
+    var i;
+    for (i = 0; i < Object.keys(q.optionid1.clearsteps).length; i++) {
+      sessionStorage.setItem(q.optionid1.clearsteps[i], null);
+    console.log(q.optionid1.clearsteps[i])
+  }
+
+  }
+  //focus on bottom part later
+/*  else if(sessionStorage.getItem(q.questionid) === '2'){
+        sessionStorage.setItem(q.optionid3.nextstepcontent, null);
+        sessionStorage.setItem(q.questionid, '1');
+
+      }
+      else if(sessionStorage.getItem(q.questionid) === '3'){
+            sessionStorage.setItem(q.optionid4.nextstepcontent, null);
+            sessionStorage.setItem(q.questionid, '1');
+
+          }
+          else if(sessionStorage.getItem(q.questionid) === '4'){
+                sessionStorage.setItem(q.optionid5.nextstepcontent, null);
+                sessionStorage.setItem(q.questionid, '1');
+
+              }
+              else if(sessionStorage.getItem(q.questionid) === '5'){
+                    sessionStorage.setItem(q.optionid6.nextstepcontent, null);
+                    sessionStorage.setItem(q.questionid, '1');
+
+                  }
+                  else if(sessionStorage.getItem(q.questionid) === '6'){
+                        sessionStorage.setItem(q.optionid7.nextstepcontent, null);
+                        sessionStorage.setItem(q.questionid, '1');
+
+                      }
+        */
   sessionStorage.setItem(q.questionid, '1');
+
 
 }
 else if(type === 2){
@@ -336,9 +424,7 @@ clear_storage= () =>{
 }
     render() {
 
-      var chosen = {
-          display: this.state.chosen ? "block" : "none"
-        };
+
 
     return (
 <Route>
@@ -365,10 +451,11 @@ clear_storage= () =>{
          {
          data.map((q) =>  {
 
-           while(q.questionid == window.location.pathname){
+           while(q.questionid === window.location.pathname){
             if(q.questionid.indexOf('done') >= 0){
               return<div>
-              <h1>printing from json:{q.finished}</h1>
+              <h5> You are done! </h5>
+              <p>{q.finished}</p>
               <div className="navigationButtonsLeft">
               <NavLink to={process.env.PUBLIC_URL + q.questionorigin}><Button >&lt; Back</Button></NavLink>
 
@@ -376,27 +463,15 @@ clear_storage= () =>{
               </div>
             }
             else{
-              if(q.numoptions == 2){
+              if(q.numoptions === 2){
 
              return<div>
 
-             <h1>Printing out from Json: {q.question}</h1>
-             <div className="navigationButtonsLeft">
-             <NavLink to={q.questionorigin}><Button >&lt; Back</Button></NavLink>
+             <h5>Question: {q.question}</h5>
 
-                </div>
-             <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
-    <p>  {q.explanationresources}</p>
-             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-               <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
-               <ModalBody>
-            Print from json: {q.explanation}
-               </ModalBody>
-               <ModalFooter>
-                 <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-                 <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-               </ModalFooter>
-             </Modal>
+
+
+
              <ul className="header">
 
           <li><NavLink to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></NavLink></li>
@@ -405,9 +480,12 @@ clear_storage= () =>{
 
 
           </ul>
+          <p> Resources: {q.explanationresources}</p>
+
+              <p>Explanation: {q.explanation} </p>
         </div>
       }
-        else if(q.numoptions == 3){
+        else if(q.numoptions === 3){
 
           return<div>
 
@@ -447,7 +525,7 @@ clear_storage= () =>{
 
         }
 
-        else if(q.numoptions == 4){
+        else if(q.numoptions === 4){
 
           return<div>
 
@@ -488,7 +566,7 @@ clear_storage= () =>{
      </div>
 
         }
-        else if(q.numoptions == 5){
+        else if(q.numoptions === 5){
 
           return<div>
 
@@ -530,7 +608,7 @@ clear_storage= () =>{
      </div>
 
         }
-        else if(q.numoptions == 6){
+        else if(q.numoptions === 6){
 
           return<div>
 
@@ -574,7 +652,7 @@ clear_storage= () =>{
      </div>
 
         }
-        else if(q.numoptions == 7){
+        else if(q.numoptions === 7){
 
           return<div>
 
@@ -619,9 +697,7 @@ clear_storage= () =>{
      </div>
 
         }
-        else{
-          <h1>Oops dev error </h1>
-        }
+
     }
            ;
          }

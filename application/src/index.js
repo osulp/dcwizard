@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Button} from 'reactstrap';
-import { BrowserRouter,BrowserHistory,history } from 'react-router-dom';
 
-import { BrowserRouter as Router, Route, Link, HashRouter, NavLink } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+
 import './index.css';
 import App from './App';
 
