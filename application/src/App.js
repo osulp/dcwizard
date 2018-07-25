@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink} from 'react-router-dom';
-
+import ReactDOM from 'react-dom'
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
@@ -13,15 +13,20 @@ import data from './me_with_others_data.json';
 
 class App extends Component {
   constructor (props) {
+    var cond = sessionStorage.getItem("show");
+    cond = JSON.parse(cond)
       super(props);
       this.state = {
-        modal: false
+        modal: false,
+
+        show: cond
+
       };
 
   this.toggle = this.toggle.bind(this);
 
-
-
+this.traverser = this.traverser.bind(this);
+this.parsesteps = this.parsesteps.bind(this);
   }
   toggle() {
     this.setState({
@@ -29,215 +34,47 @@ class App extends Component {
     });
   }
 
+parsesteps(q){
+  var i,x;
+  for(i = 0; i<Object.keys(q.questionorigin).length; i++){
+       x += q.questionorigin[i]
+return(<div>
+  <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
+<br/>
+    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</NavLink>
+    <br/>
+    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</NavLink>
+    <br/>
+    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</NavLink>
+<br/>
+      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</NavLink>
+      <br/>
+      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</NavLink>
+      <br/>
+      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</NavLink>
+      <br/>
 
-traverser(){
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
 
-  if(window.location.pathname === '/'){
+</div>)
+  }
+
+}
+traverser(q){
+
+  if(window.location.pathname === q.questionid){
     return(
 
-   <h1 className ="title"><a className = "link" href="/">
-    » Digital Copyright Wizard</a>
+   <h1 className ="title"><h4>Current Step:</h4><NavLink to={process.env.PUBLIC_URL + q.questionid} >{q.questionid}</NavLink><h4>Previous Steps:</h4>{this.parsesteps(q)}
+
     </h1>
 
 
   )
 }
-  else if(window.location.pathname === '/Q1_1'){
-    return(
-    <h1 className ="title"><a className = "link" href="/">
-    » Digital Copyright Wizard<span className="tooltiptext">Previous Question: Confused?
-    Answer: Start</span> </a> <a className = "link" href="/Q1_1">
-    » Q1_1</a>
-    </h1>
 
-
-  )
-}
-else if(window.location.pathname === '/Q1_2'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1 <span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2">
-  » Q1_2</a>
-  </h1>
-
-
-)
-}
- else if(window.location.pathname === '/Q1_2_1'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
-  » Q1_2_1</a>
-  </h1>
-
-
-)
-}
-
-else if(window.location.pathname === '/Q1_2_1_1'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
-  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
-  » Q1_2_1_1</a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_2_1_1_yes'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
-  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
-  » Q1_2_1_1 <span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1_1_yes">   » Done</a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_2_1_1_no'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
-  » Q1_2_1<span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1">
-  » Q1_2_1_1 <span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_1_1_no">   » Done</a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Done1'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_1">
-  » Q1_2_1 <span className="tooltiptext">Previous Question: Does the license permit you to do what you want to do with the data?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2_1"> » Done </a>
-
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_1_2'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
-  » Q1_1_2 </a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_1_2_no'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
-  » Q1_1_2 <span className="tooltiptext">Previous Question: Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?
-  Answer: No</span> </a> <a className = "link" href="/Q1_1_2_no">
-  » Done </a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_1_2_yes'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: No</span> </a> <a className = "link" href="/Q1_1_2">
-  » Q1_1_2 <span className="tooltiptext">Previous Question: Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_1_2_yes">
-  » Done </a>
-  </h1>
-
-
-)
-}
-else if(window.location.pathname === '/Q1_2_2'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
-  » Q1_2_2</a>
-  </h1>
-)
-}
-else if(window.location.pathname === '/Q1_2_2_yes'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
-  » Q1_2_2<span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
-  Answer: Yes</span></a> <a className = "link" href="/Q1_2_2_yes">
-  » Done</a>
-  </h1>
-)
-}
-else if(window.location.pathname === '/Q1_2_2_no'){
-  return(
-  <h1 className ="title"><a className = "link" href="/">
-  » Digital Copyright Wizard <span className="tooltiptext">Previous Question: Confused?
-  Answer: Start</span></a> <a className = "link" href="/Q1_1">
-  » Q1_1<span className="tooltiptext">Previous Question: Is the data publicly available?
-  Answer: Yes</span> </a> <a className = "link" href="/Q1_2">
-  » Q1_2 <span className="tooltiptext">Previous Question: Does the data have a license?
-  Answer: No</span></a> <a className = "link" href="/Q1_2_2">
-  » Q1_2_2<span className="tooltiptext">Previous Question: Is the dataset covered by Copyright?
-  Answer: No</span></a><a className = "link" href="/Q1_2_2_no">
-  » Done</a>
-  </h1>
-)
-}
 }
 
 question_show = (q,type) =>{
@@ -418,55 +255,67 @@ if(sessionStorage.getItem(q.questionid)=== '6'){
   return "";}
 }
 
-clear_storage= () =>{
+clear_storage = () =>{
   sessionStorage.clear();
 
 }
+hide = () =>{
+    sessionStorage.setItem("show",false);
+    var cond = sessionStorage.getItem("show");
+    cond = JSON.parse(cond)
+  this.setState({show: cond });
+
+}
+SetTrue = () => {
+    sessionStorage.setItem("show",true);
+    var cond = sessionStorage.getItem("show");
+    cond = JSON.parse(cond)
+    this.setState({show: cond});
+
+  }
+
+
     render() {
 
-
+      var show = {
+          display: this.state.show ? "block" : "none"
+        };
 
     return (
 <Route>
-<div >
+<div className = "format" >
+
 <h1 className = "titlebg" >
-                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{ this.clear_storage()}}>Restart</Button></NavLink></h1>
+                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{ this.SetTrue(), this.clear_storage()}}>Restart</Button></NavLink></h1>
+
+                 <div style={show}>
+                          <ul  className="header">
+                          <h4></h4>
+                          <p>Click below to start</p>
 
 
-         <ul  className="header">
-         <h2>Confused about what to choose?</h2>
-         <p>Click below to start</p>
+                            <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button onClick = {this.hide}  >Start</Button></NavLink></li>
 
-
-           <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button  >Start</Button></NavLink></li>
-
-         </ul>
-         {this.traverser()}
-         <div className="content">
-
-
-
-         </div>
-
+                          </ul>
+                          </div>
          {
          data.map((q) =>  {
 
-           while(q.questionid === window.location.pathname){
+     while(q.questionid === window.location.pathname){
+
             if(q.questionid.indexOf('done') >= 0){
-              return<div>
+              return<div className = "format">
+              {this.traverser(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
-              <div className="navigationButtonsLeft">
-              <NavLink to={process.env.PUBLIC_URL + q.questionorigin}><Button >&lt; Back</Button></NavLink>
 
-                 </div>
               </div>
             }
             else{
               if(q.numoptions === 2){
 
-             return<div>
-
+             return<div className = "format">
+    {this.traverser(q)}
              <h5>Question: {q.question}</h5>
 
 
