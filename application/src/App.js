@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink} from 'react-router-dom';
-import ReactDOM from 'react-dom'
+
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
@@ -35,9 +35,7 @@ this.parsesteps = this.parsesteps.bind(this);
   }
 
 parsesteps(q){
-  var i,x;
-  for(i = 0; i<Object.keys(q.questionorigin).length; i++){
-       x += q.questionorigin[i]
+
 return(<div>
   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
 <br/>
@@ -59,7 +57,7 @@ return(<div>
         <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
 
 </div>)
-  }
+
 
 }
 traverser(q){
@@ -137,7 +135,7 @@ console.log(sessionStorage.getItem(q.questionid))
 else if(type === 1){
 
   if(sessionStorage.getItem(q.questionid) === '0'){
-    var i;
+
     for (i = 0; i < Object.keys(q.optionid1.clearsteps).length; i++) {
       sessionStorage.setItem(q.optionid1.clearsteps[i], null);
     console.log(q.optionid1.clearsteps[i])
@@ -290,7 +288,7 @@ SetTrue = () => {
 
                  <div style={show}>
                           <ul  className="header">
-                          <h4></h4>
+                          <h4>Question about Data Usage?</h4>
                           <p>Click below to start</p>
 
 
