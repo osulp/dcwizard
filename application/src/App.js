@@ -14,7 +14,13 @@ import data from './me_with_others_data.json';
 class App extends Component {
   constructor (props) {
     var cond = sessionStorage.getItem("show");
+    if (cond === null) {
+    console.log('was null setting to false');
+    cond = true;
+}
+else{
     cond = JSON.parse(cond)
+}
       super(props);
       this.state = {
         modal: false,
@@ -65,7 +71,7 @@ traverser(q){
   if(window.location.pathname === q.questionid){
     return(
 
-   <h1 className ="title"><h4>Current Step:</h4><NavLink to={process.env.PUBLIC_URL + q.questionid} >{q.questionid}</NavLink><h4>Previous Steps:</h4>{this.parsesteps(q)}
+   <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{process.env.PUBLIC_URL + q.questionid}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q)}
 
     </h1>
 
@@ -260,18 +266,36 @@ clear_storage = () =>{
 hide = () =>{
     sessionStorage.setItem("show",false);
     var cond = sessionStorage.getItem("show");
+    if (cond === null) {
+    console.log('was null setting to false');
+    cond = false;
+}
+else{
     cond = JSON.parse(cond)
+}
   this.setState({show: cond });
 
 }
 SetTrue = () => {
     sessionStorage.setItem("show",true);
     var cond = sessionStorage.getItem("show");
+    if (cond === null) {
+    console.log('was null setting to false');
+    cond = true;
+}
+else{
     cond = JSON.parse(cond)
-    this.setState({show: cond});
-
+}
+  this.setState({show: cond });
   }
-
+frontpage_check = () => {
+  if(window.location.pathname === "/"){
+      sessionStorage.setItem("show",true);
+      var cond = sessionStorage.getItem("show");
+      cond = JSON.parse(cond)
+      this.setState({show: cond});
+  }
+}
 
     render() {
 
@@ -280,9 +304,10 @@ SetTrue = () => {
         };
 
     return (
+
 <Route>
 <div className = "format" >
-
+{this.frontpage_check}
 <h1 className = "titlebg" >
                  <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{ this.SetTrue(), this.clear_storage()}}>Restart</Button></NavLink></h1>
 
@@ -327,9 +352,9 @@ SetTrue = () => {
 
 
           </ul>
-          <p> Resources: {q.explanationresources}</p>
+        <h6>   Resources:</h6> <p>{q.explanationresources}</p>
 
-              <p>Explanation: {q.explanation} </p>
+            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
         </div>
       }
         else if(q.numoptions === 3){
