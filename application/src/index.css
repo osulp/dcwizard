@@ -5,13 +5,17 @@
 
 }
 .title{
+  float: left;
   background-color: black;
   color: white;
   margin-top: -8px;
   font-size: 25px;
   padding-left: 30px;
+  padding-right: 30px;
+margin-right: 30px;
   padding-top: 5px;
-    padding-bottom: 5px;
+
+height: 100vh;
 }
 .link{
   color:white;
