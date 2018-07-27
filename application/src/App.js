@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import './App.css';
+import React, { Component } from 'react';
+
 import { Route, NavLink} from 'react-router-dom';
 
 import {Modal} from 'reactstrap';
@@ -19,7 +20,7 @@ class App extends Component {
       this.state = {
         modal: false,
 
-    
+
 
       };
 
@@ -55,6 +56,18 @@ return(<div>
         <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
         <br/>
         <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[9]} >{q.questionorigin[9]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[10]} >{q.questionorigin[10]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[11]} >{q.questionorigin[11]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[12]} >{q.questionorigin[12]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[13]} >{q.questionorigin[13]}</NavLink>
+        <br/>
+        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</NavLink>
 
 </div>)
 
