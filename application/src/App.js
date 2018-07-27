@@ -311,19 +311,10 @@ frontpage_check = () => {
 <h1 className = "titlebg" >
                  <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{ this.SetTrue(), this.clear_storage()}}>Restart</Button></NavLink></h1>
 
-                 <div style={show}>
-                          <ul  className="header">
-                          <h4>Question about Data Usage?</h4>
-                          <p>Click below to start</p>
 
 
-                            <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button onClick = {this.hide}  >Start</Button></NavLink></li>
-
-                          </ul>
-                          </div>
-         {
-         data.map((q) =>  {
-
+                 {
+                 data.map((q) =>  {
      while(q.questionid === window.location.pathname){
 
             if(q.questionid.indexOf('done') >= 0){
@@ -334,6 +325,20 @@ frontpage_check = () => {
 
               </div>
             }
+            if(window.location.pathname === "/"){
+              return<div className = "format">
+              {this.traverser(q)}
+              <h4>Question about Data Usage?</h4>
+              <p>Click below to start</p>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  >{q.option[0]}</Button></NavLink></li>
+
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[1]}><Button  >{q.option[1]}</Button></NavLink></li>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[2]}><Button  >{q.option[2]}</Button></NavLink></li>
+
+
+              </div>
+            }
+
             else{
               if(q.numoptions === 2){
 
