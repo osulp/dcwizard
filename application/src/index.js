@@ -14,7 +14,7 @@ import './bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
 <div className="fullback">
 
-{/*<Header/>*/}
+
 
 <BrowserRouter>
 <App/>
