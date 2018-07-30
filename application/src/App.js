@@ -38,37 +38,38 @@ this.parsesteps = this.parsesteps.bind(this);
 parsesteps(q){
 
 return(<div>
-  <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
-<br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</NavLink>
-    <br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</NavLink>
-    <br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</NavLink>
-<br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</NavLink>
-      <br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</NavLink>
-      <br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</NavLink>
-      <br/>
-
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[9]} >{q.questionorigin[9]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[10]} >{q.questionorigin[10]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[11]} >{q.questionorigin[11]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[12]} >{q.questionorigin[12]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[13]} >{q.questionorigin[13]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</NavLink>
-
+  <ul className = "tabbing">
+<li>  <NavLink to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</NavLink>
+</li>
+  <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[13]} >{q.questionorigin[13]}</NavLink>
+</li>
+<li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[12]} >{q.questionorigin[12]}</NavLink>
+</li>
+<li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[11]} >{q.questionorigin[11]}</NavLink>
+</li>
+  <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[10]} >{q.questionorigin[10]}</NavLink>
+</li>
+    <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[9]} >{q.questionorigin[9]}</NavLink>
+</li>
+    <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
+</li>
+  <li>       <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
+</li>
+  <li>       <NavLink to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</NavLink>
+</li>
+      <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</NavLink>
+</li>
+      <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
+</li>
+</ul>
 </div>)
 
 
@@ -303,10 +304,10 @@ clear_storage = () =>{
               {this.traverser(q)}
               <h4>Question about Data Usage?</h4>
               <p>Click below to start</p>
-              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  >{q.option[0]}</Button></NavLink></li>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  onClick={  this.clear_storage} >{q.option[0]}</Button></NavLink></li>
 
-              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[1]}><Button  >{q.option[1]}</Button></NavLink></li>
-              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[2]}><Button  >{q.option[2]}</Button></NavLink></li>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[1]}><Button onClick={  this.clear_storage} >{q.option[1]}</Button></NavLink></li>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[2]}><Button onClick={  this.clear_storage} >{q.option[2]}</Button></NavLink></li>
 
 
               </div>
@@ -330,9 +331,10 @@ clear_storage = () =>{
 
 
           </ul>
+            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
         <h6>   Resources:</h6> <p>{q.explanationresources}</p>
 
-            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+
         </div>
       }
         else if(q.numoptions === 3){
