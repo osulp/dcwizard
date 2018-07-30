@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import './App.css';
+import React, { Component } from 'react';
+
 import { Route, NavLink} from 'react-router-dom';
 
 import {Modal} from 'reactstrap';
@@ -13,19 +14,13 @@ import data from './me_with_others_data.json';
 
 class App extends Component {
   constructor (props) {
-    var cond = sessionStorage.getItem("show");
-    if (cond === null) {
-    console.log('was null setting to false');
-    cond = true;
-}
-else{
-    cond = JSON.parse(cond)
-}
+
+
       super(props);
       this.state = {
         modal: false,
 
-        show: cond
+
 
       };
 
@@ -43,25 +38,38 @@ this.parsesteps = this.parsesteps.bind(this);
 parsesteps(q){
 
 return(<div>
-  <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
-<br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</NavLink>
-    <br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</NavLink>
-    <br/>
-    <NavLink to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</NavLink>
-<br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</NavLink>
-      <br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</NavLink>
-      <br/>
-      <NavLink to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</NavLink>
-      <br/>
-
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
-        <br/>
-        <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
-
+  <ul className = "tabbing">
+<li>  <NavLink to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</NavLink>
+</li>
+  <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[13]} >{q.questionorigin[13]}</NavLink>
+</li>
+<li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[12]} >{q.questionorigin[12]}</NavLink>
+</li>
+<li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[11]} >{q.questionorigin[11]}</NavLink>
+</li>
+  <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[10]} >{q.questionorigin[10]}</NavLink>
+</li>
+    <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[9]} >{q.questionorigin[9]}</NavLink>
+</li>
+    <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</NavLink>
+</li>
+  <li>       <NavLink to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</NavLink>
+</li>
+  <li>       <NavLink to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</NavLink>
+</li>
+    <li>     <NavLink to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</NavLink>
+</li>
+      <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</NavLink>
+</li>
+      <li>   <NavLink to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</NavLink>
+</li>
+</ul>
 </div>)
 
 
@@ -263,82 +271,76 @@ clear_storage = () =>{
   sessionStorage.clear();
 
 }
-hide = () =>{
-    sessionStorage.setItem("show",false);
-    var cond = sessionStorage.getItem("show");
-    if (cond === null) {
-    console.log('was null setting to false');
-    cond = false;
-}
-else{
-    cond = JSON.parse(cond)
-}
-  this.setState({show: cond });
+title = (q) =>{
+   if(q.questionid.indexOf('/Q1')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Me With Others Data Usage</h3></div>
+  )
+   }
+   else if(q.questionid.indexOf('/Q2')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Others With Me Data Usage</h3></div>
+  )
+   }
+   else if(q.questionid.indexOf('/Q3')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Me With Me Data Usage</h3></div>
+  )
+   }
 
 }
-SetTrue = () => {
-    sessionStorage.setItem("show",true);
-    var cond = sessionStorage.getItem("show");
-    if (cond === null) {
-    console.log('was null setting to false');
-    cond = true;
-}
-else{
-    cond = JSON.parse(cond)
-}
-  this.setState({show: cond });
-  }
-frontpage_check = () => {
-  if(window.location.pathname === "/"){
-      sessionStorage.setItem("show",true);
-      var cond = sessionStorage.getItem("show");
-      cond = JSON.parse(cond)
-      this.setState({show: cond});
-  }
-}
+
 
     render() {
 
-      var show = {
-          display: this.state.show ? "block" : "none"
-        };
+
 
     return (
 
 <Route>
 <div className = "format" >
-{this.frontpage_check}
+
 <h1 className = "titlebg" >
-                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={()=>{ this.SetTrue(), this.clear_storage()}}>Restart</Button></NavLink></h1>
-
-                 <div style={show}>
-                          <ul  className="header">
-                          <h4>Question about Data Usage?</h4>
-                          <p>Click below to start</p>
+                 <img className = "img" src="https://osulibrary.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> DC Wizard <NavLink to="/"><Button className = "Restart" onClick={  this.clear_storage}>Restart</Button></NavLink></h1>
 
 
-                            <li><NavLink to={process.env.PUBLIC_URL + "/Q1_1"} ><Button onClick = {this.hide}  >Start</Button></NavLink></li>
 
-                          </ul>
-                          </div>
-         {
-         data.map((q) =>  {
-
+                 {
+                 data.map((q) =>  {
      while(q.questionid === window.location.pathname){
 
             if(q.questionid.indexOf('done') >= 0){
               return<div className = "format">
               {this.traverser(q)}
+            {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
 
               </div>
             }
+            if(window.location.pathname === "/"){
+              return<div className = "format">
+              {this.traverser(q)}
+              <h4>Question about Data Usage?</h4>
+              <p>Click below to start</p>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  onClick={  this.clear_storage} >{q.option[0]}</Button></NavLink></li>
+
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[1]}><Button onClick={  this.clear_storage} >{q.option[1]}</Button></NavLink></li>
+              <li><NavLink to={process.env.PUBLIC_URL + q.optionlink[2]}><Button onClick={  this.clear_storage} >{q.option[2]}</Button></NavLink></li>
+
+
+              </div>
+            }
+
             else{
+
+
               if(q.numoptions === 2){
 
              return<div className = "format">
     {this.traverser(q)}
+    {this.title(q)}
+
              <h5>Question: {q.question}</h5>
 
 
@@ -352,11 +354,14 @@ frontpage_check = () => {
 
 
           </ul>
+            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
         <h6>   Resources:</h6> <p>{q.explanationresources}</p>
 
-            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+
         </div>
       }
+
+
         else if(q.numoptions === 3){
 
           return<div>
@@ -366,7 +371,7 @@ frontpage_check = () => {
           <NavLink to={q.questionorigin}><Button >&lt; Back</Button></NavLink>
 
              </div>
-          <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
+          <Button on >  <div className = "buttondiv">More Info</div></Button>
           <p>  {q.explanationresources}</p>
 
                 <p>{q.explanationresources}</p>
