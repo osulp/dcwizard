@@ -271,6 +271,24 @@ clear_storage = () =>{
   sessionStorage.clear();
 
 }
+title = (q) =>{
+   if(q.questionid.indexOf('/Q1')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Me With Others Data Usage</h3></div>
+  )
+   }
+   else if(q.questionid.indexOf('/Q2')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Others With Me Data Usage</h3></div>
+  )
+   }
+   else if(q.questionid.indexOf('/Q3')>=0){
+  return(
+    <div>  <h3 className = "q-title"> Me With Me Data Usage</h3></div>
+  )
+   }
+
+}
 
 
     render() {
@@ -294,6 +312,7 @@ clear_storage = () =>{
             if(q.questionid.indexOf('done') >= 0){
               return<div className = "format">
               {this.traverser(q)}
+            {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
 
@@ -314,10 +333,14 @@ clear_storage = () =>{
             }
 
             else{
+
+
               if(q.numoptions === 2){
 
              return<div className = "format">
     {this.traverser(q)}
+    {this.title(q)}
+
              <h5>Question: {q.question}</h5>
 
 
@@ -337,6 +360,8 @@ clear_storage = () =>{
 
         </div>
       }
+
+
         else if(q.numoptions === 3){
 
           return<div>
