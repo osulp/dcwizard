@@ -21,7 +21,11 @@
 .App-intro {
   font-size: large;
 }
+.imgpic{
+  width: 250px;
+  margin-left: 20px;
 
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -31,7 +35,8 @@ float:right;
 margin-right: 7px;
 margin-top: 10px;}
 
-.format{}
+.format{
+}
   .color{
     color:  #DC4405;
   }
@@ -41,10 +46,11 @@ margin-top: 10px;}
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: "Open Sans",sans-serif;
-font-style: italic;
+
 color:  white;
   background-color:  #DC4405;
 }
+
 .osuimg{
   margin-left: -25px;
 }
@@ -84,4 +90,74 @@ color:  white;
 }
 .tooltiptext{
   font-size: 9px;
+}
+.tabbing{
+  list-style: none;
+margin-left: 0;
+
+}
+.q-title{
+
+}
+.log{
+  float: right;
+  background-color: black;
+  color: white;
+  margin-top: -8px;
+  font-size: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+margin-left: 20px;
+  margin-top: -9px;
+
+height: 100vh;
+}
+.together{
+list-style-type: none;
+}
+
+.fullback{
+
+}
+
+.title{
+
+  float: left;
+  background-color: black;
+  color: white;
+  margin-top: -8px;
+  font-size: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+margin-right: 20px;
+  margin-top: -9px;
+
+
+height: 100vh;
+}
+.link{
+  color:white;
+}
+.link:hover{
+  color:white;
+}
+.bod{
+
+}
+.loginfo{
+  font-size: 16px;
+  color: white;
+
+}
+.logcontainer{
+max-width:700px;
+}
+.header{
+  list-style: none;
+
+}
+.space{
+display: inline-block;
+margin-left: 4px;
+margin-bottom: 4px;
 }
