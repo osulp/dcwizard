@@ -1,0 +1,482 @@
+[{
+		"__comment__": "These comments will be denoted by '__comment__' and will provided for anyone reading this to help write a JSON file for this application. This value will not be used in the application whatsover since it it just used to document usage"
+	},
+	{
+		"__comment__": "This section, denoted and seperated by the two brackets {}, is used just for the home page. This is where the JSON 'editor' will add more questions types when needed.",
+		"questionid": "/",
+		"option": [
+			"Me With Others",
+			"Others With Me",
+			"Me With Me"
+		],
+		"optionlink": [
+			"/Q1_1",
+			"/Q2_1",
+			"/Q3_1"
+		],
+		"questionorigin": [
+
+		]
+
+
+	},
+	{
+		"__comment__": "This is the main question section, all questions will be formatted in this format as shown below, more on how they are made is in the document",
+		"questionid": "/Q1_1",
+		"question": "Is the data publicly available?",
+		"explanation": "A dataset is publicly available when it can be accessed freely. Usually this means that you can find it online and download it. It can also be in a physical location, like a library. ",
+		"numoptions": 2,
+		"questionorigin": [
+			"/"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q1_1_1"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q1_1_2"
+		}
+	},
+	{
+		"questionid": "/Q1_1_1",
+		"question": "Does the data have a license?",
+		"explanation": "If a license has been applied to a copyrighted work that includes terms of use, you are expected to abide the license and its terms.  A license usually consists of a sentence like \"this dataset is licensed under a Creative Commons Attribution license\". It may also appear abbreviated like \"Licensed as CC-BY\". ",
+		"numoptions": 2,
+		"explanationresources": "Creative commons licenses: https://creativecommons.org/licenses/",
+		"questionorigin": [
+			"/",
+			"/Q1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q1_1_1_1"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q1_1_1_2"
+		}
+	},
+	{
+		"questionid": "/Q1_1_1_1",
+		"question": "Does the license permit you to do what you want to do with the data?",
+		"numoptions": 2,
+		"explanation": "Many datasets have Creative Commons licenses that explain how the dataset may be used. ",
+		"explanationresources": "Creative commons licenses: https://creativecommons.org/licenses/",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_1_1_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q1_1_1_1_2"
+		}
+	},
+	{
+		"__comment__": "This section is created for when the question is at its end goal. Every one is formatted the same and should be used accordingly. Any other questions can be noted in the documentation",
+		"questionid": "/Q1_1_1_1_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_1"
+		],
+		"finished": "Excellent! Hopefully you now know exactly what you can and cannot do with the dataset. "
+	},
+	{
+		"questionid": "/Q1_1_1_1_2",
+		"question": "Is the dataset covered by Copyright?",
+		"numoptions": 2,
+		"explanation": "Representations of data are also not protectable. Section 102(b) of the U.S. Copyright Act reads reveals this, as it reads: “In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.” \n\nFacts and data aren't considered original works of authorship because they are not “created” so much as they are “discovered.” For example, if a scientist takes temperature readings at various locations over a period of years, she isn't “creating” the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.” (Glushko)\n\nThis implies that many datasets are not covered by Copyright. Sometimes datasets are made publicly available with restrictive licenses even though they are not covered by Copyright. To make sure that the restrictions indicated by the license are applicable to the dataset you are interested in, determine first if the dataset is covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright.\n",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_1_1_2_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_1_1_2_no_done"
+		}
+	},
+	{
+		"questionid": "/Q1_1_1_1_2_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_1",
+			"/Q1_1_1_1_2"
+		],
+		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page https://guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
+	},
+	{
+		"questionid": "/Q1_1_1_1_2_no_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_1",
+			"/Q1_1_1_1_2"
+		],
+		"finished": "In this case, the data is not protected and you can use, reuse, modify and redistribute the dataset as you want. "
+	},
+	{
+		"questionid": "/Q1_1_1_2",
+		"question": "Is the dataset covered by Copyright?",
+		"numoptions": 2,
+		"explanation": "Representations of data are also not protectable. Section 102(b) of the U.S. Copyright Act reads reveals this, as it reads: “In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.” \n\nFacts and data aren't considered original works of authorship because they are not “created” so much as they are “discovered.” For example, if a scientist takes temperature readings at various locations over a period of years, she isn't “creating” the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.” (Glushko)\n\nThis implies that many datasets are not covered by Copyright. To know what you can do with the dataset you must determine first if the dataset is covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright.\n",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_1_2_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_1_2_no_done"
+		}
+	},
+	{
+		"questionid": "/Q1_1_1_2_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_2"
+		],
+		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page https://guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
+	},
+	{
+		"questionid": "/Q1_1_1_2_no_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_1",
+			"/Q1_1_1_2"
+		],
+		"finished": "In this case, the data is not protected and you can use, reuse, modify and redistribute the dataset as you want. "
+	},
+	{
+		"questionid": "/Q1_1_2",
+		"question": "Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?",
+		"explanation": "If you have a dataset that you have not obtained from a publicly available source (e.g. online), then you probably obtained from a person who gave it to you, or you bought it. Ideally, when the data was handed to you, both of you reached an agreement  about the conditions surrounding this dataset. A written agreement, like a Data Sharing Agreement, is the best case scenario. ",
+		"explanationresources": "",
+		"questionorigin": [
+			"/",
+			"/Q1_1"
+		],
+		"numoptions": 2,
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_2_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q1_1_2_no_done"
+		}
+	},
+	{
+		"questionid": "/Q1_1_2_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_2"
+		],
+		"finished": "The Data Sharing Agreement or written document should have all the information you need to  decide what you can do with the dataset. If it doesn't, answer No to this question. "
+	},
+	{
+		"questionid": "/Q1_1_2_no_done",
+		"questionorigin": [
+			"/",
+			"/Q1_1",
+			"/Q1_1_2"
+		],
+		"finished": "You will need to contact the person who handed you the data. If you had a verbal, non official agreement honor that agreement, and work on making the agreement formal and in writing. If there wasn't any agreement, contact the person who gave you the data or the person who can make decisions over the dataset and talk about how you can use the dataset. "
+	},
+
+
+
+
+
+
+
+
+
+
+
+	{
+		"questionid": "/Q2_1",
+		"question": "Is your data publicly available?",
+		"explanation": "A dataset is publicly available when it can be accessed freely. Usually this means that other people can find your data online and download it. It can also be in a physical location, like a library. ",
+		"questionTitle": "Publicly Available",
+		"explanationresources": "",
+		"numoptions": 2,
+		"questionorigin": [
+			"/"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q2_1_1"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q2_1_2"
+		}
+	},
+	{
+		"questionid": "/Q2_1_1",
+		"question": "Does your publicly available data have a license?",
+		"questionTitle": "License",
+		"explanation": "If a license has been applied to your copyrighted work that includes terms of use, all users are expected to abide the license and its terms.  A license usually consists of a sentence like \"this dataset is licensed under a Creative Commons Attribution license\". It may also appear abbreviated like \"Licensed as CC-BY\". ",
+		"explanationresources": "https://creativecommons.org/licenses/",
+		"numoptions": 2,
+		"questionorigin": [
+			"/", "/Q2_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q2_1_1_1"
+		}
+	},
+	{
+		"questionid": "/Q2_1_1_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1"
+		],
+		"finished": "Wonderful! Publishing your data with a license is a great way of making clear what other people can or cannot do with your data. Licenses indicate whether other people can use, re-use and re-distribute your data. Hopefully, if your data is published with a license you are familiar with its terms. If not, feel free to contact the OSU Libraries and Press librarians to ask questions."
+	},
+
+
+
+	{
+		"questionid": "/Q2_1_1_1",
+		"question": "Is your data under copyright?",
+		"questionTitle": "Copyright",
+		"explanation": "Most datasets are not protected by copyright, but some are. \n\nSection 102(b) of the U.S. Copyright Act reads reveals this, as it reads: “In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.” \n\nFacts and data aren't considered original works of authorship because they are not “created” so much as they are “discovered.” For example, if a scientist takes temperature readings at various locations over a period of years, she isn't “creating” the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.” (Glushko)\n\nThis implies that many datasets are not covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright.\n",
+		"numoptions": 3,
+		"questionorigin": [
+			"/", "/Q2_1", "/Q2_1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_1_yes_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_1_no_done"
+		},
+		"optionid3": {
+			"option": "I don't know",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q2_1_1_1_1"
+		}
+	},
+	{
+		"questionid": "/Q2_1_1_1_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1",
+			"/Q2_1_1_1"
+		],
+		"finished": "If your dataset is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the dataset they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative work, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher. "
+	},
+	{
+		"questionid": "/Q2_1_1_1_no_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1",
+			"/Q2_1_1_1"
+		],
+		"finished": "If your dataset is publicly available, and not protected by copyright, it is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct."
+	},
+
+	{
+		"questionid": "/Q2_1_1_1_1",
+		"question": "Is your data creative?",
+		"questionTitle": "Determine Copyright",
+		"explanation": "Examples of non creative datasets: instrument measurements. Observational data. Tabular, numerical datasets.\nExamples of creative datasets: collections of photographs taken by people, interviews, drawings, texts. ",
+		"numoptions": 3,
+		"questionorigin": [
+			"/", "/Q2_1", "/Q2_1_1", "/Q2_1_1_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"optiondescription": "  The dataset is made of creative pieces. A different person would have generated a different dataset. ",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_1_1_op1_done"
+		},
+		"optionid2": {
+			"option": "No",
+			"optiondescription": "My data is a collection of facts. I may have used a creative method, procedure, concept or idea, but the result is non creative. A different person would have gotten the same dataset following the same methods. ",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_1_1_op2_done"
+		},
+
+		"optionid3": {
+			"option": "Still not sure. Some parts are creative, some parts are not. ",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_1_1_1_op3_done"
+		}
+	},
+	{
+		"questionid": "/Q2_1_1_1_1_op1_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1",
+			"/Q2_1_1_1",
+			"/Q2_1_1_1_1"
+		],
+		"finished": "In this case your dataset is created by copyright. If your dataset is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the dataset they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative work, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher."
+	},
+	{
+		"questionid": "/Q2_1_1_1_1_op2_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1",
+			"/Q2_1_1_1",
+			"/Q2_1_1_1_1"
+		],
+		"finished": "In this case, your dataset is not protected by copyright. If your dataset is publicly available, and not protected by copyright, it is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct."
+	},
+	{
+		"questionid": "/Q2_1_1_1_1_op3_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_1",
+			"/Q2_1_1_1",
+			"/Q2_1_1_1_1"
+		],
+		"finished": "Sometimes there are different layers in a work, and some of them are facts, while others are creative. An example would be a collection of facts arranged in a creative way in a database. In this case, only the creative portion of the work (the arrangement) would be protected by copyright, while the rest would be in the public domain (the facts). \n\nThe part of your dataset that is publicly available, and not protected by copyright, is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct. \n\nThe part creative of your dataset is be covered by copyright, but only that part. Because it is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the part of the dataset covered by copyright they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative layer of the dataset, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher. "
+	},
+
+
+	{
+		"questionid": "/Q2_1_2",
+		"question": "Is there a formal agreement between you and the people who are using your data?",
+		"questionTitle": "Formal agreements",
+		"explanation": "There are many kinds of formal agreements that can have an influence on what other people can do with your data. If the data is not publicly available, probably the number of people who have access to the data or claim having rights to it is reasonably small. These people can range from colleages, supervisors, administrators from the institution where you work, or funders. There may be several formal agreements that will influence what other people can do with your data: lab policies, university policies, contracts, data sharing agreements, funder requirements, etc.  ",
+		"numoptions": 2,
+		"questionorigin": [
+			"/", "/Q2_1"
+		],
+		"optionid1": {
+			"option": "Yes",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_2_yes_done"
+		},
+
+		"optionid2": {
+			"option": "No",
+			"nextsteptype": 1,
+			"nextstepcontent": "/Q2_1_2_1"
+		}
+	},
+	{
+		"questionid": "/Q2_1_2_yes_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_2"
+		],
+		"finished": "Hopefully the formal written agreement identifies the terms of the data sharing with enough detail that you know what the rights of each of the members are. If they arent, chose No in the previous question."
+	},
+	{
+		"questionid": "/Q2_1_2_1",
+		"question": "Who are you negotiating the terms of the agreement with?",
+		"questionTitle": "Identify interlocutors",
+		"questionorigin": [
+			"/", "/Q2_1", "/Q2_1_2"
+		],
+		"numoptions": 2,
+		"optionid1": {
+			"option": "Collaborators within the research project: funder,  project principal investigator, supervisor, other investigators involved in the project, etc",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_2_1_op1_done"
+		},
+		"optionid2": {
+			"option": "Collaborators external to the research project.",
+			"nextsteptype": 0,
+			"nextstepcontent": "/Q2_1_2_1_op2_done"
+		}
+
+	},
+	{
+		"questionid": "/Q2_1_2_1_op1_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_2",
+			"/Q2_1_2_1"
+		],
+		"finished": "It is tricky to know what other people within the project can do related to the data generated for that project. This is because the concept of data ownership is not straightforward, and because people other than the owner may have the power to make decisions over the dataset. The situation can also be very different from one project to the next. The larger the project, with more people and organizations involved, the harder to figure out. We will explain here the most usual scenario, but know that it may be entirely different in your case. Contact us if you want more personalized advice. Let's work with the scenario that a research group working at Oregon State University got a grant from a federal agency, and that there is one principal investigator and several other investigators, postdocs and students in the project. The owner of the dataset tends to be the organization that received the grant, in this example Oregon State University. The principal investigator is not the owner of the dataset, but is usually the person who manages the dataset and makes everyday decisions about what can be done with the dataset: when to publish it, who to share it with, etc. The fact that the PI is not the owner means that she would not be able to take the dataset with her if she left the university, unless she worked out an agreement with the University to do so. It works similarly to other things that are bought with scientific awards: a computer may be bought with grant money, and the researcher can use it and manage it, and install any programs he wants in it, but if he leaves the university he has to leave the computer behind, because it is university property. The relationship with the funder is usually in writing, and it may dictate what the researcher or the university can do with the data. For example, a federal agency may have a policy that requires data to be made publicly available at the time of publication or at a certain time after the end of the project."
+
+	},
+	{
+		"questionid": "/Q2_1_2_1_op2_done",
+		"questionorigin": [
+			"/",
+			"/Q2_1",
+			"/Q2_1_2",
+			"/Q2_1_2_1"
+		],
+		"finished": "If no agreement exists, and the collaborators are external to the project, then copyright law would apply the same way that it applies to works that have been made publicly available. For more information about how copyright will affect datasets, navigate to the beginning of this question thread and choose \"Yes\" to the question \"Is your data publicly available\". However, it is advisable to have clear agreements with collaborators with whom datasets are shared. The only way of ensuring that all the collaborators are aware and agree with the terms of the data sharing is to have a conversation about it, and to put the conclusions of the conversation in writing. This written document will be more useful if it is detailed. It should talk about rights of reproduction, distribution of the dataset, public display of the dataset and the preparation of derivative works, in a way similar to the way that data licenses operate. Include also detailed information such as what data will be shared, who will be shared with, when it will be shared, in which shape it will be shared (format, level of quality control, etc), and how will the collaborators acknowledge data creators or how co-authorship  will be managed over works that use the data."
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
