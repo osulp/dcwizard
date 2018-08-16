@@ -5,9 +5,9 @@
 		"__comment__": "This section, denoted and seperated by the two brackets {}, is used just for the home page. This is where the JSON 'editor' will add more questions types when needed.",
 		"questionid": "/",
 		"option": [
-			"Me With Others",
-			"Others With Me",
-			"Me With Me"
+			"What can I do with other people's data?",
+			"What can other people do with my data?",
+			"What can I do with my own data?"
 		],
 		"optionlink": [
 			"/Q1_1",
