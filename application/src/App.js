@@ -327,7 +327,7 @@ else if(type === 6){
 
 }
 chosen_color_0 = (q) =>{
-  console.log(window.location.pathname)
+
 if(sessionStorage.getItem(q.questionid)=== '0'){
     return "blue";
 
@@ -390,19 +390,24 @@ clear_storage = () =>{
 
 }
 title = (q) =>{
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+  //used that to learn about object values
+  //not supported on internet explorer (supported on microsoft edge)
    if(q.questionid.indexOf('/Q1')>=0){
+
+
   return(
-    <div>  <h3 className = "q-title">Me With Others Data Usage</h3></div>
+    <div>  <h3 className = "q-title">{Object.values(data)[1].option[0]}</h3></div>
   )
    }
    else if(q.questionid.indexOf('/Q2')>=0){
   return(
-    <div>  <h3 className = "q-title"> Others With Me Data Usage</h3></div>
+    <div>  <h3 className = "q-title">{Object.values(data)[1].option[1]}</h3></div>
   )
    }
    else if(q.questionid.indexOf('/Q3')>=0){
   return(
-    <div>  <h3 className = "q-title"> Me With Me Data Usage</h3></div>
+    <div>  <h3 className = "q-title"> {Object.values(data)[1].option[2]}</h3></div>
   )
    }
 
@@ -471,25 +476,24 @@ var str = JSON.stringify(oldItems, undefined, 4);
 save_step = (q) =>{
   var questiontype ;
   if(q.questionid.indexOf('/Q1')>=0){
-    questiontype = "Me with Others Data Usage"
+    questiontype = Object.values(data)[1].option[0]
 
   }
   else if(q.questionid.indexOf('/Q2')>=0){
 
-   questiontype = "Others with Me Data Usage"
+   questiontype = Object.values(data)[1].option[1]
 
   }
   else if(q.questionid.indexOf('/Q3')>=0){
 
-   questiontype = "Me with Me Data Usage"
+   questiontype = Object.values(data)[1].option[2]
 
   }
-  var allsteps;
 
 
   var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
   var newItem = {
-    "Question Type": questiontype,
+    "Question": questiontype,
     "Question-id": q.questionid,
     "Description": q.finished,
 "Steps Taken":  q.questionorigin+","+q.questionid
@@ -554,7 +558,7 @@ DC Wizard
 
                  {
                  data.map((q) =>  {
-                   console.log(window.location.pathname);
+
      while(q.questionid === window.location.pathname){
 
             if(q.questionid.indexOf('done') >= 0){
