@@ -136,6 +136,7 @@ margin-right: 20px;
 
 height: 100vh;
 }
+
 .link{
   color:white;
 }
@@ -161,4 +162,23 @@ max-width:700px;
 display: inline-block;
 margin-left: 4px;
 margin-bottom: 4px;
+}
+.Hide_but{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: right;
+}
+.left-sidebar1{
+  position:absolute;
+      left:0; top:92px; bottom: 0;
+      width: 178px;
+}
+.heading1{
+  position:absolute;
+      left:0; right:0;
+      height: 92px;
+}
+.main-body1{
+  position: absolute;
+      left:178px; top:92px; right:0; bottom:0;
 }

@@ -4,11 +4,21 @@
 	{
 		"__comment__": "This section, denoted and seperated by the two brackets {}, is used just for the home page. This is where the JSON 'editor' will add more questions types when needed.",
 		"questionid": "/",
+		"questionTitle": "Home",
+
 		"option": [
 			"What can I do with other people's data?",
 			"What can other people do with my data?",
 			"What can I do with my own data?"
 		],
+		"questioninfo": ["Choose this question if you want to know how you can use data that belongs to somebody else. This includes data that you have worked on, but that is managed and administered by somebody else; data that is available to you, whose authors you don't know; data that you did not work on, that was given to you by colleague or somebody you know." ,
+			"Choose this question if you have a dataset that belongs to you or that you manage, and you want to share it with other people. This question will help you understand what these other people can and cannot do with your dataset. ",
+			"Choose this question if you own or administer and manage a dataset and want to know what you can do with it. Learn how to  figure out if you are the only person who gets to make decisions over the dataset and, if not, who does. If the person who gets to make decisions over your dataset is someone else, then go to the “What can I do with other people’s data” question instead. "
+
+
+
+		],
+		"warninginfo": "The goal of this wizard is to help you figure out what you and others can do with research data. This wizard intends to help you get educated on legal and practical matters related to the managing of research datasets but it does not intend to give legal advice. If you need legal advice contact a lawyer or, if you are at OSU, contact the Office of General Counsel  https://leadership.oregonstate.edu/general-counsel This wizard is intended for students and researchers in the US. If you live in other countries there may be laws that govern the use of research datasets that we are not taking into account here. If you have questions, you are welcome to contact us through the Contact form at any time. ",
 		"optionlink": [
 			"/Q1_1",
 			"/Q2_1",
@@ -290,7 +300,9 @@
 		"explanation": "Most datasets are not protected by copyright, but some are. \n\nSection 102(b) of the U.S. Copyright Act reads reveals this, as it reads: “In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.” \n\nFacts and data aren't considered original works of authorship because they are not “created” so much as they are “discovered.” For example, if a scientist takes temperature readings at various locations over a period of years, she isn't “creating” the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.” (Glushko)\n\nThis implies that many datasets are not covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright.\n",
 		"numoptions": 3,
 		"questionorigin": [
-			"/", "/Q2_1", "/Q2_1_1"
+			"/",
+			"/Q2_1",
+			 "/Q2_1_1"
 		],
 		"optionid1": {
 			"option": "Yes",
