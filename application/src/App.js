@@ -2,13 +2,13 @@ import './App.css';
 import React, { Component } from 'react';
 
 import { Route, Link} from 'react-router-dom';
-
+import { Tooltip } from 'reactstrap';
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
-import {ModalFooter} from 'reactstrap';
 
+import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
 import data from './database.json';
 
@@ -26,12 +26,12 @@ class App extends Component {
       super(props);
       this.state = {
         show: cond,
-        modal: false
-
+        modal: false,
+      tooltipOpen: false
 
 
       };
-
+    this.toggleTool = this.toggleTool.bind(this);
   this.toggle = this.toggle.bind(this);
 
 this.traverser = this.traverser.bind(this);
@@ -49,6 +49,11 @@ cond = JSON.parse(cond)
 }
     this.setState({show: cond});
   }
+  toggleTool() {
+   this.setState({
+     tooltipOpen: !this.state.tooltipOpen
+   });
+ }
 
   hideT = () =>{
     sessionStorage.setItem("show",false);
@@ -75,33 +80,33 @@ return(<div>
   <ol reversed className = "tabbing">
 <li >  <Link to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</Link>
 </li>
-  <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[13]} >{q.questionorigin[13]}</Link>
+  <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[13]} style={{ textDecoration: 'underline' }}  >{q.questionorigin[13]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[12]} >{q.questionorigin[12]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[12]} style={{ textDecoration: 'underline' }}>{q.questionorigin[12]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[11]} >{q.questionorigin[11]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[11]} style={{ textDecoration: 'underline' }} >{q.questionorigin[11]}</Link>
 </li>
-  <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[10]} >{q.questionorigin[10]}</Link>
+  <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[10]} style={{ textDecoration: 'underline' }}>{q.questionorigin[10]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[9]} >{q.questionorigin[9]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[9]} style={{ textDecoration: 'underline' }} >{q.questionorigin[9]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[8]} >{q.questionorigin[8]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[8]} style={{ textDecoration: 'underline' }} >{q.questionorigin[8]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[7]} >{q.questionorigin[7]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[7]} style={{ textDecoration: 'underline' }}>{q.questionorigin[7]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[6]} >{q.questionorigin[6]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[6]} style={{ textDecoration: 'underline' }}>{q.questionorigin[6]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[5]} >{q.questionorigin[5]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[5]} style={{ textDecoration: 'underline' }}>{q.questionorigin[5]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[4]} >{q.questionorigin[4]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[4]} style={{ textDecoration: 'underline' }}>{q.questionorigin[4]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[3]} >{q.questionorigin[3]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[3]}style={{ textDecoration: 'underline' }} >{q.questionorigin[3]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[2]} >{q.questionorigin[2]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[2]} style={{ textDecoration: 'underline' }}>{q.questionorigin[2]}</Link>
 </li>
-      <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[1]} >{q.questionorigin[1]}</Link>
+      <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[1]} style={{ textDecoration: 'underline' }}>{q.questionorigin[1]}</Link>
 </li>
-<li>  <Link to={process.env.PUBLIC_URL + q.questionorigin[0]} >{q.questionorigin[0]}</Link>
+<li>  <Link to={process.env.PUBLIC_URL + q.questionorigin[0]} style={{ textDecoration: 'underline' }}>{q.questionorigin[0]}</Link>
 </li>
 </ol>
 </div>)
@@ -311,7 +316,7 @@ for (i = 0; i < arr.length; i++) {
 chosen_color_0 = (q) =>{
 
 if(sessionStorage.getItem(q.questionid)=== '0'){
-    return "blue";
+    return "#007bff";
 
   }
 
@@ -320,7 +325,7 @@ if(sessionStorage.getItem(q.questionid)=== '0'){
 
 chosen_color_1 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '1'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -328,7 +333,7 @@ if(sessionStorage.getItem(q.questionid)=== '1'){
 }
 chosen_color_2 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '2'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -336,7 +341,7 @@ if(sessionStorage.getItem(q.questionid)=== '2'){
 }
 chosen_color_3 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '3'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -344,7 +349,7 @@ if(sessionStorage.getItem(q.questionid)=== '3'){
 }
 chosen_color_4 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '4'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -352,7 +357,7 @@ if(sessionStorage.getItem(q.questionid)=== '4'){
 }
 chosen_color_5 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '5'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -360,7 +365,7 @@ if(sessionStorage.getItem(q.questionid)=== '5'){
 }
 chosen_color_6 = (q) =>{
 if(sessionStorage.getItem(q.questionid)=== '6'){
-    return "blue";
+    return "#007bff";
 
   }
   else{
@@ -379,17 +384,17 @@ title = (q) =>{
 
 
   return(
-    <div>  <h3 className = "q-title">{Object.values(data)[1].option[0]}</h3></div>
+    <div>  <h4 className = "q-title">Topic: {Object.values(data)[1].option[0]}</h4></div>
   )
    }
    else if(q.questionid.indexOf('/Q2')>=0){
   return(
-    <div>  <h3 className = "q-title">{Object.values(data)[1].option[1]}</h3></div>
+    <div>  <h4 className = "q-title">Topic: {Object.values(data)[1].option[1]}</h4></div>
   )
    }
    else if(q.questionid.indexOf('/Q3')>=0){
   return(
-    <div>  <h3 className = "q-title"> {Object.values(data)[1].option[2]}</h3></div>
+    <div>  <h4 className = "q-title">Topic: {Object.values(data)[1].option[2]}</h4></div>
   )
    }
 
@@ -403,19 +408,23 @@ log = (q)=>{
 }
   if(window.location.pathname === q.questionid){
     return(
-      <div>
-      <Button style={hidden} className = "Restart" onClick={  this.toggleT}>Show Step Log</Button>
-<div style={show}>
+      <div >
+      <Button outline color="info" style={hidden} className = "Restart" onClick={  this.toggleT}>Show Step Log</Button>
+<div  className="openlog" style={show}>
    <h1 className ="log">
+
     <h4>Step Log: </h4>
 
    <div className="logcontainer">
    <pre className="loginfo">{sessionStorage.getItem("itemsArray")}</pre>
    </div>
-   <Button style={show} className = "Hide_but" onClick={  this.hideT}>Hide Step Log</Button>
+   <p className="contactlog">Questions?<br/>
+ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p>
+   <Button  style={show} className = "Hide_but" onClick={  this.hideT}>Hide Step Log</Button>
 
-{this.export_log_button(q)}
+{this.save_log_button(q)}
     </h1>
+
 </div>
 </div>
   )
@@ -458,7 +467,7 @@ var str = JSON.stringify(oldItems, undefined, 4);
 )
 }
 */
-save_step = (q) =>{
+export_step = (q) =>{
   var questiontype ;
   if(q.questionid.indexOf('/Q1')>=0){
     questiontype = Object.values(data)[1].option[0]
@@ -474,7 +483,18 @@ save_step = (q) =>{
    questiontype = Object.values(data)[1].option[2]
 
   }
-
+//WORKING ON THIS 8/21/18
+  var questiondata;
+  var i;
+  var j;
+  for(i = 0; i < q.questionorigin.length; i++){
+    for(j = 0; j< Object.values(data).length;j++){
+  while(q.questionorigin[i] === Object.values(data)[j]){
+    Object.values(data[i])
+  }
+  console.log(Object.values(data).length)
+ }
+}
 
   var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
   var newItem = {
@@ -489,25 +509,32 @@ var str = JSON.stringify(oldItems, undefined, 4);
 this.output(str);
 //sessionStorage.setItem('itemsArray', JSON.stringify(oldItems,null, 2));
 
-alert("You have added the the information for for: "+q.questionid)
+var cond = sessionStorage.setItem('show',true);
+
+   this.setState({show: cond})
 document.location.reload(true)
 }
 output = (inp) => {
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
     sessionStorage.setItem('itemsArray', inp);
 }
-save_step_button = (q) => {
+export_step_button = (q) => {
   return <div>
-  <Button color="secondary" onClick={() => { this.save_step(q) }}>Save</Button>
+  <Button color="primary" className = "buttonmarg"  onClick={() => { this.export_step(q) }}>Export</Button>
   </div>
 }
-export_log_button = (q) => {
+save_log_button = (q) => {
+  if(sessionStorage.getItem('itemsArray') == null){
+
+  }
+  else{
   return <div>
-  <Button color="secondary" onClick={() => { this.export_log(q) }}>Export</Button>
+  <Button  color="primary" onClick={() => { this.save_log(q) }}>Save</Button>
   </div>
+}
 }
 
-export_log = (q) =>{
+save_log = (q) =>{
 
     if(sessionStorage.getItem('itemsArray') == null){
 
@@ -517,12 +544,34 @@ export_log = (q) =>{
 var splitTitle = doc.splitTextToSize(sessionStorage.getItem('itemsArray'), 750);
 doc.setFontSize(24);
   doc.text("Digital Copyright Wizard", 20, 30)
+  doc.setFont("Georgia");
+  doc.setFontSize(14);
+    doc.text("Questions?", 325, 23)
+doc.text("Contact the OSU Research Data Services at", 325, 38)
+doc.text("researchdataservices@oregonstate.edu", 325, 53)
 
 
 doc.setFontSize(12);
-  doc.text(splitTitle, 20, 50)
+  doc.text(splitTitle, 20, 90)
   doc.save('DCsteps.pdf')
 }
+}
+finalsteps = (q) =>{
+  var i;
+  var arr = [];
+  for(i = 0;i<q.questionorigin.length; i++){
+        arr.push((i+1)+'.'+' ')
+    arr.push(q.questionorigin[i]);
+
+      arr.push(' ')
+    arr.push('\u2192')
+        arr.push(' ')
+
+  }
+  arr.push((q.questionorigin.length + 1)+'.'+' ')
+  arr.push(q.questionid);
+
+  return arr;
 }
     render() {
 
@@ -535,8 +584,8 @@ doc.setFontSize(12);
 <div className="titlemove">
 <h1 className = "titlebg" >
                  <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img>
-DC Wizard
-                  <Link to="/"><Button className = "Restart" onClick={  this.clear_storage}>Restart</Button></Link></h1>
+  Digital Copyright Wizard <p className="contactheader">Questions?<br/>
+Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p></h1>
 </div>
 
 
@@ -556,28 +605,45 @@ DC Wizard
             {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
+              <h5 >Final Steps:</h5>
+        <p className="finalsteps">  {this.finalsteps(q)}</p>
+
 </div>
-  {this.save_step_button(q)}
+
+<ul className="endbuttons">
+  <li className="new">{this.export_step_button(q)}  </li>
+   <li className="new"><Link to="/"><Button className = "buttonmarg" >Home</Button></Link>  </li>
+
+
+  <li className="newt">  <div  > <Link to="/" ><Button className="reset" outline onClick={  this.clear_storage} id="TooltipExample">   <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTool}>
+          Only click this if you want to clear all of the log and your inputs!
+        </Tooltip> Reset   </Button></Link></div>  </li>
+</ul>
+
 
               </div>
+
             }
             if(window.location.pathname === "/"){
               return<div >
                 {this.log(q)}
   {this.traverser(q)}
               <h4>Question about Data Usage?</h4>
-              <p>Click below to start</p>
+              <h5>Click below to start</h5>
 <div className="bod">
-              <li className="together"><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
-              <p>{q.questioninfo[0]} </p></li>
+  <Row>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
+              <p>{q.questioninfo[0]} </p></Col>
 
-              <li className="together"><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
-              <p> {q.questioninfo[1]} </p></li>
-              <li className="together"><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
-              <p>{q.questioninfo[2]}  </p></li>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button color="danger" style={{background: this.chosen_color_1(q) ,  border: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
+              <p> {q.questioninfo[1]} </p></Col>
+               <Col><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button color="danger" style={{background: this.chosen_color_2(q) ,  border: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
+              <p>{q.questioninfo[2]}  </p> </Col>
+            </Row>
+            <div className="warning">
               <h5> Warning!</h5>
 <p>{q.warninginfo}  </p>
-
+</div>
   </div>
 
               </div>
@@ -593,24 +659,23 @@ DC Wizard
                {this.log(q)}
     {this.traverser(q)}
     {this.title(q)}
-
-             <h5>Question: {q.question}</h5>
-
-
+<div className="mainq">
+          <h4>Question: {q.question}</h4>
 
 
-             <ul className="header">
 
-          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+ <ul className="header">
 
-          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
           </ul>
             <h6>     Explanation: </h6>   <p> {q.explanation} </p>
         <h6>   Resources:</h6> <a href={q.explanationresources} target="_blank">{q.explanationresources}</a>
 
-
+</div>
         </div>
       }
 
@@ -622,17 +687,17 @@ DC Wizard
    {this.traverser(q)}
    {this.title(q)}
 
-           <h5>Question: {q.question}</h5>
+           <h4>Question: {q.question}</h4>
 
           <ul className="header">
 
 
-          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg"  style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
-        <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
+        <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
 
-        <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
+        <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
