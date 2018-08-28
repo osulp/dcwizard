@@ -1,18 +1,11 @@
-body{
-  overflow-y: auto;
-  overflow: auto;
-  overflow-x: auto;
-}
+
 .imgpic{
   width: 250px;
   margin-left: 20px;
   margin-right: 25px;
 
 }
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
 .Restart{
 float:right;
 margin-right: 7px;
@@ -69,12 +62,13 @@ padding-top: 10px;
   padding-right: 30px;
   margin-right: 20px;
   height: 100vh;
+
 }
 
 .bod{
 margin-top: 20px;
 }
-.loginfo{
+#pdf{
   font-size: 16px;
   color: white;
   height: auto;
@@ -120,7 +114,7 @@ p{
   margin-top: 20px;
   margin-left: 350px;
   margin-right: auto;
-  width: 1000px;
+  max-width: 1000px;
 }
 .openlog{
   float: right;
@@ -165,4 +159,52 @@ width: 133px;
 .finalsteps{
   padding-bottom: -20px;
 
+}
+@media only screen and (max-width: 992px) {
+  .mainq{
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: auto;
+    width: 500px;
+
+  }
+  .Restart{
+
+    position: absolute;
+     top: 130px;
+     right: 10px;
+
+  margin-top: 10px;}
+}
+@media only screen and (max-width: 768px) {
+  .mainq{
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: auto;
+    width: 370px;
+
+  }
+  .Restart{
+
+
+  margin-top: 70px;}
+}
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .mainq{
+      margin-top: 20px;
+      margin-left: 200px;
+      margin-right: auto;
+      width: 370px;
+
+    }
+    .Restart{
+
+      position: absolute;
+       top: 180px;
+       right: 10px;
+
+    margin-top: 10px;}
 }
