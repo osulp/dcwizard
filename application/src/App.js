@@ -584,7 +584,7 @@ window.html2canvas = html2canvas;
 
        doc.setFontSize(20);
          doc.text("Digital Copyright Wizard", 5, 10)
-         doc.setFont("Georgia");
+            doc.setFont("Arial");
          doc.setFontSize(14);
            doc.text("Questions?", 110, 5)
        doc.text("Contact the OSU Research Data Services at", 110, 10)
@@ -606,6 +606,7 @@ var y = 20;
            y = 20;
            doc.addPage();
        }
+
        doc.text(15, y, splitTitle[i]);
 
        y = y + 5;
