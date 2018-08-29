@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-
+import $ from 'jquery';
 import { Route, Link} from 'react-router-dom';
 import { Tooltip } from 'reactstrap';
 import {Modal} from 'reactstrap';
@@ -11,6 +11,8 @@ import {ModalBody} from 'reactstrap';
 import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
 import data from './database.json';
+import html2canvas from 'html2canvas';
+
 
 class App extends Component {
   constructor (props) {
@@ -416,7 +418,7 @@ log = (q)=>{
     <h4>Step Log: </h4>
 
    <div className="logcontainer">
-   <pre className="loginfo">{sessionStorage.getItem("itemsArray")}</pre>
+   <pre id = "pdf">{JSON.parse(sessionStorage.getItem("itemsArray"))}</pre>
    </div>
    <p className="contactlog">Questions?<br/>
  Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p>
@@ -484,28 +486,64 @@ export_step = (q) =>{
 
   }
 //WORKING ON THIS 8/21/18
-  var questiondata;
+  var questionstep =[];
+
   var i;
   var j;
   for(i = 0; i < q.questionorigin.length; i++){
     for(j = 0; j< Object.values(data).length;j++){
-  while(q.questionorigin[i] === Object.values(data)[j]){
-    Object.values(data[i])
-  }
-  console.log(Object.values(data).length)
- }
+
+  if(q.questionorigin[i] === Object.values(data)[j].questionid && q.questionorigin[i] !== "/"){
+  questionstep.push(Object.values(data)[j].questionid )
+  questionstep.push('\n')
+
+    questionstep.push(Object.values(data)[j].question)
+    questionstep.push('\n')
+
+      questionstep.push(Object.values(data)[j].explanation)
+      questionstep.push('\n')
+    questionstep.push('\n')
+    questionstep.push('\n')
+
+  //console.log("if stored in array "+questionstep)
+  //now that in array parse each step
+
+}
+}
 }
 
-  var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
-  var newItem = {
-    "Question": questiontype,
-    "Question-id": q.questionid,
-    "Description": q.finished,
-"Steps Taken":  q.questionorigin+","+q.questionid
-  };
+console.log("if stored in array "+questionstep.join(""))
 
-  oldItems.push(newItem);
-var str = JSON.stringify(oldItems, undefined, 4);
+  var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
+  var newItem ={
+
+   "Question": questiontype,
+  "Past Steps" :questionstep,
+      "Question-id": q.questionid,
+"Description": q.finished
+};
+
+  oldItems.push("_______________________________________________________________________");
+        oldItems.push('\n');
+ oldItems.push(Object.values(newItem)[0]);
+    oldItems.push('\n');
+      oldItems.push('\n');
+   oldItems.push(Object.values(newItem)[1].join(""));
+   console.log(Object.values(newItem)[1].join(""))
+      oldItems.push('\n');
+//PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
+      oldItems.push(Object.values(newItem)[2]);
+        oldItems.push('\n');
+
+        oldItems.push(Object.values(newItem)[3]);
+    oldItems.push('\n');
+
+        oldItems.push('\n');
+            oldItems.push('\n');
+
+//solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
+//var str = JSON.stringify(oldItems.join(""), undefined, 4);
+var str = JSON.stringify(oldItems)
 this.output(str);
 //sessionStorage.setItem('itemsArray', JSON.stringify(oldItems,null, 2));
 
@@ -517,6 +555,7 @@ document.location.reload(true)
 output = (inp) => {
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
     sessionStorage.setItem('itemsArray', inp);
+    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
 }
 export_step_button = (q) => {
   return <div>
@@ -528,32 +567,51 @@ save_log_button = (q) => {
 
   }
   else{
-  return <div>
+  return <div data-html2canvas-ignore="true">
   <Button  color="primary" onClick={() => { this.save_log(q) }}>Save</Button>
   </div>
 }
 }
 
 save_log = (q) =>{
-
+window.html2canvas = html2canvas;
     if(sessionStorage.getItem('itemsArray') == null){
 
     }
     else{
-       var doc = new pdfConverter('p','pt','letter');
-var splitTitle = doc.splitTextToSize(sessionStorage.getItem('itemsArray'), 750);
-doc.setFontSize(24);
-  doc.text("Digital Copyright Wizard", 20, 30)
-  doc.setFont("Georgia");
-  doc.setFontSize(14);
-    doc.text("Questions?", 325, 23)
-doc.text("Contact the OSU Research Data Services at", 325, 38)
-doc.text("researchdataservices@oregonstate.edu", 325, 53)
+       var doc = new pdfConverter();
 
 
-doc.setFontSize(12);
-  doc.text(splitTitle, 20, 90)
-  doc.save('DCsteps.pdf')
+       doc.setFontSize(20);
+         doc.text("Digital Copyright Wizard", 5, 10)
+         doc.setFont("Georgia");
+         doc.setFontSize(14);
+           doc.text("Questions?", 110, 5)
+       doc.text("Contact the OSU Research Data Services at", 110, 10)
+       doc.text("researchdataservices@oregonstate.edu", 110, 15)
+       var pageHeight= doc.internal.pageSize.height;
+
+
+       var splitTitle = doc.splitTextToSize(JSON.parse(sessionStorage.getItem('itemsArray')).join(""), 220);
+       //fixed by doing .join ""
+//PROBLEM IS THE ARRAY CREATED !!!!RHUWEIHRUIEOWHRUOIEWHR https://stackoverflow.com/questions/45780708/how-do-i-create-multiline-text-and-page-split-in-jspdf
+      var text = doc.getTextDimensions(splitTitle)
+    console.log(pageHeight);
+
+
+doc.setFontSize(11);
+var y = 20;
+   for (var i=0; i<splitTitle.length; i++){
+       if (y > 275){
+           y = 20;
+           doc.addPage();
+       }
+       doc.text(15, y, splitTitle[i]);
+
+       y = y + 5;
+   }
+   doc.save('DCwizard.pdf');
+
 }
 }
 finalsteps = (q) =>{
@@ -584,7 +642,7 @@ finalsteps = (q) =>{
 <div className="titlemove">
 <h1 className = "titlebg" >
                  <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img>
-  Digital Copyright Wizard <p className="contactheader">Questions?<br/>
+ <p className="contactheader">Questions?<br/>
 Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p></h1>
 </div>
 
@@ -599,10 +657,13 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
             if(q.questionid.indexOf('done') >= 0){
               return<div className = "format">
+
   {this.log(q)}
+
               {this.traverser(q)}
+
               <div className="main-body">
-            {this.title(q)}
+  {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
               <h5 >Final Steps:</h5>
@@ -616,7 +677,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
 
   <li className="newt">  <div  > <Link to="/" ><Button className="reset" outline onClick={  this.clear_storage} id="TooltipExample">   <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTool}>
-          Only click this if you want to clear all of the log and your inputs!
+          Only click this if you want to clear the step log and your previous inputs!
         </Tooltip> Reset   </Button></Link></div>  </li>
 </ul>
 
@@ -629,7 +690,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                 {this.log(q)}
   {this.traverser(q)}
               <h4>Question about Data Usage?</h4>
-              <h5>Click below to start</h5>
+              <h3>Click below to start</h3>
 <div className="bod">
   <Row>
              <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>

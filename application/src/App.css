@@ -1,18 +1,11 @@
-body{
-  overflow-y: auto;
-  overflow: auto;
-  overflow-x: auto;
-}
+
 .imgpic{
   width: 250px;
   margin-left: 20px;
   margin-right: 25px;
 
 }
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
 .Restart{
 float:right;
 margin-right: 7px;
@@ -69,12 +62,13 @@ padding-top: 10px;
   padding-right: 30px;
   margin-right: 20px;
   height: 100vh;
+
 }
 
 .bod{
 margin-top: 20px;
 }
-.loginfo{
+#pdf{
   font-size: 16px;
   color: white;
   height: auto;
@@ -114,13 +108,13 @@ p{
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 50em
+  max-width: 50em
 }
 .mainq{
   margin-top: 20px;
   margin-left: 350px;
-  margin-right: auto;
-  width: 1000px;
+  margin-right: 75px;
+  max-width: 1000px;
 }
 .openlog{
   float: right;
@@ -165,4 +159,116 @@ width: 133px;
 .finalsteps{
   padding-bottom: -20px;
 
+}
+
+
+@media only screen and (max-width: 1044px) {
+  .left-sidebar{
+    float: left;
+    background-color: black;
+    color: white;
+    padding-top:20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 20px;
+    height: 100vh;
+
+    padding-bottom: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 992px) {
+  .mainq{
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: auto;
+    width: 500px;
+
+  }
+  .left-sidebar{
+    float: left;
+    background-color: black;
+    color: white;
+    padding-top:20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 20px;
+    height: 100vh;
+
+  padding-bottom: 1000px;
+  }
+  .Restart{
+
+    position: absolute;
+     top: 130px;
+     right: 10px;
+
+  margin-top: 40px;}
+}
+@media only screen and (max-width: 768px) {
+  .mainq{
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: auto;
+    width: 370px;
+
+  }
+  .contactheader{
+      visibility: hidden;
+      font-size: 16px;
+      float: right;
+      padding-right: 20px;
+      padding-top: 15px;
+    }
+  .Restart{
+
+  margin-top: 33px;}
+  .left-sidebar{
+
+    padding-bottom: 1200px;
+  }
+}
+
+
+@media only screen and (max-width: 655px) {
+body{
+  overflow-x: hidden;
+}
+  .mainq{
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 300px;
+
+  }
+  .contactheader{
+    visibility: hidden;
+    font-size: 16px;
+    float: right;
+    padding-right: 20px;
+    padding-top: 15px;
+  }
+
+
+  .left-sidebar{
+padding-bottom: 20px;
+    padding-left: 10px;
+
+    height: auto;
+float:none;
+width: 100%;
+  }
+  .openlog{
+    float: none;
+    background-color: black;
+    color: white;
+    padding-top:20px;
+    font-size: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+  width: 100%;
+  height: 100vh;
+
+  }
 }
