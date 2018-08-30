@@ -75,40 +75,41 @@ cond = JSON.parse(cond)
     });
   }
 
-parsesteps(q){
-
+parsesteps(q,questionok){
+var questionjoin = questionok.reverse();
+console.log(questionjoin)
 
 return(<div>
   <ol reversed className = "tabbing">
-<li >  <Link to={process.env.PUBLIC_URL + q.questionorigin[14]} >{q.questionorigin[14]}</Link>
+<li >  <Link to={process.env.PUBLIC_URL + q.questionorigin[14]} style={{ textDecoration: 'underline' }}>{questionjoin[14]}</Link>
 </li>
-  <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[13]} style={{ textDecoration: 'underline' }}  >{q.questionorigin[13]}</Link>
+  <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[13]} style={{ textDecoration: 'underline' }}  >{questionjoin[13]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[12]} style={{ textDecoration: 'underline' }}>{q.questionorigin[12]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[12]} style={{ textDecoration: 'underline' }}>{questionjoin[12]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[11]} style={{ textDecoration: 'underline' }} >{q.questionorigin[11]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[11]} style={{ textDecoration: 'underline' }} >{questionjoin[11]}</Link>
 </li>
-  <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[10]} style={{ textDecoration: 'underline' }}>{q.questionorigin[10]}</Link>
+  <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[10]} style={{ textDecoration: 'underline' }}>{questionjoin[10]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[9]} style={{ textDecoration: 'underline' }} >{q.questionorigin[9]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[9]} style={{ textDecoration: 'underline' }} >{questionjoin[9]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[8]} style={{ textDecoration: 'underline' }} >{q.questionorigin[8]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[8]} style={{ textDecoration: 'underline' }} >{questionjoin[8]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[7]} style={{ textDecoration: 'underline' }}>{q.questionorigin[7]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[7]} style={{ textDecoration: 'underline' }}>{questionjoin[7]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[6]} style={{ textDecoration: 'underline' }}>{q.questionorigin[6]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[6]} style={{ textDecoration: 'underline' }}>{questionjoin[6]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[5]} style={{ textDecoration: 'underline' }}>{q.questionorigin[5]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[5]} style={{ textDecoration: 'underline' }}>{questionjoin[5]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[4]} style={{ textDecoration: 'underline' }}>{q.questionorigin[4]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[4]} style={{ textDecoration: 'underline' }}>{questionjoin[4]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[3]}style={{ textDecoration: 'underline' }} >{q.questionorigin[3]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[3]}style={{ textDecoration: 'underline' }} >{questionjoin[3]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[2]} style={{ textDecoration: 'underline' }}>{q.questionorigin[2]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[2]} style={{ textDecoration: 'underline' }}>{questionjoin[2]}</Link>
 </li>
-      <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[1]} style={{ textDecoration: 'underline' }}>{q.questionorigin[1]}</Link>
+      <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[1]} style={{ textDecoration: 'underline' }}>{questionjoin[1]}</Link>
 </li>
-<li>  <Link to={process.env.PUBLIC_URL + q.questionorigin[0]} style={{ textDecoration: 'underline' }}>{q.questionorigin[0]}</Link>
+<li>  <Link to={process.env.PUBLIC_URL + q.questionorigin[0]} style={{ textDecoration: 'underline' }}>{questionjoin[0]}</Link>
 </li>
 </ol>
 </div>)
@@ -116,7 +117,9 @@ return(<div>
 
 }
 
+question_name = (q) => {
 
+}
 question_show = (q,type) =>{
 
   var i;
@@ -414,17 +417,25 @@ log = (q)=>{
       <Button outline color="info" style={hidden} className = "Restart" onClick={  this.toggleT}>Show Step Log</Button>
 <div  className="openlog" style={show}>
    <h1 className ="log">
+   <Button  style={show} className = "Hide_but" onClick={  this.hideT}>Hide Step Log</Button>
 
-    <h4>Step Log: </h4>
+{this.save_log_button(q)}
+
+    <h4 className="margin-top">Step Log: </h4>
 
    <div className="logcontainer">
    <pre id = "pdf">{JSON.parse(sessionStorage.getItem("itemsArray"))}</pre>
    </div>
-   <p className="contactlog">Questions?<br/>
- Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p>
-   <Button  style={show} className = "Hide_but" onClick={  this.hideT}>Hide Step Log</Button>
+   <div>
 
-{this.save_log_button(q)}
+{this.delete_log_button(q)}
+ <p className="contactlog">Questions?<br/>
+ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p>
+
+</div>
+
+
+
     </h1>
 
 </div>
@@ -433,18 +444,50 @@ log = (q)=>{
 }
 
 }
-traverser(q){
+delete_log_button = (q)=>{
+  if(sessionStorage.getItem('itemsArray') == null){
 
-  if(window.location.pathname === q.questionid){
+  }
+  else{
+  return <div>
+  <Button  outline color="danger" onClick={() => { sessionStorage.removeItem("itemsArray");document.location.reload(true); }}>Clear Log</Button>
+  </div>
+}
+
+}
+
+traverser(q){
+var questionname = []
+var i;
+  var j;
+  for(i = 0; i < q.questionorigin.length; i++){
+    for(j = 0; j< Object.values(data).length;j++){
+
+  if(q.questionorigin[i] === Object.values(data)[j].questionid){
+
+    questionname.push(Object.values(data)[j].questionTitle)
+
+
+  //console.log("if stored in array "+questionstep)
+  //now that in array parse each step
+
+}
+}
+}
+
+var questionreverse = []
+questionreverse = questionname.reverse();
+var questionjoin = []
+ questionjoin = questionreverse
     return(
 <div className="left-sidebar">
-   <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionid}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q)}
+   <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse)}
 
     </h1>
 </div>
 
   )
-}
+
 }
 //TEST!!!! BELOW
 /*
@@ -496,6 +539,8 @@ export_step = (q) =>{
   if(q.questionorigin[i] === Object.values(data)[j].questionid && q.questionorigin[i] !== "/"){
   questionstep.push(Object.values(data)[j].questionid )
   questionstep.push('\n')
+  questionstep.push(Object.values(data)[j].questionTitle)
+  questionstep.push('\n')
 
     questionstep.push(Object.values(data)[j].question)
     questionstep.push('\n')
@@ -520,6 +565,7 @@ console.log("if stored in array "+questionstep.join(""))
    "Question": questiontype,
   "Past Steps" :questionstep,
       "Question-id": q.questionid,
+      "Question-title": q.questionTitle,
 "Description": q.finished
 };
 
@@ -538,6 +584,7 @@ console.log("if stored in array "+questionstep.join(""))
         oldItems.push(Object.values(newItem)[3]);
     oldItems.push('\n');
 
+            oldItems.push(Object.values(newItem)[4]);
         oldItems.push('\n');
             oldItems.push('\n');
 
@@ -584,7 +631,7 @@ window.html2canvas = html2canvas;
 
        doc.setFontSize(20);
          doc.text("Digital Copyright Wizard", 5, 10)
-            doc.setFont("Arial");
+         doc.setFont("Georgia");
          doc.setFontSize(14);
            doc.text("Questions?", 110, 5)
        doc.text("Contact the OSU Research Data Services at", 110, 10)
@@ -657,6 +704,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
      while(q.questionid === window.location.pathname){
 
             if(q.questionid.indexOf('done') >= 0){
+
               return<div className = "format">
 
   {this.log(q)}
@@ -664,9 +712,12 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
               {this.traverser(q)}
 
               <div className="main-body">
+
   {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
+              <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+
               <h5 >Final Steps:</h5>
         <p className="finalsteps">  {this.finalsteps(q)}</p>
 
@@ -714,6 +765,31 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
             else{
 
+                            if(q.numoptions === 1){
+
+                           return<div >
+                             {this.log(q)}
+                  {this.traverser(q)}
+                  {this.title(q)}
+              <div className="mainq">
+                        <h4>Question: {q.question}</h4>
+
+
+
+               <ul className="header">
+
+
+                        <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button  size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+
+
+                        </ul>
+                          <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+                      <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+
+              </div>
+                      </div>
+                    }
+
 
               if(q.numoptions === 2){
 
@@ -729,13 +805,13 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
  <ul className="header">
 
 
-          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button  size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
           </ul>
             <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-        <h6>   Resources:</h6> <a href={q.explanationresources} target="_blank">{q.explanationresources}</a>
+        <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
 
 </div>
         </div>
@@ -748,7 +824,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
-
+<div className="mainq">
            <h4>Question: {q.question}</h4>
 
           <ul className="header">
@@ -763,182 +839,118 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-   <h6>   Resources:</h6> <p>{q.explanationresources}</p>
+       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+   </div>
      </div>
 
         }
 
         else if(q.numoptions === 4){
 
-          return<div>
-
-          <h1>Printing out from Json: {q.question}</h1>
-          <div className="navigationButtonsLeft">
-          <Link to={q.questionorigin}><Button >&lt; Back</Button></Link>
-
-             </div>
-          <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
-          <p>  {q.explanationresources}</p>
-
-                <p>{q.explanationresources}</p>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
-            <ModalBody>
-         Print from json: {q.explanation}
-            </ModalBody>
-            <ModalFooter>
-
-              <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
-          </Modal>
+          return<div className = "format">
+          {this.log(q)}
+   {this.traverser(q)}
+   {this.title(q)}
+<div className="mainq">
 
           <ul className="header">
 
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button  size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
        </ul>
+       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
      </div>
-
+</div>
         }
         else if(q.numoptions === 5){
 
-          return<div>
-
-          <h1>Printing out from Json: {q.question}</h1>
-          <div className="navigationButtonsLeft">
-          <Link to={q.questionorigin}><Button >&lt; Back</Button></Link>
-
-             </div>
-          <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
-          <p>  {q.explanationresources}</p>
-
-                <p>{q.explanationresources}</p>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
-            <ModalBody>
-         Print from json: {q.explanation}
-            </ModalBody>
-            <ModalFooter>
-
-              <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
-          </Modal>
-
+          return<div className = "format">
+          {this.log(q)}
+   {this.traverser(q)}
+   {this.title(q)}
+   <div className="mainq">
           <ul className="header">
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionin5.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionid5.option}</Button></Link></li>
 
        </ul>
+       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
      </div>
-
+</div>
         }
         else if(q.numoptions === 6){
 
-          return<div>
-
-          <h1>Printing out from Json: {q.question}</h1>
-          <div className="navigationButtonsLeft">
-          <Link to={q.questionorigin}><Button >&lt; Back</Button></Link>
-
-             </div>
-          <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
-          <p>  {q.explanationresources}</p>
-
-                <p>{q.explanationresources}</p>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
-            <ModalBody>
-         Print from json: {q.explanation}
-            </ModalBody>
-            <ModalFooter>
-
-              <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
-          </Modal>
-
+          return<div className = "format">
+          {this.log(q)}
+   {this.traverser(q)}
+   {this.title(q)}
+   <div className="mainq">
           <ul className="header">
 
 
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
-
-          <li><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionin5.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionin6.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionid5.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionid6.option}</Button></Link></li>
 
        </ul>
+       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
      </div>
-
+</div>
         }
         else if(q.numoptions === 7){
 
-          return<div>
-
-          <h1>Printing out from Json: {q.question}</h1>
-          <div className="navigationButtonsLeft">
-          <Link to={q.questionorigin}><Button >&lt; Back</Button></Link>
-
-             </div>
-          <Button onClick={this.toggle} >  <div className = "buttondiv">More Info</div></Button>
-          <p>  {q.explanationresources}</p>
-
-                <p>{q.explanationresources}</p>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>  Information </ModalHeader>
-            <ModalBody>
-         Print from json: {q.explanation}
-            </ModalBody>
-            <ModalFooter>
-
-              <Button color="primary" onClick={this.toggle}>Got it!</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
-          </Modal>
-
+          return<div className = "format">
+          {this.log(q)}
+   {this.traverser(q)}
+   {this.title(q)}
+   <div className="mainq">
           <ul className="header">
 
 
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid1.nextstepcontent}><Button style={{background: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}} >{q.optionid1.option}</Button></Link></li>
-
-          <li><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
-          <li><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionin5.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionin6.option}</Button></Link></li>
-          <li><Link to={process.env.PUBLIC_URL + q.optionid7.nextstepcontent}><Button style={{background: this.chosen_color_6(q)}} onClick={() => {this.question_show(q,6)}} >{q.optionin7.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionid5.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionid6.option}</Button></Link></li>
+          <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid7.nextstepcontent}><Button size="lg" style={{background: this.chosen_color_6(q)}} onClick={() => {this.question_show(q,6)}} >{q.optionid7.option}</Button></Link></li>
 
        </ul>
+       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
      </div>
-
+</div>
         }
 
     }

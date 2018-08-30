@@ -36,6 +36,8 @@
 		"question": "Is the data publicly available?",
 		"explanation": "A dataset is publicly available when it can be accessed freely. Usually this means that you can find it online and download it. It can also be in a physical location, like a library. ",
 		"numoptions": 2,
+		"questionTitle": "Publicly Available",
+
 		"questionorigin": [
 			"/"
 		],
@@ -53,9 +55,12 @@
 	{
 		"questionid": "/Q1_1_1",
 		"question": "Does the data have a license?",
+		"questionTitle": "License",
+
 		"explanation": "If a license has been applied to a copyrighted work that includes terms of use, you are expected to abide the license and its terms.  A license usually consists of a sentence like \"this dataset is licensed under a Creative Commons Attribution license\". It may also appear abbreviated like \"Licensed as CC-BY\". ",
 		"numoptions": 2,
-		"explanationresources": "Creative commons licenses: https://creativecommons.org/licenses/",
+		"explanationresources": "Creative commons licenses",
+		"explanationlink": "https://creativecommons.org/licenses/",
 		"questionorigin": [
 			"/",
 			"/Q1_1"
@@ -73,10 +78,13 @@
 	},
 	{
 		"questionid": "/Q1_1_1_1",
+		"questionTitle": "Is the License Clear?",
+
 		"question": "Does the license permit you to do what you want to do with the data?",
 		"numoptions": 2,
 		"explanation": "Many datasets have Creative Commons licenses that explain how the dataset may be used. ",
-		"explanationresources": "Creative commons licenses: https://creativecommons.org/licenses/",
+		"explanationresources": "Creative commons licenses",
+		"explanationlink": "https://creativecommons.org/licenses/",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -102,12 +110,16 @@
 			"/Q1_1_1",
 			"/Q1_1_1_1"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "Excellent! Hopefully you now know exactly what you can and cannot do with the dataset. "
 	},
 	{
 		"questionid": "/Q1_1_1_1_2",
 		"question": "Is the dataset covered by Copyright?",
 		"numoptions": 2,
+		"questionTitle": "Copyright",
+
 		"explanation": "Representations of data are also not protectable. Section 102(b) of the U.S. Copyright Act reads reveals this, as it reads: \"In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.\" Facts and data aren't considered original works of authorship because they are not \"created\" so much as they are \"discovered.\" For example, if a scientist takes temperature readings at various locations over a period of years, she isn't \"creating\" the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.\" (Glushko) This implies that many datasets are not covered by Copyright. Sometimes datasets are made publicly available with restrictive licenses even though they are not covered by Copyright. To make sure that the restrictions indicated by the license are applicable to the dataset you are interested in, determine first if the dataset is covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright. ",
 		"questionorigin": [
 			"/",
@@ -135,6 +147,8 @@
 			"/Q1_1_1_1",
 			"/Q1_1_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page https://guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
 	},
 	{
@@ -146,11 +160,15 @@
 			"/Q1_1_1_1",
 			"/Q1_1_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case, the data is not protected and you can use, reuse, modify and redistribute the dataset as you want. "
 	},
 	{
 		"questionid": "/Q1_1_1_2",
 		"question": "Is the dataset covered by Copyright?",
+		"questionTitle": "Copyright",
+
 		"numoptions": 2,
 		"explanation": "Representations of data are also not protectable. Section 102(b) of the U.S. Copyright Act reads reveals this, as it reads: \"In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.\"   Facts and data aren't considered original works of authorship because they are not \"created\" so much as they are \"discovered.\" For example, if a scientist takes temperature readings at various locations over a period of years, she isn't \"creating\" the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.\" (Glushko)  This implies that many datasets are not covered by Copyright. To know what you can do with the dataset you must determine first if the dataset is covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright. ",
 		"questionorigin": [
@@ -177,6 +195,8 @@
 			"/Q1_1_1",
 			"/Q1_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
 	},
 	{
@@ -187,13 +207,18 @@
 			"/Q1_1_1",
 			"/Q1_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case, the data is not protected and you can use, reuse, modify and redistribute the dataset as you want. "
 	},
 	{
 		"questionid": "/Q1_1_2",
 		"question": "Is there any Data Sharing Agreement or similar document that outlines what you can do with the dataset?",
+		"questionTitle": "Data Sharing Agreement",
+
 		"explanation": "If you have a dataset that you have not obtained from a publicly available source (e.g. online), then you probably obtained from a person who gave it to you, or you bought it. Ideally, when the data was handed to you, both of you reached an agreement  about the conditions surrounding this dataset. A written agreement, like a Data Sharing Agreement, is the best case scenario. ",
 		"explanationresources": "",
+		"explanationlink": "",
 		"questionorigin": [
 			"/",
 			"/Q1_1"
@@ -217,6 +242,8 @@
 			"/Q1_1",
 			"/Q1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "The Data Sharing Agreement or written document should have all the information you need to  decide what you can do with the dataset. If it doesn't, answer No to this question. "
 	},
 	{
@@ -226,6 +253,8 @@
 			"/Q1_1",
 			"/Q1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "You will need to contact the person who handed you the data. If you had a verbal, non official agreement honor that agreement, and work on making the agreement formal and in writing. If there wasn't any agreement, contact the person who gave you the data or the person who can make decisions over the dataset and talk about how you can use the dataset. "
 	},
 
@@ -245,6 +274,7 @@
 		"explanation": "A dataset is publicly available when it can be accessed freely. Usually this means that other people can find your data online and download it. It can also be in a physical location, like a library. ",
 		"questionTitle": "Publicly Available",
 		"explanationresources": "",
+		"explanationlink": "",
 		"numoptions": 2,
 		"questionorigin": [
 			"/"
@@ -265,7 +295,8 @@
 		"question": "Does your publicly available data have a license?",
 		"questionTitle": "License",
 		"explanation": "If a license has been applied to your copyrighted work that includes terms of use, all users are expected to abide the license and its terms.  A license usually consists of a sentence like \"this dataset is licensed under a Creative Commons Attribution license\". It may also appear abbreviated like \"Licensed as CC-BY\". ",
-		"explanationresources": "https://creativecommons.org/licenses/",
+		"explanationresources": "Creative commons licenses",
+		"explanationlink": "https://creativecommons.org/licenses/",
 		"numoptions": 2,
 		"questionorigin": [
 			"/", "/Q2_1"
@@ -288,6 +319,8 @@
 			"/Q2_1",
 			"/Q2_1_1"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "Wonderful! Publishing your data with a license is a great way of making clear what other people can or cannot do with your data. Licenses indicate whether other people can use, re-use and re-distribute your data. Hopefully, if your data is published with a license you are familiar with its terms. If not, feel free to contact the OSU Libraries and Press librarians to ask questions."
 	},
 
@@ -328,6 +361,8 @@
 			"/Q2_1_1",
 			"/Q2_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "If your dataset is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the dataset they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative work, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher. "
 	},
 	{
@@ -338,6 +373,8 @@
 			"/Q2_1_1",
 			"/Q2_1_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "If your dataset is publicly available, and not protected by copyright, it is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct."
 	},
 
@@ -378,6 +415,8 @@
 			"/Q2_1_1_2",
 			"/Q2_1_1_2_3"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case your dataset is created by copyright. If your dataset is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the dataset they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative work, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher."
 	},
 	{
@@ -389,6 +428,8 @@
 			"/Q2_1_1_2",
 			"/Q2_1_1_2_3"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "In this case, your dataset is not protected by copyright. If your dataset is publicly available, and not protected by copyright, it is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct."
 	},
 	{
@@ -400,6 +441,8 @@
 			"/Q2_1_1_2",
 			"/Q2_1_1_2_3"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "Sometimes there are different layers in a work, and some of them are facts, while others are creative. An example would be a collection of facts arranged in a creative way in a database. In this case, only the creative portion of the work (the arrangement) would be protected by copyright, while the rest would be in the public domain (the facts).   The part of your dataset that is publicly available, and not protected by copyright, is in the public domain. Other people can use, re-use and re-distribute the dataset without having to ask for permission from you. This does not mean that, ethically, researchers can use the dataset in a scholarly publication without giving attribution. They should cite your dataset. Publishing data that they did not create without giving attribution can be considered data plagiarism and is a serious form of research misconduct.   The part creative of your dataset is be covered by copyright, but only that part. Because it is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the part of the dataset covered by copyright they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative layer of the dataset, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher. "
 	},
 
@@ -422,7 +465,7 @@
 		"optionid2": {
 			"option": "No",
 			"nextsteptype": 1,
-			"nextstepcontent": "/Q2_1_2_1"
+			"nextstepcontent": "/Q2_1_2_2"
 		}
 	},
 	{
@@ -432,10 +475,12 @@
 			"/Q2_1",
 			"/Q2_1_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "Hopefully the formal written agreement identifies the terms of the data sharing with enough detail that you know what the rights of each of the members are. If they arent, chose No in the previous question."
 	},
 	{
-		"questionid": "/Q2_1_2_1",
+		"questionid": "/Q2_1_2_2",
 		"question": "Who are you negotiating the terms of the agreement with?",
 		"questionTitle": "Identify interlocutors",
 		"questionorigin": [
@@ -445,36 +490,40 @@
 		"optionid1": {
 			"option": "Collaborators within the research project: funder,  project principal investigator, supervisor, other investigators involved in the project, etc",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_2_1_op1_done"
+			"nextstepcontent": "/Q2_1_2_2_op1_done"
 		},
 		"optionid2": {
 			"option": "Collaborators external to the research project.",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_2_1_op2_done"
+			"nextstepcontent": "/Q2_1_2_2_op2_done"
 		}
 
 	},
 	{
-		"questionid": "/Q2_1_2_1_op1_done",
+		"questionid": "/Q2_1_2_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
 			"/Q2_1_2",
-			"/Q2_1_2_1"
+			"/Q2_1_2_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "It is tricky to know what other people within the project can do related to the data generated for that project. This is because the concept of data ownership is not straightforward, and because people other than the owner may have the power to make decisions over the dataset. The situation can also be very different from one project to the next. The larger the project, with more people and organizations involved, the harder to figure out. We will explain here the most usual scenario, but know that it may be entirely different in your case. Contact us if you want more personalized advice. Let's work with the scenario that a research group working at Oregon State University got a grant from a federal agency, and that there is one principal investigator and several other investigators, postdocs and students in the project. The owner of the dataset tends to be the organization that received the grant, in this example Oregon State University. The principal investigator is not the owner of the dataset, but is usually the person who manages the dataset and makes everyday decisions about what can be done with the dataset: when to publish it, who to share it with, etc. The fact that the PI is not the owner means that she would not be able to take the dataset with her if she left the university, unless she worked out an agreement with the University to do so. It works similarly to other things that are bought with scientific awards: a computer may be bought with grant money, and the researcher can use it and manage it, and install any programs he wants in it, but if he leaves the university he has to leave the computer behind, because it is university property. The relationship with the funder is usually in writing, and it may dictate what the researcher or the university can do with the data. For example, a federal agency may have a policy that requires data to be made publicly available at the time of publication or at a certain time after the end of the project."
 
 	},
 	{
-		"questionid": "/Q2_1_2_1_op2_done",
+		"questionid": "/Q2_1_2_2_op2_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
 			"/Q2_1_2",
-			"/Q2_1_2_1"
+			"/Q2_1_2_2"
 		],
+		"questionTitle": "Final Step",
+
 		"finished": "If no agreement exists, and the collaborators are external to the project, then copyright law would apply the same way that it applies to works that have been made publicly available. For more information about how copyright will affect datasets, navigate to the beginning of this question thread and choose \"Yes\" to the question \"Is your data publicly available\". However, it is advisable to have clear agreements with collaborators with whom datasets are shared. The only way of ensuring that all the collaborators are aware and agree with the terms of the data sharing is to have a conversation about it, and to put the conclusions of the conversation in writing. This written document will be more useful if it is detailed. It should talk about rights of reproduction, distribution of the dataset, public display of the dataset and the preparation of derivative works, in a way similar to the way that data licenses operate. Include also detailed information such as what data will be shared, who will be shared with, when it will be shared, in which shape it will be shared (format, level of quality control, etc), and how will the collaborators acknowledge data creators or how co-authorship  will be managed over works that use the data."
-	}
+	},
 
 
 
@@ -482,6 +531,455 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+		{
+	         "questionid": "/Q3_1",
+	         "question": "Are you the main person who gets to make decisions over the dataset?",
+	         "questionTitle": "Decision maker.",
+					 	"numoptions": 3,
+			     "explanation": "In order to talk about what you can do with your data we need to make sure that we identify who is the person who gets to make decisions about the dataset. Different people define data as being \"theirs\" differently. Choose \"I'm sure\" if you are positively sure that you are the main person who gets to make decisions like who to share the dataset with, when and what to publish about the dataset, etc. Choose \"No, it is somebody else\" if you know that you need to check with other people (e.g. with your supervisor) before making the decision, and you know exactly who these people are. If it is not clear who these people are, or you think you may be the decision maker but know that there are others, or you just want to learn more about decision making process related to datasets, choose \"Not sure\".",
+					 "questionorigin": ["/"],
+				   "optionid1": {
+	         "option": "Yes, I am sure.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1"
+
+
+	      },
+	         "optionid2": {
+	         "option": "Not sure.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2"
+	      },
+
+
+	         "optionid3":{
+	         "option": "No, it is somebody else.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_op3_done"
+				 }
+	     },
+	     {
+	         "questionid": "/Q3_1_op3_done",
+					 "questionorigin":["/","/Q3_1"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "If you know that you don't make the decisions over a dataset, and you know who does, we will consider that the data is not yours. To learn about what you can do with the dataset to the Home directory and choose the question \"What can I do with other people's data?\"."
+	     },
+	     {
+	         "questionid": "/Q3_1_1",
+	         "question": "What kind of questions are you trying to answer about your dataset?",
+					 	"numoptions": 3,
+					"questionTitle": "Your questions",
+	         "explanation": "If you are the main decision maker, then you know that you can make choices over what to do with the dataset. Here we will try to figure out what are the repercussions of making certain decisions.",
+					     "questionorigin":["/","/Q3_1"],
+					 "optionid1":{
+	         "option": "Questions related to using or reusing the dataset; making the dataset publicly available; sharing the dataset with others or not; whether I can publish research about the dataset.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1"
+				 },
+
+	         "optionid2": {
+	         "option": "Questions related to patenting the dataset, starting a business using the dataset, or making profit from the dataset in general.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_op2_done"
+	      },
+
+	         "optionid3": {
+	         "option": "Other questions.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_op3_done"
+	      }
+	     },
+	     {
+	         "questionid": "/Q3_1_1_op3_done",
+					 "questionorigin":["/","/Q3_1","/Q3_1_1"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "In this case it will be better if you contact us. Use the contact information in this page and we will get back to you as soon as we can!"
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1",
+	         "question": "Are there formal agreements or documents that limit what you can do with the data?",
+					 	"numoptions": 2,
+					 "questionTitle": "Formal documents",
+	         "explanation": "You may be the person who gets to make the decision of making the data available, sharing it or publishing. Before doing that, though, you should make sure that there aren't any other formal agreements that make a difference over what you can do with your data. There may be formal agreements related whith where you work: lab policies, university policies, etc. Formal agreements with your funders or other institutions or companies that you are working with: contracts, data sharing agreements, funder requirements, etc. Consider, also, if there are any discipline specific practices that you are expected to follow, even if they are not written anywhere. For example, in some disciplines sharing your data in specific repositories is expected, and you would not be considered a good professional if you did not do it.   ",
+					 "questionorigin":["/","/Q3_1","/Q3_1_1"],
+					 "optionid1":{
+	         "option": "Yes, and they clarify what I can do with the data.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_op1_done"
+				 },
+
+	         "optionid2": {
+	         "option": "No. If they exist, they are not helpful.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2"
+	    }
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_op1_done",
+					 "questionorigin":["/","/Q3_1","/Q3_1_1","/Q3_1_1_1"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "Excellent. Remember that you can contact us with the contact information in this page if there is something that is not totally clear. If we can't answer the question we can always try to find who will be able to. "
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2",
+	         "question": "Consider the ethical considerations of sharing, reusing or publishing the data.",
+	         "questionTitle": "Ethical considerations",
+	         "explanation": "Consider the information in your dataset. Would it be ethical to publish it as it is? Ethical considerations are most relevant when the dataset is about human subjects, but there are other cases in which they may also be a relevant factor. For example, if you were working with data about critically endangered species. If your study includes both research and human subjects at Oregon State University, you or somebody in your project worked with the Office of Research Integrity at the beginning of the project and your research plan was reviewed by the Institutional Review Board (or was exempt of revision). If that is the case, make sure that you review the documents resulting from the IRB review, and do what you said you would do with the data. You may need to remove some data from your dataset in order to publish it, to protect human subjects. Contact the Research Office at Oregon State University if you have questions.   Consider also other people who have worked on the dataset. You may need to discuss subjects like authorship of the dataset, or authorship of articles and scholarly material derived from the dataset. You may need to take into consideration the use that other people are making of the dataset (e.g. grad students using it for their dissertations). You may also want to discuss implied expectations about what will happen with the dataset, and whether these should be changed.     ",
+	         "explanationresources": "Research Office Contacts at Oregon State University ",
+					 	"numoptions": 2,
+				   "explanationlink": "https://research.oregonstate.edu/research-office-contacts",
+					 "questionorigin":["/","/Q3_1","/Q3_1_1","/Q3_1_1_1"],
+				   "optionid1": {
+	         "option": "I am confused about whether my data can be shared, reused or published.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2_op1_done"
+	     },
+	         "optionid2":{
+	         "option": "All the ethical considerations for my dataset have been resolved. ",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2_2"
+	      }
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2_op1_done",
+	         "questionorigin": ["/","/Q3_1","/Q3_1_1","/Q3_1_1_1","/Q3_1_1_1_2"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "If you have questions related to ethical decisions around the dataset it will be most useful to talk to a person about the specific details of your dataset. You can contact us using the contact form. You can also contact the Research Office at Oregon State University, the list of contacts is in https://research.oregonstate.edu/research-office-contacts"
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2_2",
+	         "question": "Is your data covered by Copyright?",
+					 	"numoptions": 3,
+				   "questionTitle": "Copyright",
+	         "explanation": "The last thing to take into consideration is whether your dataset is protected by copyright. If it is, you have certain rights and you will have to decide how to manage them. If it is not, when you publish or share your dataset it will be in the public domain and other people will be able to use, reuse, publish and make derivatives from your dataset. This is actually a good thing! We will get into details in a moment.   To evaluate whether a dataset is covered by copyright we need to take a look at the U.S. Copyright Act.  Section 102(b) of the U.S. Copyright Act reads: \"In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work.\"   Facts and data aren't considered original works of authorship because they are not \"created\" so much as they are \"discovered.\" For example, if a scientist takes temperature readings at various locations over a period of years, she isn't \"creating\" the data, she's recording the data. If she keeps a log describing how she feels every day, and how the sunrise looks at the testing station, that's original, creative, authorship.  Recording natural phenomena is not.\" (Glushko)  This implies that many datasets are not covered by Copyright. Most datasets that are composed of numbers (facts) are not covered. Even datasets or databases that are arranged or organized in a creative way are not protected by Copyright. The organizational method may be copyrightable, but not the facts, the data in it. Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by Copyright.  Examples of non creative datasets: instrument measurements. Observational data. Tabular, numerical datasets. Examples of creative datasets: collections of photographs taken by people, interviews, drawings, texts.   ",
+					 "questionorigin": ["/","/Q3_1","/Q3_1_1","/Q3_1_1_1","/Q3_1_1_1_2"],
+				   "optionid1":{
+	         "option": "Yes, it is",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2_2_op1_done"
+				 },
+
+	         "optionid2": {
+	         "option": "No, it isn't",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2_2_op2_done"
+				 },
+
+	         "optionid3":{
+	         "option": "Not sure",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_1_1_2_2_op3_done"
+	      }
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2_2_op1_done",
+	         "explanationresources": "Open Data Commons; Publisher's guide to open data publishing by the Open Data Institute; Creative Commons Frequently asked questions about data and CC licenses;",
+	         "explanationlink": "https://opendatacommons.org/; https://theodi.org/article/publishers-guide-to-open-data-licensing/; https://creativecommons.org/faq/#frequently-asked-questions-about-data-and-cc-licenses",
+	         "questionorigin": ["/Q3_1_1_1_2_2"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "Your data is covered by copyright. This happens automatically once the creative work is fixed in a tangible form, the author does not need to apply for it. This means that the copyright holder (the person who authored the original work) has the exclusive right to reproduce the work, to distribute copies publicly, to perform or display the work publicly,  and to make adaptations of the work.   Copyright can be transferred to other people or  associations, corporations, or other entities. Copyright holders can also offer certain usage rights to the public, and keep others. Consider publishing your data with a license, so that it will be clear to others what are the rights that you retain, and what are the rights that you give to the public. That way other people will know what they can do with the dataset. For questions about licensing your data, visit the Creative Commons FAQ page https://creativecommons.org/faq/#frequently-asked-questions-about-data-and-cc-licenses or the Publishers Guide to Open Data Licensing by the Open Data Institute https://theodi.org/article/publishers-guide-to-open-data-licensing/. We recommend using CC0 and CC-BY to license datasets.   When sharing your data with colleagues the authors of the creative dataset will still hold all the rights. It is a good idea to talk about the expectations of what will happen with the dataset when it is shared, and write these down. Even if the document is not a legally binding document, it will make the relationship much more transparent and will minimize possible conflict.   Should you share your data openly? Should you give your rights to the public? Many times you won't have a choice. For example, it is common for funding agencies and fundations to have mandates that require researchers to make their data publicly available. But if you do have a choice, we absolutely think you should. Sharing data openly with non restrictive licenses like CC0 or CC-BY will help you because it will increase your visibility and impact. It will also help science, because open data makes research more transparent and reproducible, and it accelerates scientific breakthrough. For more information about open data you can visit Open Data Commons (https://opendatacommons.org/guide/) "
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2_2_op2_done",
+					 "questionorigin": ["/","/Q3_1","/Q3_1_1","/Q3_1_1_1","/Q3_1_1_1_2","/Q3_1_1_1_2_2"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "If your data is not covered by copyright, then when you publish it, it will be in the public domain. This means that anybody can use or reuse the work, reproduce it, distribute copies publicly, perform or display the work publicly, and make adaptations of the work. This is a great thing! Sharing data openly with non restrictive licenses like CC0 or CC-BY will help you because it will increase your visibility and impact. It will also help science, because open data makes research more transparent and reproducible, and it accelerates scientific breakthrough. For more information about open data you can visit Open Data Commons (https://opendatacommons.org/guide/)   Some researchers are concerned about not getting credit for the hard work of building their dataset. Giving proper attribution is an ethical requirement, more than a legal one, and everybody using your dataset should give you attribution. In the scholarly community giving atribution is a clear expectation, and not doing it can be considered data plagiarism, a serious form of research misconduct. You can encourage other researchers to cite your work by attaching a CC-BY license to your dataset and by publishing your dataset in a repository that has easy to follow instructions about citing datasets. Good repositories will also allow you to get statistics on the usage of your dataset since you submitted it. "
+	     },
+	     {
+	         "questionid": "/Q3_1_1_1_2_2_op3_done",
+					 "questionorigin": ["/","/Q3_1","/Q3_1_1","/Q3_1_1_1","/Q3_1_1_1_2","/Q3_1_1_1_2_2"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "Sometimes there are different layers in a work, and some of them are facts, while others are creative. An example would be a collection of facts arranged in a creative way in a database. In this case, only the creative portion of the work (the arrangement) would be protected by copyright, while the rest would be in the public domain (the facts).   The part of your dataset that is publicly available, and not protected by copyright, is in the public domain. This means that anybody can use or reuse the work, reproduce it, distribute copies publicly, perform or display the work publicly, and make adaptations of the work. This is a great thing! Sharing data openly with non restrictive licenses like CC0 or CC-BY will help you because it will increase your visibility and impact. It will also help science, because open data makes research more transparent and reproducible, and it accelerates scientific breakthrough. For more information about open data you can visit Open Data Commons (https://opendatacommons.org/guide/)   Some researchers are concerned about not getting credit for the hard work of building their dataset. Giving proper attribution is an ethical requirement, more than a legal one, and everybody using your dataset should give you attribution. In the scholarly community giving atribution is a clear expectation, and not doing it can be considered data plagiarism, a serious form of research misconduct. You can encourage other researchers to cite your work by attaching a CC-BY license to your dataset and by publishing your dataset in a repository that has easy to follow instructions about citing datasets. Good repositories will also allow you to get statistics on the usage of your dataset since you submitted it.   The part creative of your dataset is be covered by copyright, but only that part. This happens automatically once the creative work is fixed in a tangible form, the author does not need to apply for it. This means that the copyright holder (the person who authored the original work) has the exclusive right to reproduce the work, to distribute copies publicly, to perform or display the work publicly,  and to make adaptations of the work. Copyright can be transferred to other people or  associations, corporations, or other entities. Copyright holders can also offer certain usage rights to the public, and keep others. Consider publishing your data with a license, so that it will be clear to others what are the rights that you retain, and what are the rights that you give to the public. That way other people will know what they can do with the dataset. For questions about licensing your data, visit the Creative Commons FAQ page https://creativecommons.org/faq/#frequently-asked-questions-about-data-and-cc-licenses or the Publishers Guide to Open Data Licensing by the Open Data Institute https://theodi.org/article/publishers-guide-to-open-data-licensing/. We recommend using CC0 and CC-BY to license datasets.   When sharing your data with colleagues, the authors of the creative dataset will still hold all the rights. It is a good idea to talk about the expectations of what will happen with the dataset when it is shared, and write these down. Even if the document is not a legally binding document, it will make the relationship much more transparent and will minimize possible conflict.   Should you share your data openly? Should you give your rights to the public? Many times you won't have a choice. For example, it is common for funding agencies and fundations to have mandates that require researchers to make their data publicly available. But if you do have a choice, we absolutely think you should. Sharing data openly with non restrictive licenses like CC0 or CC-BY will help you because it will increase your visibility and impact. It will also help science, because open data makes research more transparent and reproducible, and it accelerates scientific breakthrough. For more information about open data you can visit Open Data Commons (https://opendatacommons.org/guide/)   "
+	     },
+
+	     {
+	         "questionid": "/Q3_1_1_op2_done",
+	         "explanationresources": "Oregon State University Advantage /; Carroll (2015) Sharing Research Data and Intellectual Property Law: A Primer. PLoS Biol. 13(8): e1002235.;",
+	         "explanationlink": "https://advantage.oregonstate.edu/; https://dx.doi.org/10.1371/journal.pbio.1002235",
+	         "questionorigin": ["/","/Q3_1","Q3_1_1"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "Oregon State University Advantage is the OSU office that you should contact to ask all these questions. https://advantage.oregonstate.edu/  If you want to learn more about the rights that may apply to research data, in particular trade secrets, copyrights, and patents, and how they affect your ability to share your data, we recommend the artilce Carroll (2015) Sharing Research Data and Intellectual Property Law: A Primer. PLoS Biol. 13(8): e1002235. Accessible via https://dx.doi.org/10.1371/journal.pbio.1002235. It is an open source journal, so you should be able to get access to it. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2",
+	         "question": "Are you trying to figure out who owns the data, or who gets to make decisions about it?",
+	"numoptions": 2,
+						 "questionTitle": "Ownership vs decisionmaking",
+	         "explanation": "Research data can be confusing in this regard. Usually the reason why we care about data ownership is because the owner gets to make decisions about the dataset. However, in the case of research data there may be other people who are not the owners of the dataset who get to make most of the decisions. Ownership questions tend to be relevant when your questions involve people leaving the project or the research institution, and trying to figure out if they can keep using the dataset with their new employer. Getting educated about data ownership is also useful to understand why people other than the researchers involved in the project can also make some decisions involving research datasets. ",
+     "questionorigin":["/","/Q3_1"],
+					 "optionid1":{
+	         "option": "I want to learn about legal ownership of datasets.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_op1_done"
+	     },
+
+	         "optionid2":{
+	         "option": "I want to figure out who gets to make decisions about my dataset. ",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2"
+	     }
+},
+		 {
+	         "questionid": "/Q3_1_2_op1_done",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2"],
+					 "questionTitle": "Final Step",
+
+	         "finished": "Unfortunately, data ownership is complicated, because there are so many people and institutions that play a role in it during the research life cycle: the federal government that budgets resources for research; Federal awarding agencies, that decide which projects to fund; The university that will get the money; The researchers, employers of the university that will actually do the research; The publishers of the data and papers derived from the data; You could add here the future reusers of the data. Within the researchers category there are many people involved: the PI, research assistants, technicians, grad students, postdocs… In addition to that, every project is different. Your particular project may involve collaborations between different institutions. Maybe there are some private companies that are investing in your project. Maybe you have international collaborators.  One thing that is good to know is that working very hard, spending huge amounts of hours and effort into generating a dataset, does not have anything to do with data ownership. People don't get to own a dataset because they have worked on it, even if they have generated it on their entirety. Generally, the dataset does not belong to the PI either. Usually it belongs to the university, although there may be exceptions. Students, researchers the PI and the other members of the research team are not the owners of the dataset, but they can use the data, and publish research about it. The PI often acts as the custodian of the data. Students, researchers, PIs also have the responsibility of managing the data. If you want to learn more about who gets to make decisions about the   There are some exceptional situations in which the researcher who is working on generating the dataset is bringing his/her own money, and is not using significant resources from the university (computers, labs, support from university employers, etc). In these cases the dataset creator may be the dataset owner too.  When researchers want to leave their institution and want to be able to use the dataset in their new place of work, they need to figure out who the data owner is in their project. In usual situations when the university owns the data, they need to negotiate this with the university.   "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2",
+	         "question": "We will explore three circumstances regarding your dataset to help you learn more about different people who can make decisions about your dataset: the existence of data management plans; the funding; other formal documents.",
+	         "questionTitle": "Explore three circumstances",
+					 	"numoptions": 1,
+			     "explanation": "If you are not sure if you or somebody else is the person who gets to make decisions about your dataset, there are a few places that you can check to find the answer. The first one is the Data Management Plan. The second is evaluating where the funding to generate the dataset comes from. The third one is identifying other formal documents that may or may not effect your research project.   Make sure that you read the explanations because these, more than your questions or answers, will help you learn about decision making in your dataset. ",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2"],
+	         "optionid1": {
+	         "option": "I want to learn more about these three",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1"
+
+				 }
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1",
+	         "question": "1. Data Management Plans.",
+					 	"numoptions": 1,
+			     "questionTitle": "Data Management Plans",
+	         "explanation": "Data Management Plans are documents that are written in the early stages of a grant, usually during the proposal submission phase, that describe how the data will be managed during the research project. Data Management Plans can vary, but usually include the following information: description of the types of data that will be collected, and how they will be collected; how the data will be documented and kept safe; all the details about how data will be made publicly available and shared, including when it will be shared, in which format, protection of privacy rights, policies around reuse, redistribution and creation of derivatives; and provisions for data archival and preservation. Data management plans may contain definitions of roles and responsibilities related to data management. The most important piece of information that you will be looking for in the Data Management Plan is who is the person in charge of making decisions over your data. Sometimes this person will be the same as the data owner, but usually it won't. In some Data Management Plans this person is called data custodian.   There are many reasons why a Data Management Plan may not have the information you are looking for. Data Management Plans are written before the grant is even funded, so they tend to be general, and they may not be very detailed about day to day specific data management tasks, like data organization. Data Management Plans are also a relatively new requirement in most grant applications, and many times it is not clear whether a successful grant application implies that the Data Management Plan is of good quality and complete. The degree of complicance requested from researchers by a funder also varies, so you may find that your group is not following the guidelines outlined in the Data Management Plan. Many Data Management Plans don't have a Roles and Responsibilities section, so the information about who makes decisions over your dataset may not be there.  A Data Management Plan can be very useful to understand the expectations around dataset management in a research project. If there is a Data Management Plan for your project we encourage you to read it. Best case scenario is that the Data Management Plan tells you who the data custodian (the person who gets to make decisions about the data) is. Even if the data management plan has specific information about what you are looking for (e.g. when the data should be made publicly available) is always best to double check with the data custodian.    If you have figured out that this dataset is not \"yours\" and want to learn more about what you will be able to do with this dataset, go to the home page and choose \"What can I do with other people's data?\". If you have discovered that you are the person who gets to make the decisions about your dataset (congratulations!) go to the home page and choose \"What can I do with my own data?\". Make sure that you indicate that you know who the person making decisions about the dataset is, this time. \"",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2"],
+		       "optionid1":{
+	         "option": "Learn about how funding can affect decisionmaking around datasets. ",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1"
+
+				 }
+			 },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1",
+	         "question": "Where does the funding for the research come from?",
+	         "questionTitle": "Funding",
+					 	"numoptions": 1,
+					 "explanation": "Conducting research requires resources. Where are the resources to generate the dataset coming from? Remember that there may be many resources to take into account: money for data collection, salaries for people involved in the project, availability to use lab space and equipment, support staff, etc.  Sometimes the student brings the funding, and gets no significant resources from the university or the student's supervisor. In these cases, it is likely that the owner of the dataset is the student. The student, then, gets to make most the decisions around the dataset, and gets to take the dataset with him/her if he/she decides to change institutions.   Sometimes there is a grant that pays for most of the expenses associated with the project, awarded to a researcher employed by a university. If this is the case, even though the University is probably the official owner of the dataset, one of the researchers in the research group tends to act as data custodian, and is the person who will make most of the decisions concerning the dataset. Usually it is the PI.    Sometimes there won't be a clear cut answer. For example, you may be a student with your own fellowship, working on a dataset that does not require funds for data collection (e.g. some type of modeling), but you may still be using university resources. Are you using a computer or lab space from the university? Are you relying on university staff that help you perform your research (e.g. IT people to manage the server that you are running the model into)? Are you relying heavily on the advice given by your supervisor (e.g. an investigator paid for, at least partially, from the university)? Some other times the project may be large, and involve many institutions and several funding sources. These cases should be evaluated one by one, and all the documentation regarding collaboration between partners should be taken into account.    In all cases, simple or complex, it is worth checking with the funder if there are policies or regulations regarding what the researchers can do with the data. Review any signed paperwork, and contact the funder directly with questions. After doing this work, there can still be policies or regulations regarding what the researchers can do with the data, we will explore them in the next point. ",
+	         "explanationresources": "List of Data Management Plan requirements from funders, at DMPTool.",
+	         "explanationlink": "https://dmptool.org/public_templates",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1"],
+				   "optionid1":{
+	         "option": "Learn about the effect of other formal documents.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1"
+
+				 }
+			 },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1",
+	         "question": "Are there other formal documents?",
+					 	"numoptions": 4,
+				  "questionTitle": "Formal documents",
+	         "explanation": "Explore other formal documents that could affect decision making around datasets. ",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1"],
+					 "optionid1":{
+	         "option": "IRB, documentation related to ethics.",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_1"
+
+				 },
+
+	         "optionid2": {
+	         "option": "Funder policies",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_2"
+
+	   },
+	         "optionid3": {
+	         "option": "Contracts and Data Sharing Agreements",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_op3_done"
+
+	    },
+	         "optionid4": {
+	         "option": "Institutional Policy at OSU",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4"
+
+				 }
+			 },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_1",
+	         "question": "Did the project have to go through IRB approval?",
+					 	"numoptions": 2,
+			     "questionTitle": "IRB",
+	         "explanation": "Projects that engage in both research and human subjects require approval from the Institutional Review Board. At Oregon State University the Human Research Protection Program and Institutional Review Board, within the office of Research Integrity, is in charge of this process.",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1"],
+					 "optionid1": {
+	         "option": "Yes",
+	         "nextsteptype": 1,
+					 "nextstepcontent": "/Q3_1_2_2_1_1_1_1_op1_done"
+
+	      },
+	         "optionid2":{
+	         "option": "No",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_1_op2_done"
+	       }
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_1_op1_done",
+	         "explanationresources": "OSU Research Office ",
+	         "explanationlink": "https://research.oregonstate.edu/",
+					 "questionTitle": "Final Step",
+
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_1"],
+	         "finished": "If you have questions related to ethical decisions around the dataset it will be most useful to talk to a person about the specific details of your dataset. You can contact us using the contact information in this page. You can also contact the Research Office at Oregon State University, the list of contacts is in https://research.oregonstate.edu/research-office-contacts"
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_1_op2_done",
+					 "questionTitle": "Final Step",
+
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_1"],
+	         "finished": "Even if your research did not require IRB it is important to take a moment to consider if there are any ethical issues to be taken into account. Would it be ethical to publish the dataset as it is? Ethical considerations are most relevant when the dataset is about human subjects, but there are other cases in which they may also be a relevant factor. For example, if you were working with data about critically endangered species.   Consider also other people who have worked on the dataset. You may need to discuss subjects like authorship of the dataset, or authorship of articles and scholarly material derived from the dataset. You may need to take into consideration the use that other people are making of the dataset (e.g. grad students using it for their dissertations). You may also want to discuss implied expectations about what will happen with the dataset, and whether these should be changed. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_2",
+	         "question": "Does the funder of this project have policies around data managment?",
+					 	"numoptions": 2,
+	         "questionTitle": "Funder data policy",
+	         "explanation": "Different funders have different priorities. A private company may seek financial gain. A nonprofit organization may have specific goals according to their mission. Government agencies will generally fund research to contribute to public good. They all may have requirements regarding what you can do with their data, specially related to making it publicly available or sharing it.  Most funding agencies have policies around data sharing. On February 2013 The Office of Science and Technology Policy issued a memo in which it directed each \"Federal agency with over $100 million in annual conduct of research and development expenditures to develop a plan to support increased public access to the results of research funded by the Federal Government\". Because of this, most federal funding agencies have policy requirements around sharing research data. There are many non federal agencies that have also policies regarding data management, usually centered on making data publicly available after the research. ",
+	         "explanationresources": "SCARC research funder data sharing policies; Public Access Plans of Federal Agencies; ",
+	         "explanationlink": "https://sparcopen.org/our-work/research-data-sharing-policy-initiative/funder-policies/; https://www.science.gov/publicAccess.html;",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_1"],
+					 "optionid1":{
+	         "option": "Yes",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_2_op1_done"
+
+},
+
+	         "optionid2": {
+	         "option": "No",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_2_op2_done"
+
+}
+			 },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_2_op1_done",
+	         "explanationresources": "Oregon State University institutional repository ScholarsArchive@OSU",
+	         "explanationlink": "https://ir.library.oregonstate.edu/",
+					 "questionTitle": "Final Step",
+
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_1","/Q3_1_2_2_1_1_1_1_2"],
+					 "finished": "It is very likely that the funder policy will require you to make your data available at some point in your research. If you are looking for a repository where to deposit your dataset to preserve it and make it publicly available, you can find a list of available repositories in re3data.org Oregon State University has its own institutional repository, ScholarsArchive@OSU, that is domain agnostic and accepts datasets generated by OSU researchers for free. If you have questions about how to make your data publicly available, or about depositing your data in ScholarsArchive@OSU, contact us with the contact information in this page."
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_2_op2_done",
+	         "explanationresources": "Open Data Commons; Publisher's guide to open data publishing by the Open Data Institute;",
+	         "explanationlink": "https://opendatacommons.org/; https://theodi.org/article/publishers-guide-to-open-data-licensing/;",
+					 "questionTitle": "Final Step",
+
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_1","/Q3_1_2_2_1_1_1_1_2"],
+					 "finished": "Even if your funder does not require you to make your data publicly available, we higly encourage you to do so. Sharing data openly with non restrictive licenses like CC0 or CC-BY will help you because it will increase your visibility and impact. It will also help science, because open data makes research more transparent and reproducible, and it accelerates scientific breakthrough. For more information about open data you can visit Open Data Commons.  Some researchers are concerned about not getting credit for the hard work of building their dataset. Giving proper attribution is an ethical requirement, rather than a legal one, and everybody using your dataset should give you attribution. In the scholarly community giving atribution is a clear expectation, and not doing it can be considered data plagiarism, a serious form of research misconduct. You can encourage other researchers to cite your work by attaching a CC-BY license to your dataset and by publishing your dataset in a repository that has easy to follow instructions about citing datasets. Good repositories will also allow you to get statistics on the usage of your dataset since you submitted it. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_op3_done",
+	         "questionTitle": "Contracts",
+	         "explanationresources": "OSU Procurement and Contract Services",
+	         "explanationlink": "https://pacs.oregonstate.edu/",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1"],
+	         "finished": "Contracts are legal documents that usually are developed involving lawyers, and can be enforced through litigation.   Contracts with the government are different than grants. Typically a grant gives control to the data to the researchers. Under a contract, the researcher generally will be required to deliver a product or service. The outputs of the contract are then generally owned by the government, and the government, not the researcher, will make decisions related to the dataset.   Contracts can also exist between your organization and other non governmental organizations, like private companies. Often, when a contract regulates the exchange of datasets, these contracts are called Data Sharing Agreements. Data Sharing Agreements include many details about the exchange of data that they regulate, such as a description of the data to be shared, the purpose of the data sharing, the allowed uses of the data, the length of the relationship, who owns intellectual property, how to protect the privacy of research subjects, etc. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4",
+	         "question": "Are there any OSU Policies that affect your dataset? Click on each of the Policies to learn more about them. ",
+	         "questionTitle": "OSU Policy",
+	         "explanation": "OSU has several general policies that may affect you and your dataset. Here are the most relevant. Know that there may be others that act at a College level, or at a department level, or at a research group level, that we cannot cover here, and may also affect you. ",
+					 	"numoptions": 5,
+					 "explanationresources": "OSU University Policies and Standards",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1"],
+					 "explanationlink": "https://policy.oregonstate.edu/",
+	         "optionid1":{
+	         "option": "University Data Management, Classification, and Incident Response. ",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4_op1_done"
+				 },
+	         "optionid2": {
+	         "option": "Intellectual Property, IMD",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4_op2_done"
+	     },
+	         "optionid3":{
+	         "option": "Oregon State University Open Access Policy",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4_op3_done"
+	     },
+	         "optionid4":{
+	         "option": "Records Retention Policy",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4_op4_done"
+	   },
+	         "optionid5": {
+	         "option": "Technology Transfer Agreement",
+	         "nextsteptype": 1,
+	         "nextstepcontent": "/Q3_1_2_2_1_1_1_4_op5_done"
+	       }
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4_op1_done",
+	         "questionTitle": "Data Management Policy",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_4"],
+					 "explanationresources": "OSU University Data Management, Classification, and Incident Response; OSU Data classification by data element; Baseline standards of care page;",
+	         "explanationlink": "https://policy.oregonstate.edu/UPSM/08-015_university_data_management_policy; https://is.oregonstate.edu/ois/data-classification-data-element; https://is.oregonstate.edu/ois/baseline-standards-care",
+	         "finished": "This policy classifies data at OSU, including research data, into three categories: unrestricted information, sensitive information, and confidential information. The definitions of each can be found in the OSU data classification by data element page, and the standards of care for each of them can be found in the baseline standards for care page. In general, if you are working with research on human subjects, or had to get an IRB review for your research project, you should be aware of this policy."
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4_op2_done",
+	         "questionTitle": "Intellectual Property",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_4"],
+	         "explanationresources": "OSU Intellectual Property Policy; Office of Commercialization and Corporate Development (OCCD) ",
+	         "explanationlink": "https://policy.oregonstate.edu/policy/intellectual-property-imd; https://advantage.oregonstate.edu/advantage-impact/faculty-students",
+	         "finished": "The OSU Intellectual Property Policy may be important to you if you generate copyrightable material throughout the development of your work at OSU. Journal articles, boooks, computer programs and teaching materials are all copyrightable. Datasets are generally not covered by copyright, unless they are creative, like texts, interviews or photographs. This policy may be important to you if you invented something during your research at OSU. It could be something that involves a dataset, or it could not. In general, OSU reserves the ownership rights to all institutional work-related inventions, but there are exceptions and especial circumstances explained in the policy that may affect you. If you have questions about the ownership of the rights related to something you have created at OSU, there are several resources where you can get more information. You can contact us, the OSU Library, using the contact information in this page. OSU has librarians specialist in copyright that may be able to help. If you need more in depth consultation you can also contact the OSU Office of Commercialization and Corporate Development (OCCD). Contact the OCCD also if you think you have a potential invention and want to learn more about how to protect it. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4_op3_done",
+	         "questionTitle": "Open Access Policy",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_4"],
+	         "explanationresources": "OSU Open Access Policy Page; OSU Open Access Policy Text;",
+	         "explanationlink": "https://osulibrary.oregonstate.edu/open-access; https://cdss.library.oregonstate.edu/sites/default/files/osu_openacesspolicy_final_single_page.pdf",
+	         "finished": "This policy was adopted by the Faculty Senate on June 2013, and therefore it only applies to scholarly articles published by OSU faculty after the policy was adopted on June 13, 2013. Because of this policy any article published in any journal after June 2013, where at least one coauthor is an OSU Faculty member, can be made publicly available through ScholarsArchive@OSU. This is true for articles published in Journals that are not open access as long as the post-peer review pre-typeset version is published. To learn more, visit the OSU Open Access Policy page.  "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4_op4_done",
+	         "questionTitle": "Records Retention",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_4"],
+	         "explanationresources": "OSU Policy on Records Retention; Genral Records Retention Schedule",
+	         "explanationlink": "https://policy.oregonstate.edu/policy/records-retention; http://scarc.library.oregonstate.edu/general-schedule.pdf",
+	         "finished": "OSU has a Records Retention policy. It only affects research datasets when there are records of Human Subjects involved. There are other research related records that the policy refers to, but these do not involve research data. Take a look at the policy for more information. "
+	     },
+	     {
+	         "questionid": "/Q3_1_2_2_1_1_1_4_op5_done",
+	         "questionTitle": "Tech Transfer",
+					 "questionorigin":["/","/Q3_1","/Q3_1_2","/Q3_1_2_2","/Q3_1_2_2_1","/Q3_1_2_2_1_1","/Q3_1_2_2_1_1_1","/Q3_1_2_2_1_1_1_4"],
+	         "explanationresources": "Personal Demographic Information form. ",
+	         "explanationlink": "https://hr.oregonstate.edu/sites/hr.oregonstate.edu/files/hristeam/forms/demohire.pdf",
+	         "finished": "All new hires at OSU are required to sign a Personal Demographic Information form. This form includes a Technology Transfer Agreement that reads \"I hereby acknowledge that Oregon State University (OSU) requires me, as a condition of my employment, to assign to OSU rights to any invention or improvement in technology, computer software tangible research property, and trademarks (Intellectual Property) conceived, invented, or reduced to practice by me, either solely or jointly with others, developed using university facilities, personnel, information or other university resources; and by my signature below, I hereby assign such rights. I understand that additional information can be obtained through the Office for Commercialization and Corporate Development, A312 Kerr Administration Building, (541) 737-3888. I certify that I have read, understand and agree to the Technology Transfer Agreement as stated above.\""
+	     }
 
 
 
