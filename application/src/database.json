@@ -544,7 +544,7 @@
 		{
 	         "questionid": "/Q3_1",
 	         "question": "Are you the main person who gets to make decisions over the dataset?",
-	         "questionTitle": "Decision maker.",
+	         "questionTitle": "Decision maker",
 					 	"numoptions": 3,
 			     "explanation": "In order to talk about what you can do with your data we need to make sure that we identify who is the person who gets to make decisions about the dataset. Different people define data as being \"theirs\" differently. Choose \"I'm sure\" if you are positively sure that you are the main person who gets to make decisions like who to share the dataset with, when and what to publish about the dataset, etc. Choose \"No, it is somebody else\" if you know that you need to check with other people (e.g. with your supervisor) before making the decision, and you know exactly who these people are. If it is not clear who these people are, or you think you may be the decision maker but know that there are others, or you just want to learn more about decision making process related to datasets, choose \"Not sure\".",
 					 "questionorigin": ["/"],

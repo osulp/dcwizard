@@ -79,12 +79,14 @@ margin-top: 20px;
   font-size: 16px;
   color: white;
   height: auto;
+
      max-height: 380px;
      overflow: auto;
-
-     word-break: normal !important;
-     word-wrap: normal !important;
-     white-space: pre !important;
+     white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 .logcontainer{
 
@@ -110,6 +112,10 @@ margin-bottom: 5px;
 }
 .buttonmarg{
   margin-right: 5px;
+}
+.but-wrap{
+white-space:normal !important;
+    max-width:1000px;
 }
 p{
   font-family: "Georgia";
@@ -200,10 +206,14 @@ width: 133px;
 @media only screen and (max-width: 992px) {
   .mainq{
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 230px;
     margin-right: auto;
     width: 500px;
 
+  }
+  .but-wrap{
+  white-space: normal !important;
+      max-width:1000px;
   }
   .left-sidebar{
     float: left;
@@ -228,11 +238,12 @@ width: 133px;
 @media only screen and (max-width: 768px) {
   .mainq{
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 250px;
     margin-right: auto;
     width: 370px;
 
   }
+
   .contactheader{
       visibility: hidden;
       font-size: 16px;
