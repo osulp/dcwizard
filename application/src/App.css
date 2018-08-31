@@ -22,7 +22,7 @@ margin-top: 10px;}
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: -.25px;
-  font-family: 'Stratum2Web',sans-serif;
+
 
 
 color:  white;
@@ -62,9 +62,16 @@ padding-top: 10px;
   padding-right: 30px;
   margin-right: 20px;
   height: 100vh;
+  /*fix for later
+  height: 100%;
+  position: fixed;
+  */
+
 
 }
-
+.margin-top{
+  margin-top: 5px;
+}
 .bod{
 margin-top: 20px;
 }
@@ -72,12 +79,14 @@ margin-top: 20px;
   font-size: 16px;
   color: white;
   height: auto;
+
      max-height: 380px;
      overflow: auto;
-
-     word-break: normal !important;
-     word-wrap: normal !important;
-     white-space: pre !important;
+     white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 .logcontainer{
 
@@ -94,11 +103,19 @@ margin-bottom: 5px;
 .Hide_but{
 
   margin-top: 10px;
-  float: right;
-}
 
+}
+.but{
+  width:500px;
+   word-wrap: break-word;
+
+}
 .buttonmarg{
   margin-right: 5px;
+}
+.but-wrap{
+white-space:normal !important;
+    max-width:1000px;
 }
 p{
   font-family: "Georgia";
@@ -124,6 +141,7 @@ p{
   font-size: 25px;
   padding-left: 30px;
   padding-right: 30px;
+
 width: 100%;
 height: 100vh;
 
@@ -144,6 +162,9 @@ height: 100vh;
   display: inline-block;
 
 }
+.removelist{
+  list-style: none;
+}
 .newt{
   display: inline-block;
   float: right;
@@ -160,7 +181,11 @@ width: 133px;
   padding-bottom: -20px;
 
 }
+.parser{
+  color: rgb(0, 123, 255);
 
+
+}
 
 @media only screen and (max-width: 1044px) {
   .left-sidebar{
@@ -181,10 +206,14 @@ width: 133px;
 @media only screen and (max-width: 992px) {
   .mainq{
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 230px;
     margin-right: auto;
     width: 500px;
 
+  }
+  .but-wrap{
+  white-space: normal !important;
+      max-width:1000px;
   }
   .left-sidebar{
     float: left;
@@ -209,11 +238,12 @@ width: 133px;
 @media only screen and (max-width: 768px) {
   .mainq{
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 250px;
     margin-right: auto;
     width: 370px;
 
   }
+
   .contactheader{
       visibility: hidden;
       font-size: 16px;
@@ -230,11 +260,14 @@ width: 133px;
   }
 }
 
+@media only screen and (max-width: 696px) {
+  .titlehide{
+  display: none;
+  }
 
-@media only screen and (max-width: 655px) {
-body{
-  overflow-x: hidden;
 }
+@media only screen and (max-width: 655px) {
+
   .mainq{
     margin-top: 20px;
     margin-left: 0;
@@ -263,12 +296,12 @@ width: 100%;
     float: none;
     background-color: black;
     color: white;
-    padding-top:20px;
+
     font-size: 25px;
     padding-left: 30px;
     padding-right: 30px;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
 
   }
 }
