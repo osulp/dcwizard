@@ -260,7 +260,12 @@ width: 133px;
   }
 }
 
+@media only screen and (max-width: 696px) {
+  .titlehide{
+  display: none;
+  }
 
+}
 @media only screen and (max-width: 655px) {
 
   .mainq{

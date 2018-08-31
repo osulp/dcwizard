@@ -546,7 +546,22 @@ export_step = (q) =>{
     questionstep.push('\n')
 
       questionstep.push(Object.values(data)[j].explanation)
+
       questionstep.push('\n')
+      questionstep.push('\n');
+
+    questionstep.push("Resources:");
+  questionstep.push('\n');
+
+            questionstep.push((Object.values(data)[j].explanationresources).join("\n"));
+        questionstep.push('\n');
+          questionstep.push('\n');
+
+        questionstep.push("Links:");
+          questionstep.push('\n');
+              questionstep.push((Object.values(data)[j].explanationlink).join("\n"))
+  questionstep.push('\n')
+
     questionstep.push('\n')
     questionstep.push('\n')
 
@@ -566,7 +581,9 @@ console.log("if stored in array "+questionstep.join(""))
   "Past Steps" :questionstep,
       "Question-id": q.questionid,
       "Question-title": q.questionTitle,
-"Description": q.finished
+"Description": q.finished,
+"resources": q.explanationresources,
+"links": q.explanationlink
 };
 
   oldItems.push("_______________________________________________________________________");
@@ -586,8 +603,20 @@ console.log("if stored in array "+questionstep.join(""))
 
             oldItems.push(Object.values(newItem)[4]);
         oldItems.push('\n');
+        oldItems.push('\n');
+
+oldItems.push("Resources:");
+oldItems.push('\n');
+
+          oldItems.push((Object.values(newItem)[5]).join("\n"));
+          oldItems.push('\n');
             oldItems.push('\n');
 
+            oldItems.push("Links:");
+                      oldItems.push('\n');
+            oldItems.push((Object.values(newItem)[6]).join("\n"));
+            oldItems.push('\n');
+oldItems.push('\n');
 //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
 //var str = JSON.stringify(oldItems.join(""), undefined, 4);
 var str = JSON.stringify(oldItems)
@@ -679,6 +708,46 @@ finalsteps = (q) =>{
 
   return arr;
 }
+parseresource = (q) =>{
+
+  return(<div>
+    <ol reversed className = "tabbing">
+    <li >  <a href={q.explanationlink[14]} style={{ textDecoration: 'underline' }}  target="_blank">{q.explanationresources[14]}</a>
+    </li>
+    <li> <a href={q.explanationlink[13]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[13]}</a>
+  </li>
+  <li>    <a href={q.explanationlink[12]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[12]}</a>
+  </li>
+  <li>    <a href={q.explanationlink[11]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[11]}</a>
+  </li>
+    <li>   <a href={q.explanationlink[10]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[10]}</a>
+  </li>
+      <li>  <a href={q.explanationlink[9]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[9]}</a>
+  </li>
+      <li> <a href={q.explanationlink[8]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[8]}</a>
+  </li>
+    <li>     <a href={q.explanationlink[7]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[7]}</a>
+  </li>
+    <li>       <a href={q.explanationlink[6]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[6]}</a>
+  </li>
+      <li>     <a href={q.explanationlink[5]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[5]}</a>
+  </li>
+      <li>   <a href={q.explanationlink[4]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[4]}</a>
+  </li>
+      <li><a href={q.explanationlink[3]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[3]}</a>
+  </li>
+      <li>    <a href={q.explanationlink[2]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[2]}</a>
+  </li>
+        <li>   <a href={q.explanationlink[1]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[1]}</a>
+  </li>
+  <li>  <a href={q.explanationlink[0]} style={{ textDecoration: 'underline' }} target="_blank">{q.explanationresources[0]}</a>
+  </li>
+  </ol>
+  </div>
+
+  )
+}
+
     render() {
 
 
@@ -689,7 +758,7 @@ finalsteps = (q) =>{
 <div className = "heading" >
 <div className="titlemove">
 <h1 className = "titlebg" >
-                 <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img>
+               <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> <span className="titlehide"> Data Sharing Wizard</span>
  <p className="contactheader">Questions?<br/>
 Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p></h1>
 </div>
@@ -716,7 +785,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
   {this.title(q)}
               <h5> You are done! </h5>
               <p>{q.finished}</p>
-              <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+              <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               <h5 >Final Steps:</h5>
         <p className="finalsteps">  {this.finalsteps(q)}</p>
@@ -784,7 +853,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
                         </ul>
                           <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-                      <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+                          <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               </div>
                       </div>
@@ -811,7 +880,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
           </ul>
             <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-        <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+            <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
 </div>
         </div>
@@ -839,7 +908,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+       <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
    </div>
      </div>
 
@@ -867,7 +936,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+       <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
         }
@@ -893,7 +962,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+       <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
         }
@@ -920,7 +989,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+       <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
         }
@@ -948,7 +1017,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
        </ul>
        <h6>     Explanation: </h6>   <p> {q.explanation} </p>
-       <h6>   Resources:</h6> <a href={q.explanationlink} target="_blank">{q.explanationresources}</a>
+       <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
         }
