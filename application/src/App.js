@@ -77,7 +77,7 @@ cond = JSON.parse(cond)
 
 parsesteps(q,questionok){
 var questionjoin = questionok.reverse();
-console.log(questionjoin)
+
 
 return(<div>
   <ol reversed className = "tabbing">
@@ -539,11 +539,47 @@ export_step = (q) =>{
   if(q.questionorigin[i] === Object.values(data)[j].questionid && q.questionorigin[i] !== "/"){
   questionstep.push(Object.values(data)[j].questionid )
   questionstep.push('\n')
+
+
+
+  questionstep.push('\n')
   questionstep.push(Object.values(data)[j].questionTitle)
   questionstep.push('\n')
 
-    questionstep.push(Object.values(data)[j].question)
+    questionstep.push("Question: " + Object.values(data)[j].question)
     questionstep.push('\n')
+    for( var k=0;k<sessionStorage.length;k++){
+    if(Object.values(data)[j].questionid  == sessionStorage.key(k)){
+        console.log(sessionStorage.getItem(sessionStorage.key(k)));
+        if(sessionStorage.getItem(sessionStorage.key(k))=== '0'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid1.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '0'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid1.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '1'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid2.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '2'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid3.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '3'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid4.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '4'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid5.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '5'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid6.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '6'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid7.option);
+        }
+
+
+    }
+  }
+  questionstep.push('\n')
 
       questionstep.push(Object.values(data)[j].explanation)
 
@@ -572,18 +608,20 @@ export_step = (q) =>{
 }
 }
 
-console.log("if stored in array "+questionstep.join(""))
+//console.log("if stored in array "+questionstep.join(""))
 
   var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
   var newItem ={
 
-   "Question": questiontype,
+  "Question": questiontype,
   "Past Steps" :questionstep,
-      "Question-id": q.questionid,
-      "Question-title": q.questionTitle,
-"Description": q.finished,
-"resources": q.explanationresources,
-"links": q.explanationlink
+
+  "Question-id": q.questionid,
+
+  "Question-title": q.questionTitle,
+  "Description": q.finished,
+  "resources": q.explanationresources,
+  "links": q.explanationlink
 };
 
   oldItems.push("_______________________________________________________________________");
@@ -592,7 +630,7 @@ console.log("if stored in array "+questionstep.join(""))
     oldItems.push('\n');
       oldItems.push('\n');
    oldItems.push(Object.values(newItem)[1].join(""));
-   console.log(Object.values(newItem)[1].join(""))
+//   console.log(Object.values(newItem)[1].join(""))
       oldItems.push('\n');
 //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
       oldItems.push(Object.values(newItem)[2]);
@@ -631,7 +669,7 @@ document.location.reload(true)
 output = (inp) => {
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
     sessionStorage.setItem('itemsArray', inp);
-    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
+//    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
 }
 export_step_button = (q) => {
   return <div>
@@ -693,18 +731,23 @@ var y = 20;
 }
 finalsteps = (q) =>{
   var i;
+  var j;
   var arr = [];
   for(i = 0;i<q.questionorigin.length; i++){
-        arr.push((i+1)+'.'+' ')
-    arr.push(q.questionorigin[i]);
+    for(j = 0; j<Object.values(data).length; j++){
+    if(q.questionorigin[i] === Object.values(data)[j].questionid){
 
-      arr.push(' ')
+        arr.push((i+1)+'.'+' ')
+    arr.push(Object.values(data)[j].questionTitle);
+
+      arr.push(" ")
     arr.push('\u2192')
         arr.push(' ')
-
+      }
   }
+}
   arr.push((q.questionorigin.length + 1)+'.'+' ')
-  arr.push(q.questionid);
+  arr.push(q.questionTitle);
 
   return arr;
 }
