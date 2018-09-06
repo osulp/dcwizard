@@ -845,7 +845,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
   {this.title(q)}
               <h5> You are done! </h5>
-              <p>{q.finished}</p>
+              <pre className="description">{q.finished}</pre>
               <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               <h5 >Final Steps:</h5>
@@ -913,7 +913,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
 
                         </ul>
-                          <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+                          <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
                           <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               </div>
@@ -940,7 +940,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
           </ul>
-            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+            <h6>     Explanation: </h6>   <pre className="description"> {q.explanation} </pre>
             <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
 </div>
@@ -968,7 +968,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
         <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description">{q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
    </div>
      </div>
@@ -996,7 +996,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -1022,7 +1022,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionid5.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -1049,7 +1049,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button className="but-wrap" size="lg" style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionid6.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>   <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -1077,7 +1077,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid7.nextstepcontent}><Button className="but-wrap" size="lg" style={{background: this.chosen_color_6(q)}} onClick={() => {this.question_show(q,6)}} >{q.optionid7.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description">{q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
