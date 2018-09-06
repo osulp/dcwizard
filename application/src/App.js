@@ -1,12 +1,15 @@
 import './App.css';
 import React, { Component } from 'react';
 import $ from 'jquery';
+import ReactDOM from 'react-dom';
 import { Route, Link} from 'react-router-dom';
 import { Tooltip } from 'reactstrap';
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
@@ -404,7 +407,18 @@ title = (q) =>{
    }
 
 }
+show_loginfo = (q) =>{
+  if((sessionStorage.getItem("itemsArray")) === null){
+    return
+  }
+  else{
+    return(<div>
+    <p data-simplebar data-simplebar-auto-hide="false" id = "pdf">  {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
+</div>)
+  }
+}
 log = (q)=>{
+
   var show = {
         display: this.state.show ? "block" : "none"
       };
@@ -424,8 +438,12 @@ log = (q)=>{
     <h4 className="margin-top">Step Log: </h4>
 
    <div className="logcontainer">
-   <pre id = "pdf">{JSON.parse(sessionStorage.getItem("itemsArray"))}</pre>
+
+{this.show_loginfo(q)}
+
+
    </div>
+
    <div>
 
 {this.delete_log_button(q)}
@@ -801,7 +819,7 @@ parseresource = (q) =>{
 <div className = "heading" >
 <div className="titlemove">
 <h1 className = "titlebg" >
-               <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> <span className="titlehide"> Data Sharing Wizard</span>
+          <a target="_blank" rel="noopener noreferrer" href="//oregonstate.edu">     <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img></a>   <a className = "titlename" href="/">   <span className="titlehide"> Data Sharing Wizard</span></a>
  <p className="contactheader">Questions?<br/>
 Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p></h1>
 </div>
@@ -857,12 +875,12 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
               <h3>Click below to start</h3>
 <div className="bod">
   <Row>
-             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
               <p>{q.questioninfo[0]} </p></Col>
 
-             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button color="danger" style={{background: this.chosen_color_1(q) ,  border: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button  color="danger" style={{background: this.chosen_color_1(q) ,  border: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
               <p> {q.questioninfo[1]} </p></Col>
-               <Col><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button color="danger" style={{background: this.chosen_color_2(q) ,  border: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
+               <Col><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button  color="danger" style={{background: this.chosen_color_2(q) ,  border: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
               <p>{q.questioninfo[2]}  </p> </Col>
             </Row>
             <div className="warning">
