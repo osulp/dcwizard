@@ -8,8 +8,8 @@ import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
-import SimpleBar from 'simplebar';
-import 'simplebar/dist/simplebar.css';
+import SimpleBar from 'simplebar-react';
+
 
 import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
@@ -413,7 +413,9 @@ show_loginfo = (q) =>{
   }
   else{
     return(<div>
-    <p data-simplebar data-simplebar-auto-hide="false" id = "pdf">  {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
+        <SimpleBar data-simplebar-auto-hide="false" style={{ height: '350px' }}>
+    <p  id = "pdf">  {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
+  </SimpleBar>
 </div>)
   }
 }

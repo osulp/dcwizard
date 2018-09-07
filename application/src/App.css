@@ -90,8 +90,8 @@ margin-top: 20px;
   color: white;
   height: auto;
 
-     max-height: 380px;
-     overflow: auto;
+
+     overflow: hidden;
      white-space: pre-line;       /* Since CSS 2.1 */
         white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
         white-space: -pre-wrap;      /* Opera 4-6 */
@@ -209,6 +209,94 @@ width: 133px;
 
 
 }
+[data-simplebar] {
+    position: relative;
+    z-index: 0;
+    overflow: hidden!important;
+    max-height: inherit;
+    -webkit-overflow-scrolling: touch; /* Trigger native scrolling for mobile, if not supported, plugin is used. */
+}
+
+[data-simplebar="init"] {
+    display: flex;
+}
+
+[data-simplebar] .simplebar-scroll-content,
+[data-simplebar] .simplebar-content {
+    overflow: hidden;
+}
+
+[data-simplebar="init"] .simplebar-scroll-content,
+[data-simplebar="init"] .simplebar-content {
+    overflow: scroll;
+}
+
+.simplebar-scroll-content {
+    overflow-x: hidden!important;
+    min-width: 100%!important;
+    max-height: inherit!important;
+    box-sizing: content-box!important;
+}
+
+.simplebar-content {
+    overflow-y: hidden!important;
+    box-sizing: border-box!important;
+    min-height: 100%!important;
+}
+
+.simplebar-track {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 11px;
+    pointer-events: none;
+    box-shadow: inset 0 0 5px grey;
+     border-radius: 10px;
+}
+
+.simplebar-scrollbar {
+    position: absolute;
+    right: 2px;
+    width: 7px;
+    min-height: 10px;
+}
+
+.simplebar-scrollbar:before {
+    position: absolute;
+    content: "";
+    border-radius: 10px;
+    background:  #D73F09;
+    border-radius: 7px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+
+}
+
+.simplebar-track .simplebar-scrollbar.visible:before {
+    /* When hovered, remove all transitions from drag handle */
+    opacity: .8;
+    transition: opacity 0 linear;
+}
+
+.simplebar-track.vertical {
+    top: 0;
+}
+
+.simplebar-track.vertical .simplebar-scrollbar:before {
+    top: 2px;
+    bottom: 2px;
+}
+
+
+
+/* Rtl support */
+[data-simplebar-direction="rtl"] .simplebar-track {
+    right: auto;
+    left: 0;
+}
+
 
 @media only screen and (max-width: 1044px) {
   .left-sidebar{
