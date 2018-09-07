@@ -22,7 +22,7 @@
     "react-perfect-scrollbar": "^1.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^1.1.5",
     "react-scrollbar-js": "^1.0.1",
     "react-step-wizard": "^2.0.0",
     "react-stepzilla": "^4.7.2",
