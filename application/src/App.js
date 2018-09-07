@@ -1,12 +1,15 @@
 import './App.css';
 import React, { Component } from 'react';
 import $ from 'jquery';
+import ReactDOM from 'react-dom';
 import { Route, Link} from 'react-router-dom';
 import { Tooltip } from 'reactstrap';
 import {Modal} from 'reactstrap';
 import {Button} from 'reactstrap';
 import {ModalHeader} from 'reactstrap';
 import {ModalBody} from 'reactstrap';
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
 
 import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
@@ -77,7 +80,7 @@ cond = JSON.parse(cond)
 
 parsesteps(q,questionok){
 var questionjoin = questionok.reverse();
-console.log(questionjoin)
+
 
 return(<div>
   <ol reversed className = "tabbing">
@@ -404,7 +407,18 @@ title = (q) =>{
    }
 
 }
+show_loginfo = (q) =>{
+  if((sessionStorage.getItem("itemsArray")) === null){
+    return
+  }
+  else{
+    return(<div>
+    <p data-simplebar data-simplebar-auto-hide="false" id = "pdf">  {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
+</div>)
+  }
+}
 log = (q)=>{
+
   var show = {
         display: this.state.show ? "block" : "none"
       };
@@ -424,8 +438,12 @@ log = (q)=>{
     <h4 className="margin-top">Step Log: </h4>
 
    <div className="logcontainer">
-   <pre id = "pdf">{JSON.parse(sessionStorage.getItem("itemsArray"))}</pre>
+
+{this.show_loginfo(q)}
+
+
    </div>
+
    <div>
 
 {this.delete_log_button(q)}
@@ -539,11 +557,47 @@ export_step = (q) =>{
   if(q.questionorigin[i] === Object.values(data)[j].questionid && q.questionorigin[i] !== "/"){
   questionstep.push(Object.values(data)[j].questionid )
   questionstep.push('\n')
+
+
+
+  questionstep.push('\n')
   questionstep.push(Object.values(data)[j].questionTitle)
   questionstep.push('\n')
 
-    questionstep.push(Object.values(data)[j].question)
+    questionstep.push("Question: " + Object.values(data)[j].question)
     questionstep.push('\n')
+    for( var k=0;k<sessionStorage.length;k++){
+    if(Object.values(data)[j].questionid  == sessionStorage.key(k)){
+        console.log(sessionStorage.getItem(sessionStorage.key(k)));
+        if(sessionStorage.getItem(sessionStorage.key(k))=== '0'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid1.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '0'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid1.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '1'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid2.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '2'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid3.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '3'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid4.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '4'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid5.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '5'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid6.option);
+        }
+        else if(sessionStorage.getItem(sessionStorage.key(k))=== '6'){
+            questionstep.push("Answer: " + Object.values(data)[j].optionid7.option);
+        }
+
+
+    }
+  }
+  questionstep.push('\n')
 
       questionstep.push(Object.values(data)[j].explanation)
 
@@ -572,18 +626,20 @@ export_step = (q) =>{
 }
 }
 
-console.log("if stored in array "+questionstep.join(""))
+//console.log("if stored in array "+questionstep.join(""))
 
   var oldItems = JSON.parse(sessionStorage.getItem('itemsArray')) || [];
   var newItem ={
 
-   "Question": questiontype,
+  "Question": questiontype,
   "Past Steps" :questionstep,
-      "Question-id": q.questionid,
-      "Question-title": q.questionTitle,
-"Description": q.finished,
-"resources": q.explanationresources,
-"links": q.explanationlink
+
+  "Question-id": q.questionid,
+
+  "Question-title": q.questionTitle,
+  "Description": q.finished,
+  "resources": q.explanationresources,
+  "links": q.explanationlink
 };
 
   oldItems.push("_______________________________________________________________________");
@@ -592,7 +648,7 @@ console.log("if stored in array "+questionstep.join(""))
     oldItems.push('\n');
       oldItems.push('\n');
    oldItems.push(Object.values(newItem)[1].join(""));
-   console.log(Object.values(newItem)[1].join(""))
+//   console.log(Object.values(newItem)[1].join(""))
       oldItems.push('\n');
 //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
       oldItems.push(Object.values(newItem)[2]);
@@ -631,7 +687,7 @@ document.location.reload(true)
 output = (inp) => {
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
     sessionStorage.setItem('itemsArray', inp);
-    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
+//    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
 }
 export_step_button = (q) => {
   return <div>
@@ -693,18 +749,23 @@ var y = 20;
 }
 finalsteps = (q) =>{
   var i;
+  var j;
   var arr = [];
   for(i = 0;i<q.questionorigin.length; i++){
-        arr.push((i+1)+'.'+' ')
-    arr.push(q.questionorigin[i]);
+    for(j = 0; j<Object.values(data).length; j++){
+    if(q.questionorigin[i] === Object.values(data)[j].questionid){
 
-      arr.push(' ')
+        arr.push((i+1)+'.'+' ')
+    arr.push(Object.values(data)[j].questionTitle);
+
+      arr.push(" ")
     arr.push('\u2192')
         arr.push(' ')
-
+      }
   }
+}
   arr.push((q.questionorigin.length + 1)+'.'+' ')
-  arr.push(q.questionid);
+  arr.push(q.questionTitle);
 
   return arr;
 }
@@ -758,7 +819,7 @@ parseresource = (q) =>{
 <div className = "heading" >
 <div className="titlemove">
 <h1 className = "titlebg" >
-               <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img> <span className="titlehide"> Data Sharing Wizard</span>
+          <a target="_blank" rel="noopener noreferrer" href="//oregonstate.edu">     <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img></a>   <a className = "titlename" href="/">   <span className="titlehide"> Data Sharing Wizard</span></a>
  <p className="contactheader">Questions?<br/>
 Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.edu		</p></h1>
 </div>
@@ -784,7 +845,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
   {this.title(q)}
               <h5> You are done! </h5>
-              <p>{q.finished}</p>
+              <pre className="description">{q.finished}</pre>
               <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               <h5 >Final Steps:</h5>
@@ -814,12 +875,12 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
               <h3>Click below to start</h3>
 <div className="bod">
   <Row>
-             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[0]}><Button  color="danger" style={{background: this.chosen_color_0(q),  border: this.chosen_color_0(q)}} onClick={() => {this.question_show(q,0)}}>{q.option[0]}</Button></Link>
               <p>{q.questioninfo[0]} </p></Col>
 
-             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button color="danger" style={{background: this.chosen_color_1(q) ,  border: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
+             <Col><Link to={process.env.PUBLIC_URL + q.optionlink[1]}><Button  color="danger" style={{background: this.chosen_color_1(q) ,  border: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.option[1]}</Button></Link>
               <p> {q.questioninfo[1]} </p></Col>
-               <Col><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button color="danger" style={{background: this.chosen_color_2(q) ,  border: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
+               <Col><Link to={process.env.PUBLIC_URL + q.optionlink[2]}><Button  color="danger" style={{background: this.chosen_color_2(q) ,  border: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)} }>{q.option[2]}</Button></Link>
               <p>{q.questioninfo[2]}  </p> </Col>
             </Row>
             <div className="warning">
@@ -852,7 +913,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
 
                         </ul>
-                          <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+                          <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
                           <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
               </div>
@@ -879,7 +940,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid2.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_1(q)}} onClick={() => {this.question_show(q,1)}} >{q.optionid2.option}</Button></Link></li>
 
           </ul>
-            <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+            <h6>     Explanation: </h6>   <pre className="description"> {q.explanation} </pre>
             <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
 
 </div>
@@ -907,7 +968,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
         <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid3.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_2(q)}} onClick={() => {this.question_show(q,2)}} >{q.optionid3.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description">{q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
    </div>
      </div>
@@ -935,7 +996,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid4.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_3(q)}} onClick={() => {this.question_show(q,3)}} >{q.optionid4.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -961,7 +1022,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid5.nextstepcontent}><Button className="but-wrap"  size="lg" style={{background: this.chosen_color_4(q)}} onClick={() => {this.question_show(q,4)}} >{q.optionid5.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -988,7 +1049,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid6.nextstepcontent}><Button className="but-wrap" size="lg" style={{background: this.chosen_color_5(q)}} onClick={() => {this.question_show(q,5)}} >{q.optionid6.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>   <pre className="description"> {q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>
@@ -1016,7 +1077,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           <li className ="space"><Link to={process.env.PUBLIC_URL + q.optionid7.nextstepcontent}><Button className="but-wrap" size="lg" style={{background: this.chosen_color_6(q)}} onClick={() => {this.question_show(q,6)}} >{q.optionid7.option}</Button></Link></li>
 
        </ul>
-       <h6>     Explanation: </h6>   <p> {q.explanation} </p>
+       <h6>     Explanation: </h6>    <pre className="description">{q.explanation} </pre>
        <h6>   Resources:</h6><h6>{this.parseresource(q)}</h6>
      </div>
 </div>

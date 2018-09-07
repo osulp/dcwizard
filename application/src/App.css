@@ -3,9 +3,18 @@
   width: 250px;
   margin-left: 20px;
   margin-right: 25px;
+  height: 80px;
 
 }
+.titlename{
+  text-decoration: none;
+  color: inherit;
 
+}
+.titlename:hover{
+  text-decoration: none;
+  color:inherit;
+}
 .Restart{
 float:right;
 margin-right: 7px;
@@ -76,19 +85,33 @@ padding-top: 10px;
 margin-top: 20px;
 }
 #pdf{
+  position: relative;
   font-size: 16px;
   color: white;
   height: auto;
 
      max-height: 380px;
      overflow: auto;
-     white-space: pre-wrap;       /* Since CSS 2.1 */
+     white-space: pre-line;       /* Since CSS 2.1 */
         white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
         white-space: -pre-wrap;      /* Opera 4-6 */
         white-space: -o-pre-wrap;    /* Opera 7 */
         word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
 }
+
+.description{
+white-space: pre-line;     /* Since CSS 2.1 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+font-family: Georgia;
+font-size: 14px;
+}
+
 .logcontainer{
+
 
 }
 .header{
