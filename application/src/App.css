@@ -313,7 +313,13 @@ width: 133px;
   }
 
 }
+@media only screen and (max-width: 1019px) {
+  .contactheader{
+    display: none;
 
+    }
+
+}
 @media only screen and (max-width: 992px) {
   .mainq{
     margin-top: 20px;
@@ -340,11 +346,7 @@ width: 133px;
   }
   .Restart{
 
-    position: absolute;
-     top: 130px;
-     right: 10px;
-
-  margin-top: 40px;}
+  }
 }
 @media only screen and (max-width: 768px) {
   .mainq{
@@ -356,7 +358,7 @@ width: 133px;
   }
 
   .contactheader{
-      visibility: hidden;
+    display: none;
       font-size: 16px;
       float: right;
       padding-right: 20px;
@@ -387,7 +389,7 @@ width: 133px;
 
   }
   .contactheader{
-    visibility: hidden;
+display: none;
     font-size: 16px;
     float: right;
     padding-right: 20px;

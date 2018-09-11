@@ -32,8 +32,8 @@ class App extends Component {
       this.state = {
         show: cond,
         modal: false,
-      tooltipOpen: false
-
+      tooltipOpen: false,
+  modal: true
 
       };
     this.toggleTool = this.toggleTool.bind(this);
@@ -810,7 +810,29 @@ parseresource = (q) =>{
 
   )
 }
+toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+termsagreement = (q) =>{
+  return(  <div>
 
+          <Modal isOpen={this.state.modal} >
+            <ModalHeader >Terms and Conditions</ModalHeader>
+            <ModalBody>
+  Welcome! This tool is for educational purposes only. Please know that you should not use the wizard for decisions with legal bindings. Only judges can make such decisions in court.
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.toggle}>I agree</Button>{' '}
+            <a href="https://library.oregonstate.edu/">  <Button color="secondary" >I disagree</Button></a>
+            </ModalFooter>
+          </Modal>
+        </div>
+
+
+  )
+}
     render() {
 
 
@@ -819,6 +841,7 @@ parseresource = (q) =>{
 
 <Route>
 <div className = "heading" >
+
 <div className="titlemove">
 <h1 className = "titlebg" >
           <a target="_blank" rel="noopener noreferrer" href="//oregonstate.edu">     <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img></a>   <a className = "titlename" href="/">   <span className="titlehide"> Data Sharing Wizard</span></a>
@@ -870,9 +893,13 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
             }
             if(window.location.pathname === "/"){
+
               return<div >
                 {this.log(q)}
   {this.traverser(q)}
+
+{this.termsagreement(q)}
+
               <h4>Question about Data Usage?</h4>
               <h3>Click below to start</h3>
 <div className="bod">
