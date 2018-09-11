@@ -62,6 +62,11 @@ padding-top: 10px;
   font-size: 25px;
 
 }
+.heading{
+
+
+}
+
 .left-sidebar{
   float: left;
   background-color: black;
@@ -70,7 +75,7 @@ padding-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
   margin-right: 20px;
-  height: 100vh;
+  height: 130vh;
   /*fix for later
   height: 100%;
   position: fixed;
@@ -83,6 +88,7 @@ padding-top: 10px;
 }
 .bod{
 margin-top: 20px;
+
 }
 #pdf{
   position: relative;
@@ -114,6 +120,7 @@ font-size: 14px;
 
 
 }
+
 .header{
   list-style: none;
   text-align: center;

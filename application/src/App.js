@@ -31,9 +31,12 @@ var cond1 = sessionStorage.getItem("mod");
    if (cond1 === null) {
    console.log('was null setting to true');
    cond1 = true;
+     sessionStorage.setItem("mod",cond1);
+
 }
 else{
 cond1 = JSON.parse(cond1)
+sessionStorage.setItem("mod",cond1);
 }
       super(props);
       this.state = {
@@ -827,6 +830,7 @@ cond1 = JSON.parse(cond1)
   this.setState({modal: cond1});
   }
 termsagreement = (q) =>{
+  if(sessionStorage.getItem("mod")=== "true"){
 
   return(  <div>
 
@@ -844,6 +848,7 @@ termsagreement = (q) =>{
 
 
   )
+}
 }
     render() {
 
@@ -869,7 +874,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                  data.map((q) =>  {
 
      while(q.questionid === window.location.pathname){
-
+console.log(sessionStorage.getItem("mod"))
             if(q.questionid.indexOf('done') >= 0){
 
               return<div className = "format">
@@ -877,7 +882,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
   {this.log(q)}
 
               {this.traverser(q)}
-
+    {this.termsagreement(q)}
               <div className="main-body">
 
   {this.title(q)}
@@ -910,7 +915,9 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                 {this.log(q)}
   {this.traverser(q)}
 
-{this.termsagreement(q)}
+    {this.termsagreement(q)}
+
+
 
               <h4>Question about Data Usage?</h4>
               <h3>Click below to start</h3>
@@ -942,6 +949,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                              {this.log(q)}
                   {this.traverser(q)}
                   {this.title(q)}
+                      {this.termsagreement(q)}
               <div className="mainq">
                         <h4>Information: {q.question}</h4>
 
@@ -968,6 +976,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                {this.log(q)}
     {this.traverser(q)}
     {this.title(q)}
+        {this.termsagreement(q)}
 <div className="mainq">
           <h4>Question: {q.question}</h4>
 
@@ -995,6 +1004,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
 <div className="mainq">
            <h4>Question: {q.question}</h4>
 
@@ -1022,6 +1032,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
 <div className="mainq">
 
           <ul className="header">
@@ -1048,6 +1059,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
@@ -1074,6 +1086,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
@@ -1101,6 +1114,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
