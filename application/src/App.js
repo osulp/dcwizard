@@ -27,13 +27,20 @@ class App extends Component {
    else{
     cond = JSON.parse(cond)
 }
-
+var cond1 = sessionStorage.getItem("mod");
+   if (cond1 === null) {
+   console.log('was null setting to true');
+   cond1 = true;
+}
+else{
+cond1 = JSON.parse(cond1)
+}
       super(props);
       this.state = {
         show: cond,
         modal: false,
       tooltipOpen: false,
-  modal: true
+  modal: cond1
 
       };
     this.toggleTool = this.toggleTool.bind(this);
@@ -46,7 +53,7 @@ this.parsesteps = this.parsesteps.bind(this);
     sessionStorage.setItem("show",true);
 var cond = sessionStorage.getItem("show");
 if (cond === null) {
-console.log('was null setting to false');
+console.log('was null setting to true');
 cond = true;
 }
 else{
@@ -72,11 +79,8 @@ cond = JSON.parse(cond)
 }
     this.setState({show: cond});
   }
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+
+
 
 parsesteps(q,questionok){
 var questionjoin = questionok.reverse();
@@ -811,14 +815,22 @@ parseresource = (q) =>{
   )
 }
 toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
+  sessionStorage.setItem("mod",false);
+var cond1 = sessionStorage.getItem("mod");
+if (cond1 === null) {
+console.log('was null setting to false');
+cond1 = false;
+}
+else{
+cond1 = JSON.parse(cond1)
+}
+  this.setState({modal: cond1});
   }
 termsagreement = (q) =>{
+
   return(  <div>
 
-          <Modal isOpen={this.state.modal} >
+          <Modal isOpen=   {this.state.modal} >
             <ModalHeader >Terms and Conditions</ModalHeader>
             <ModalBody>
   Welcome! This tool is for educational purposes only. Please know that you should not use the wizard for decisions with legal bindings. Only judges can make such decisions in court.
