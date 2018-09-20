@@ -95,7 +95,7 @@ margin-top: 20px;
   font-size: 16px;
   color: white;
   height: auto;
-
+max-width: 1400px;
 
      overflow: hidden;
      white-space: pre-line;       /* Since CSS 2.1 */

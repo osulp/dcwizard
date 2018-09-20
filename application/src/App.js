@@ -85,41 +85,41 @@ cond = JSON.parse(cond)
 
 
 
-parsesteps(q,questionok){
+parsesteps(q,questionok,questionurl){
 var questionjoin = questionok.reverse();
-
+var questiontog = questionurl.reverse();
 
 return(<div>
   <ol reversed className = "tabbing">
-<li >  <Link to={process.env.PUBLIC_URL + q.questionorigin[14]} style={{ textDecoration: 'underline' }}>{questionjoin[14]}</Link>
+<li >  <Link to={process.env.PUBLIC_URL + questiontog[14]} style={{ textDecoration: 'underline' }}>{questionjoin[14]}</Link>
 </li>
-  <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[13]} style={{ textDecoration: 'underline' }}  >{questionjoin[13]}</Link>
+  <li>   <Link to={process.env.PUBLIC_URL + questiontog[13]} style={{ textDecoration: 'underline' }}  >{questionjoin[13]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[12]} style={{ textDecoration: 'underline' }}>{questionjoin[12]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + questiontog[12]} style={{ textDecoration: 'underline' }}>{questionjoin[12]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[11]} style={{ textDecoration: 'underline' }} >{questionjoin[11]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + questiontog[11]} style={{ textDecoration: 'underline' }} >{questionjoin[11]}</Link>
 </li>
-  <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[10]} style={{ textDecoration: 'underline' }}>{questionjoin[10]}</Link>
+  <li>     <Link to={process.env.PUBLIC_URL + questiontog[10]} style={{ textDecoration: 'underline' }}>{questionjoin[10]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[9]} style={{ textDecoration: 'underline' }} >{questionjoin[9]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + questiontog[9]} style={{ textDecoration: 'underline' }} >{questionjoin[9]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[8]} style={{ textDecoration: 'underline' }} >{questionjoin[8]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + questiontog[8]} style={{ textDecoration: 'underline' }} >{questionjoin[8]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[7]} style={{ textDecoration: 'underline' }}>{questionjoin[7]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + questiontog[7]} style={{ textDecoration: 'underline' }}>{questionjoin[7]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + q.questionorigin[6]} style={{ textDecoration: 'underline' }}>{questionjoin[6]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + questiontog[6]} style={{ textDecoration: 'underline' }}>{questionjoin[6]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[5]} style={{ textDecoration: 'underline' }}>{questionjoin[5]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[5]} style={{ textDecoration: 'underline' }}>{questionjoin[5]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[4]} style={{ textDecoration: 'underline' }}>{questionjoin[4]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[4]} style={{ textDecoration: 'underline' }}>{questionjoin[4]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[3]}style={{ textDecoration: 'underline' }} >{questionjoin[3]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[3]}style={{ textDecoration: 'underline' }} >{questionjoin[3]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + q.questionorigin[2]} style={{ textDecoration: 'underline' }}>{questionjoin[2]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[2]} style={{ textDecoration: 'underline' }}>{questionjoin[2]}</Link>
 </li>
-      <li>   <Link to={process.env.PUBLIC_URL + q.questionorigin[1]} style={{ textDecoration: 'underline' }}>{questionjoin[1]}</Link>
+      <li>   <Link to={process.env.PUBLIC_URL + questiontog[1]} style={{ textDecoration: 'underline' }}>{questionjoin[1]}</Link>
 </li>
-<li>  <Link to={process.env.PUBLIC_URL + q.questionorigin[0]} style={{ textDecoration: 'underline' }}>{questionjoin[0]}</Link>
+<li>  <Link to={process.env.PUBLIC_URL + questiontog[0]} style={{ textDecoration: 'underline' }}>{questionjoin[0]}</Link>
 </li>
 </ol>
 </div>)
@@ -484,6 +484,8 @@ delete_log_button = (q)=>{
 }
 
 traverser(q){
+  /*
+//  original
 var questionname = []
 var i;
   var j;
@@ -514,31 +516,48 @@ questionreverse = questionname.reverse();
 </div>
 
   )
+*/
 
+//working onTHIS 9/20
+var questionname = []
+var questiontest = []
+
+  for(var j = 0; j< Object.values(data).length;j++){
+    var test = Object.values(data)[j].questionid;
+for( var k=0;k<sessionStorage.length;k++){
+if(Object.values(data)[j].questionid  === sessionStorage.key(k)){
+
+    console.log("key from session storage"+ sessionStorage.key(k));
+        questionname.push(Object.values(data)[j].questionTitle)
+        questiontest.push(Object.values(data)[j].questionid)
+console.log(test.includes(window.location.pathname))
+  }
+    if(true){
+
+      console.log("prefix from session storage "+ questiontest.includes(window.location.pathname));
+
+      questionname.pop(window.location.pathname)
+      questiontest.pop(window.location.pathname)
+
+    }
 }
-//TEST!!!! BELOW
-/*
-  var oldItems = JSON.parse(sessionStorage.getItem('stepsarray')) || [];
-  var newItem = {
+}
+var questionreverse = []
+questionreverse = questionname.reverse();
+var questionurl = []
+questionurl = questiontest.reverse();
+return(
 
-    "Question-id": q.questionid,
-    "Description": q.finished,
-"Steps Taken":  q.questionorigin+","+q.questionid
-  };
+<div className="left-sidebar">
+<h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse,questionurl)}
 
-  oldItems.push(newItem);
-var str = JSON.stringify(oldItems, undefined, 4);
-
-  sessionStorage.setItem('stepsarray', str);
-  return(
-<div className="aligntop">
- <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{sessionStorage.getItem('stepsarray')}
-
-  </h1>
+</h1>
 </div>
+
 )
 }
-*/
+
+
 export_step = (q) =>{
   var questiontype ;
   if(q.questionid.indexOf('/Q1')>=0){
@@ -730,14 +749,13 @@ save_log = (q) =>{
            doc.text("Questions?", 110, 5)
        doc.text("Contact the OSU Research Data Services at", 110, 10)
        doc.text("researchdataservices@oregonstate.edu", 110, 15)
-       var pageHeight= doc.internal.pageSize.height;
 
 
        var splitTitle = doc.splitTextToSize(JSON.parse(sessionStorage.getItem('itemsArray')).join(""), 220);
        //fixed by doing .join ""
 //PROBLEM IS THE ARRAY CREATED !!!!RHUWEIHRUIEOWHRUOIEWHR https://stackoverflow.com/questions/45780708/how-do-i-create-multiline-text-and-page-split-in-jspdf
 
-    console.log(pageHeight);
+
 
 
 doc.setFontSize(11);
