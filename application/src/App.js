@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
-import $ from 'jquery';
-import ReactDOM from 'react-dom';
+
+
 import { Route, Link} from 'react-router-dom';
 import { Tooltip } from 'reactstrap';
 import {Modal} from 'reactstrap';
@@ -14,7 +14,7 @@ import SimpleBar from 'simplebar-react';
 import {ModalFooter,Row,Col} from 'reactstrap';
 import pdfConverter from 'jspdf';
 import data from './database.json';
-import html2canvas from 'html2canvas';
+
 
 
 class App extends Component {
@@ -27,13 +27,23 @@ class App extends Component {
    else{
     cond = JSON.parse(cond)
 }
+var cond1 = sessionStorage.getItem("mod");
+   if (cond1 === null) {
+   console.log('was null setting to true');
+   cond1 = true;
+     sessionStorage.setItem("mod",cond1);
 
+}
+else{
+cond1 = JSON.parse(cond1)
+sessionStorage.setItem("mod",cond1);
+}
       super(props);
       this.state = {
         show: cond,
-        modal: false,
-      tooltipOpen: false
 
+      tooltipOpen: false,
+  modal: cond1
 
       };
     this.toggleTool = this.toggleTool.bind(this);
@@ -46,7 +56,7 @@ this.parsesteps = this.parsesteps.bind(this);
     sessionStorage.setItem("show",true);
 var cond = sessionStorage.getItem("show");
 if (cond === null) {
-console.log('was null setting to false');
+console.log('was null setting to true');
 cond = true;
 }
 else{
@@ -72,11 +82,8 @@ cond = JSON.parse(cond)
 }
     this.setState({show: cond});
   }
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+
+
 
 parsesteps(q,questionok){
 var questionjoin = questionok.reverse();
@@ -382,7 +389,7 @@ if(sessionStorage.getItem(q.questionid)=== '6'){
 
 clear_storage = () =>{
   sessionStorage.clear();
-
+document.location.reload(true);
 }
 title = (q) =>{
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
@@ -497,9 +504,9 @@ var i;
 
 var questionreverse = []
 questionreverse = questionname.reverse();
-var questionjoin = []
- questionjoin = questionreverse
+
     return(
+
 <div className="left-sidebar">
    <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse)}
 
@@ -569,7 +576,7 @@ export_step = (q) =>{
     questionstep.push("Question: " + Object.values(data)[j].question)
     questionstep.push('\n')
     for( var k=0;k<sessionStorage.length;k++){
-    if(Object.values(data)[j].questionid  == sessionStorage.key(k)){
+    if(Object.values(data)[j].questionid  === sessionStorage.key(k)){
         console.log(sessionStorage.getItem(sessionStorage.key(k)));
         if(sessionStorage.getItem(sessionStorage.key(k))=== '0'){
             questionstep.push("Answer: " + Object.values(data)[j].optionid1.option);
@@ -701,14 +708,14 @@ save_log_button = (q) => {
 
   }
   else{
-  return <div data-html2canvas-ignore="true">
+  return <div>
   <Button  color="primary" onClick={() => { this.save_log(q) }}>Save</Button>
   </div>
 }
 }
 
 save_log = (q) =>{
-window.html2canvas = html2canvas;
+
     if(sessionStorage.getItem('itemsArray') == null){
 
     }
@@ -729,7 +736,7 @@ window.html2canvas = html2canvas;
        var splitTitle = doc.splitTextToSize(JSON.parse(sessionStorage.getItem('itemsArray')).join(""), 220);
        //fixed by doing .join ""
 //PROBLEM IS THE ARRAY CREATED !!!!RHUWEIHRUIEOWHRUOIEWHR https://stackoverflow.com/questions/45780708/how-do-i-create-multiline-text-and-page-split-in-jspdf
-      var text = doc.getTextDimensions(splitTitle)
+
     console.log(pageHeight);
 
 
@@ -757,7 +764,7 @@ finalsteps = (q) =>{
     for(j = 0; j<Object.values(data).length; j++){
     if(q.questionorigin[i] === Object.values(data)[j].questionid){
 
-        arr.push((i+1)+'.'+' ')
+        arr.push((i+1)+'. ')
     arr.push(Object.values(data)[j].questionTitle);
 
       arr.push(" ")
@@ -766,7 +773,7 @@ finalsteps = (q) =>{
       }
   }
 }
-  arr.push((q.questionorigin.length + 1)+'.'+' ')
+  arr.push((q.questionorigin.length + 1)+'. ')
   arr.push(q.questionTitle);
 
   return arr;
@@ -810,7 +817,39 @@ parseresource = (q) =>{
 
   )
 }
+toggle = () => {
+  sessionStorage.setItem("mod",false);
+var cond1 = sessionStorage.getItem("mod");
+if (cond1 === null) {
+console.log('was null setting to false');
+cond1 = false;
+}
+else{
+cond1 = JSON.parse(cond1)
+}
+  this.setState({modal: cond1});
+  }
+termsagreement = (q) =>{
+  if(sessionStorage.getItem("mod")=== "true"){
 
+  return(  <div>
+
+          <Modal isOpen=   {this.state.modal} >
+            <ModalHeader >Terms and Conditions</ModalHeader>
+            <ModalBody>
+  Welcome! This tool is for educational purposes only. Please know that you should not use the wizard for decisions with legal bindings. Only judges can make such decisions in court.
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.toggle}>I agree</Button>{' '}
+            <a href="https://library.oregonstate.edu/">  <Button color="secondary" >I disagree</Button></a>
+            </ModalFooter>
+          </Modal>
+        </div>
+
+
+  )
+}
+}
     render() {
 
 
@@ -819,6 +858,7 @@ parseresource = (q) =>{
 
 <Route>
 <div className = "heading" >
+
 <div className="titlemove">
 <h1 className = "titlebg" >
           <a target="_blank" rel="noopener noreferrer" href="//oregonstate.edu">     <img className = "imgpic" src="https://library.oregonstate.edu/sites/all/themes/doug-fir-d7-library/logo.svg" alt="osu" width="100" height="100"></img></a>   <a className = "titlename" href="/">   <span className="titlehide"> Data Sharing Wizard</span></a>
@@ -834,7 +874,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                  data.map((q) =>  {
 
      while(q.questionid === window.location.pathname){
-
+console.log(sessionStorage.getItem("mod"))
             if(q.questionid.indexOf('done') >= 0){
 
               return<div className = "format">
@@ -842,7 +882,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
   {this.log(q)}
 
               {this.traverser(q)}
-
+    {this.termsagreement(q)}
               <div className="main-body">
 
   {this.title(q)}
@@ -860,7 +900,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
    <li className="new"><Link to="/"><Button className = "buttonmarg" >Home</Button></Link>  </li>
 
 
-  <li className="newt">  <div  > <Link to="/" ><Button className="reset" outline onClick={  this.clear_storage} id="TooltipExample">   <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTool}>
+  <li className="newt">  <div  > <Link to="/" ><Button className="reset" outline onClick={ this.clear_storage} id="TooltipExample">   <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggleTool}>
           Only click this if you want to clear the step log and your previous inputs!
         </Tooltip> Reset   </Button></Link></div>  </li>
 </ul>
@@ -870,9 +910,15 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
             }
             if(window.location.pathname === "/"){
+
               return<div >
                 {this.log(q)}
   {this.traverser(q)}
+
+    {this.termsagreement(q)}
+
+
+
               <h4>Question about Data Usage?</h4>
               <h3>Click below to start</h3>
 <div className="bod">
@@ -903,6 +949,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                              {this.log(q)}
                   {this.traverser(q)}
                   {this.title(q)}
+                      {this.termsagreement(q)}
               <div className="mainq">
                         <h4>Information: {q.question}</h4>
 
@@ -929,6 +976,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
                {this.log(q)}
     {this.traverser(q)}
     {this.title(q)}
+        {this.termsagreement(q)}
 <div className="mainq">
           <h4>Question: {q.question}</h4>
 
@@ -956,6 +1004,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
 <div className="mainq">
            <h4>Question: {q.question}</h4>
 
@@ -983,6 +1032,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
 <div className="mainq">
 
           <ul className="header">
@@ -1009,6 +1059,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
@@ -1035,6 +1086,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
@@ -1062,6 +1114,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
           {this.log(q)}
    {this.traverser(q)}
    {this.title(q)}
+       {this.termsagreement(q)}
    <div className="mainq">
           <ul className="header">
 
@@ -1089,7 +1142,7 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
            ;
          }
 
-       })
+       return true})
 
        }
 
