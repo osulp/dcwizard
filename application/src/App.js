@@ -519,11 +519,13 @@ questionreverse = questionname.reverse();
 */
 
 //working onTHIS 9/20
+//ask hui about this ufal feature
 var questionname = []
 var questiontest = []
 
   for(var j = 0; j< Object.values(data).length;j++){
-    var test = Object.values(data)[j].questionid;
+    var test =[]
+    test = Object.values(data)[j].questionid;
 for( var k=0;k<sessionStorage.length;k++){
 if(Object.values(data)[j].questionid  === sessionStorage.key(k)){
 
@@ -532,14 +534,16 @@ if(Object.values(data)[j].questionid  === sessionStorage.key(k)){
         questiontest.push(Object.values(data)[j].questionid)
 console.log(test.includes(window.location.pathname))
   }
-    if(true){
+  //only needed to delete but the feature above is better
+  /*
+    if(false){
 
       console.log("prefix from session storage "+ questiontest.includes(window.location.pathname));
 
       questionname.pop(window.location.pathname)
       questiontest.pop(window.location.pathname)
 
-    }
+    }*/
 }
 }
 var questionreverse = []
@@ -579,10 +583,10 @@ export_step = (q) =>{
 
   var i;
   var j;
-  for(i = 0; i < q.questionorigin.length; i++){
+  for(i = 0; i < sessionStorage.length; i++){
     for(j = 0; j< Object.values(data).length;j++){
 
-  if(q.questionorigin[i] === Object.values(data)[j].questionid && q.questionorigin[i] !== "/"){
+  if(sessionStorage.key(i) === Object.values(data)[j].questionid && sessionStorage.key(i) !== "/"){
   questionstep.push(Object.values(data)[j].questionid )
   questionstep.push('\n')
 
@@ -778,9 +782,10 @@ finalsteps = (q) =>{
   var i;
   var j;
   var arr = [];
-  for(i = 0;i<q.questionorigin.length; i++){
+  var countarr = [];
+  for(i = 0;i<sessionStorage.length; i++){
     for(j = 0; j<Object.values(data).length; j++){
-    if(q.questionorigin[i] === Object.values(data)[j].questionid){
+    if(sessionStorage.key(i) === Object.values(data)[j].questionid){
 
         arr.push((i+1)+'. ')
     arr.push(Object.values(data)[j].questionTitle);
@@ -788,10 +793,11 @@ finalsteps = (q) =>{
       arr.push(" ")
     arr.push('\u2192')
         arr.push(' ')
+        countarr.push(j)
       }
   }
 }
-  arr.push((q.questionorigin.length + 1)+'. ')
+  arr.push((countarr.length + 1)+'. ')
   arr.push(q.questionTitle);
 
   return arr;
