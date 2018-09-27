@@ -41,16 +41,11 @@ sessionStorage.setItem("mod",cond1);
       super(props);
       this.state = {
         show: cond,
-
-      tooltipOpen: false,
-  modal: cond1
+        tooltipOpen: false,
+        modal: cond1
 
       };
-    this.toggleTool = this.toggleTool.bind(this);
-  this.toggle = this.toggle.bind(this);
 
-this.traverser = this.traverser.bind(this);
-this.parsesteps = this.parsesteps.bind(this);
   }
   toggleT = () =>{
     sessionStorage.setItem("show",true);
@@ -64,7 +59,7 @@ cond = JSON.parse(cond)
 }
     this.setState({show: cond});
   }
-  toggleTool() {
+  toggleTool =()=>  {
    this.setState({
      tooltipOpen: !this.state.tooltipOpen
    });
@@ -85,50 +80,238 @@ cond = JSON.parse(cond)
 
 
 
-parsesteps(q,questionok,questionurl){
+parsesteps = (q,questionok,questionurl) =>{
 var questionjoin = questionok.reverse();
 var questiontog = questionurl.reverse();
 
 return(<div>
   <ol reversed className = "tabbing">
-<li >  <Link to={process.env.PUBLIC_URL + questiontog[14]} style={{ textDecoration: 'underline' }}>{questionjoin[14]}</Link>
+<li >  <Link to={process.env.PUBLIC_URL + questiontog[14]} style={{ color: this.step_highlight15(questiontog), textDecoration: 'underline' }}>{questionjoin[14]}</Link>
 </li>
-  <li>   <Link to={process.env.PUBLIC_URL + questiontog[13]} style={{ textDecoration: 'underline' }}  >{questionjoin[13]}</Link>
+  <li>   <Link to={process.env.PUBLIC_URL + questiontog[13]} style={{color: this.step_highlight14(questiontog), textDecoration: 'underline' }}  >{questionjoin[13]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + questiontog[12]} style={{ textDecoration: 'underline' }}>{questionjoin[12]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + questiontog[12]} style={{color: this.step_highlight13(questiontog), textDecoration: 'underline' }}>{questionjoin[12]}</Link>
 </li>
-<li>     <Link to={process.env.PUBLIC_URL + questiontog[11]} style={{ textDecoration: 'underline' }} >{questionjoin[11]}</Link>
+<li>     <Link to={process.env.PUBLIC_URL + questiontog[11]} style={{color: this.step_highlight12(questiontog), textDecoration: 'underline' }} >{questionjoin[11]}</Link>
 </li>
-  <li>     <Link to={process.env.PUBLIC_URL + questiontog[10]} style={{ textDecoration: 'underline' }}>{questionjoin[10]}</Link>
+  <li>     <Link to={process.env.PUBLIC_URL + questiontog[10]} style={{color: this.step_highlight11(questiontog), textDecoration: 'underline' }}>{questionjoin[10]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + questiontog[9]} style={{ textDecoration: 'underline' }} >{questionjoin[9]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + questiontog[9]} style={{color: this.step_highlight10(questiontog), textDecoration: 'underline' }} >{questionjoin[9]}</Link>
 </li>
-    <li>   <Link to={process.env.PUBLIC_URL + questiontog[8]} style={{ textDecoration: 'underline' }} >{questionjoin[8]}</Link>
+    <li>   <Link to={process.env.PUBLIC_URL + questiontog[8]} style={{color: this.step_highlight9(questiontog), textDecoration: 'underline' }} >{questionjoin[8]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + questiontog[7]} style={{ textDecoration: 'underline' }}>{questionjoin[7]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + questiontog[7]} style={{color: this.step_highlight8(questiontog), textDecoration: 'underline' }}>{questionjoin[7]}</Link>
 </li>
-  <li>       <Link to={process.env.PUBLIC_URL + questiontog[6]} style={{ textDecoration: 'underline' }}>{questionjoin[6]}</Link>
+  <li>       <Link to={process.env.PUBLIC_URL + questiontog[6]} style={{color: this.step_highlight7(questiontog), textDecoration: 'underline' }}>{questionjoin[6]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + questiontog[5]} style={{ textDecoration: 'underline' }}>{questionjoin[5]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[5]} style={{color: this.step_highlight6(questiontog), textDecoration: 'underline' }}>{questionjoin[5]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + questiontog[4]} style={{ textDecoration: 'underline' }}>{questionjoin[4]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[4]} style={{color: this.step_highlight5(questiontog), textDecoration: 'underline' }}>{questionjoin[4]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + questiontog[3]}style={{ textDecoration: 'underline' }} >{questionjoin[3]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[3]}style={{color: this.step_highlight4(questiontog), textDecoration: 'underline' }} >{questionjoin[3]}</Link>
 </li>
-    <li>     <Link to={process.env.PUBLIC_URL + questiontog[2]} style={{ textDecoration: 'underline' }}>{questionjoin[2]}</Link>
+    <li>     <Link to={process.env.PUBLIC_URL + questiontog[2]} style={{color: this.step_highlight3(questiontog), textDecoration: 'underline' }}>{questionjoin[2]}</Link>
 </li>
-      <li>   <Link to={process.env.PUBLIC_URL + questiontog[1]} style={{ textDecoration: 'underline' }}>{questionjoin[1]}</Link>
+      <li>   <Link to={process.env.PUBLIC_URL + questiontog[1]} style={{color: this.step_highlight2(questiontog), textDecoration: 'underline' }}>{questionjoin[1]}</Link>
 </li>
-<li>  <Link to={process.env.PUBLIC_URL + questiontog[0]} style={{ textDecoration: 'underline' }}>{questionjoin[0]}</Link>
+<li>  <Link to={process.env.PUBLIC_URL + questiontog[0]} style={{color: this.step_highlight1(questiontog) , textDecoration: 'underline' }}>{questionjoin[0]}</Link>
 </li>
 </ol>
 </div>)
 
 
 }
+step_highlight1 = (questionstep) =>{
 
-question_name = (q) => {
+  for( var i=0;i<questionstep.length; i++){
 
+  if(window.location.pathname === questionstep[0]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight2 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[1]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight3 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[2]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight4 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[3]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight5 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[4]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight6 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[5]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight7 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[6]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight8 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[7]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight9 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[8]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight10 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[9]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight11 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[10]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight12 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[11]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight13 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[12]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight14 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[13]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight15 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[14]){
+      return "#D73F09";
+
+    }
+
+
+}
+}
+step_highlight16 = (questionstep) =>{
+
+  for( var i=0;i<questionstep.length; i++){
+
+  if(window.location.pathname === questionstep[15]){
+      return "#D73F09";
+
+    }
+
+
+}
 }
 question_show = (q,type) =>{
 
@@ -439,7 +622,7 @@ log = (q)=>{
       <div >
       <Button outline color="info" style={hidden} className = "Restart" onClick={  this.toggleT}>Show Step Log</Button>
 <div  className="openlog" style={show}>
-   <h1 className ="log">
+   <div className ="log">
    <Button  style={show} className = "Hide_but" onClick={  this.hideT}>Hide Step Log</Button>
 
 {this.save_log_button(q)}
@@ -463,7 +646,7 @@ log = (q)=>{
 
 
 
-    </h1>
+    </div>
 
 </div>
 </div>
@@ -534,32 +717,25 @@ if(Object.values(data)[j].questionid  === sessionStorage.key(k)){
         questiontest.push(Object.values(data)[j].questionid)
 console.log(test.includes(window.location.pathname))
   }
-  //only needed to delete but the feature above is better
-  /*
-    if(false){
 
-      console.log("prefix from session storage "+ questiontest.includes(window.location.pathname));
-
-      questionname.pop(window.location.pathname)
-      questiontest.pop(window.location.pathname)
-
-    }*/
 }
 }
 var questionreverse = []
 questionreverse = questionname.reverse();
 var questionurl = []
 questionurl = questiontest.reverse();
+
 return(
 
 <div className="left-sidebar">
-<h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse,questionurl)}
+<div className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse,questionurl)}
 
-</h1>
+</div>
 </div>
 
 )
 }
+
 
 
 export_step = (q) =>{
@@ -586,7 +762,7 @@ export_step = (q) =>{
   for(i = 0; i < sessionStorage.length; i++){
     for(j = 0; j< Object.values(data).length;j++){
 
-  if(sessionStorage.key(i) === Object.values(data)[j].questionid && sessionStorage.key(i) !== "/"){
+  if(sessionStorage.key(i) === Object.values(data)[j].questionid && sessionStorage.key(i) !== "/" && !(sessionStorage.key(i).includes("done"))){
   questionstep.push(Object.values(data)[j].questionid )
   questionstep.push('\n')
 
@@ -854,7 +1030,7 @@ cond1 = JSON.parse(cond1)
   this.setState({modal: cond1});
   }
 termsagreement = (q) =>{
-  if(sessionStorage.getItem("mod")=== "true"){
+  if(sessionStorage.getItem("mod") === "true"){
 
   return(  <div>
 
@@ -899,13 +1075,14 @@ Contact the OSU Research Data Services at<br/>researchdataservices@oregonstate.e
 
      while(q.questionid === window.location.pathname){
 console.log(sessionStorage.getItem("mod"))
+//fix?
             if(q.questionid.indexOf('done') >= 0){
-
+sessionStorage.setItem(q.questionid, "final");
               return<div className = "format">
 
-  {this.log(q)}
+    {this.log(q)}
 
-              {this.traverser(q)}
+    {this.traverser(q)}
     {this.termsagreement(q)}
               <div className="main-body">
 
