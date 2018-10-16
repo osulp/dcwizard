@@ -65,9 +65,7 @@ padding-top: 10px;
 
 
 }
-
-.left-sidebar{
-  float: left;
+.test{  float: left;
   background-color: black;
   color: white;
   padding-top:20px;
@@ -79,7 +77,28 @@ padding-top: 10px;
   height: 100%;
   position: fixed;
   */
-  bottom: 0;
+  bottom: 0;}
+.left-sidebar{
+  float: left;
+  background-color: black;
+  color: white;
+  padding-top:20px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  border-radius: 15%;
+  /*fix for later
+  height: 100%;
+  position: fixed;
+  */
+
 
 }
 .margin-top{
@@ -113,6 +132,7 @@ white-space: pre-line;     /* Since CSS 2.1 */
      word-wrap: break-word;       /* Internet Explorer 5.5+ */
 font-family: Georgia;
 font-size: 14px;
+
 }
 
 .logcontainer{
@@ -189,7 +209,7 @@ height: 100vh;
 }
 .new{
   display: inline-block;
-
+  margin-left:
 }
 .removelist{
   list-style: none;
@@ -209,6 +229,10 @@ width: 133px;
 .finalsteps{
   padding-bottom: -20px;
 
+}
+
+.bottomcontainer{
+  margin-left: 40px;
 }
 .parser{
   color: rgb(0, 123, 255);
@@ -313,9 +337,7 @@ width: 133px;
     padding-left: 30px;
     padding-right: 30px;
     margin-right: 20px;
-    height: 100vh;
 
-    padding-bottom: 100%;
   }
 
 }
@@ -346,9 +368,7 @@ width: 133px;
     padding-left: 30px;
     padding-right: 30px;
     margin-right: 20px;
-    height: 100vh;
 
-  padding-bottom: 1000px;
   }
   .Restart{
 
@@ -356,10 +376,7 @@ width: 133px;
 }
 @media only screen and (max-width: 768px) {
   .mainq{
-    margin-top: 20px;
-    margin-left: 250px;
-    margin-right: auto;
-    width: 370px;
+
 
   }
 
@@ -374,8 +391,8 @@ width: 133px;
 
   margin-top: 33px;}
   .left-sidebar{
+    padding-right: 4px;
 
-    padding-bottom: 1200px;
   }
 }
 
@@ -406,9 +423,14 @@ display: none;
   .left-sidebar{
 padding-bottom: 20px;
     padding-left: 10px;
-
+    position: inherit;
     height: auto;
+    bottom: inherit;
+    border-radius: 0;
 float:none;
+
+margin-left: auto;
+margin-top: auto;
 width: 100%;
   }
   .openlog{
