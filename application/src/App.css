@@ -60,15 +60,12 @@ padding-top: 10px;
 
 .title{
   font-size: 25px;
-
 }
 .heading{
 
 
 }
-
-.left-sidebar{
-  float: left;
+.test{  float: left;
   background-color: black;
   color: white;
   padding-top:20px;
@@ -80,7 +77,28 @@ padding-top: 10px;
   height: 100%;
   position: fixed;
   */
-  bottom: 0;
+  bottom: 0;}
+.left-sidebar{
+  float: left;
+  background-color: black;
+  color: white;
+  padding-top:20px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  border-radius: 15%;
+  /*fix for later
+  height: 100%;
+  position: fixed;
+  */
+
 
 }
 .margin-top{
@@ -95,7 +113,7 @@ margin-top: 20px;
   font-size: 16px;
   color: white;
   height: auto;
-
+max-width: 1400px;
 
      overflow: hidden;
      white-space: pre-line;       /* Since CSS 2.1 */
@@ -114,6 +132,7 @@ white-space: pre-line;     /* Since CSS 2.1 */
      word-wrap: break-word;       /* Internet Explorer 5.5+ */
 font-family: Georgia;
 font-size: 14px;
+
 }
 
 .logcontainer{
@@ -136,7 +155,7 @@ margin-bottom: 5px;
 
 }
 .but{
-  width:500px;
+  width: 500px;
    word-wrap: break-word;
 
 }
@@ -190,7 +209,7 @@ height: 100vh;
 }
 .new{
   display: inline-block;
-
+  margin-left:
 }
 .removelist{
   list-style: none;
@@ -210,6 +229,10 @@ width: 133px;
 .finalsteps{
   padding-bottom: -20px;
 
+}
+
+.bottomcontainer{
+  margin-left: 40px;
 }
 .parser{
   color: rgb(0, 123, 255);
@@ -314,9 +337,7 @@ width: 133px;
     padding-left: 30px;
     padding-right: 30px;
     margin-right: 20px;
-    height: 100vh;
 
-    padding-bottom: 100%;
   }
 
 }
@@ -332,12 +353,12 @@ width: 133px;
     margin-top: 20px;
     margin-left: 230px;
     margin-right: auto;
-    width: 500px;
+    max-width: 700px;
 
   }
   .but-wrap{
   white-space: normal !important;
-      max-width:1000px;
+      max-width:350px;
   }
   .left-sidebar{
     float: left;
@@ -347,9 +368,7 @@ width: 133px;
     padding-left: 30px;
     padding-right: 30px;
     margin-right: 20px;
-    height: 100vh;
 
-  padding-bottom: 1000px;
   }
   .Restart{
 
@@ -357,10 +376,7 @@ width: 133px;
 }
 @media only screen and (max-width: 768px) {
   .mainq{
-    margin-top: 20px;
-    margin-left: 250px;
-    margin-right: auto;
-    width: 370px;
+
 
   }
 
@@ -375,8 +391,8 @@ width: 133px;
 
   margin-top: 33px;}
   .left-sidebar{
+    padding-right: 4px;
 
-    padding-bottom: 1200px;
   }
 }
 
@@ -407,9 +423,14 @@ display: none;
   .left-sidebar{
 padding-bottom: 20px;
     padding-left: 10px;
-
+    position: inherit;
     height: auto;
+    bottom: inherit;
+    border-radius: 0;
 float:none;
+
+margin-left: auto;
+margin-top: auto;
 width: 100%;
   }
   .openlog{
@@ -425,17 +446,37 @@ width: 100%;
 
   }
 }
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : landscape) {  .left-sidebar{
+    padding-bottom: 20px;
+        padding-left: 10px;
+        position: inherit;
+        height: auto;
+        bottom: inherit;
+        border-radius: 0;
+    float:none;
+    margin-left: 0px;
+    margin-top: 0px;
+  }}
 @media only screen
 and (min-device-width : 414px)
 and (max-device-width : 736px)
 and (orientation : landscape) {
   .left-sidebar{
-padding-bottom: 20px;
-    padding-left: 10px;
-
-    height: auto;
-float:none;
-width: 100%;
+    padding-bottom: 20px;
+        padding-left: 10px;
+        position: inherit;
+        height: auto;
+        bottom: inherit;
+        border-radius: 0;
+    float:none;
+    margin-left: 0px;
+    margin-top: 0px;
   }
 }
 @media only screen

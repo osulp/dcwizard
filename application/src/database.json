@@ -94,7 +94,7 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_1_1_yes_done"
+			"nextstepcontent": "/Q1_1_1_1_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
@@ -104,7 +104,7 @@
 	},
 	{
 		"__comment__": "This section is created for when the question is at its end goal. Every one is formatted the same and should be used accordingly. Any other questions can be noted in the documentation",
-		"questionid": "/Q1_1_1_1_yes_done",
+		"questionid": "/Q1_1_1_1_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -133,16 +133,16 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_1_1_2_yes_done"
+			"nextstepcontent": "/Q1_1_1_1_2_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_1_1_2_no_done"
+			"nextstepcontent": "/Q1_1_1_1_2_op2_done"
 		}
 	},
 	{
-		"questionid": "/Q1_1_1_1_2_yes_done",
+		"questionid": "/Q1_1_1_1_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -156,7 +156,7 @@
 		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page https://guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
 	},
 	{
-		"questionid": "/Q1_1_1_1_2_no_done",
+		"questionid": "/Q1_1_1_1_2_op2_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -185,16 +185,16 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_1_2_yes_done"
+			"nextstepcontent": "/Q1_1_1_2_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_1_2_no_done"
+			"nextstepcontent": "/Q1_1_1_2_op2_done"
 		}
 	},
 	{
-		"questionid": "/Q1_1_1_2_yes_done",
+		"questionid": "/Q1_1_1_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -207,7 +207,7 @@
 		"finished": "In this case, to know if you can use, reuse, modify or redistribute the dataset you will have to do a fair use assessment. To evaluate if your use is fair you must consider how each of the four factors from 17 U.S. Code §107 applies to your specific context. These factors are (1) the purpose of the use (2) the nature of the copyrighted material (3) the amount copied and (4) the effect on the market for the original. The OSU's copyright page guides.library.oregonstate.edu/copyright/fairuse has information and resources to help you make a good fair use assesment."
 	},
 	{
-		"questionid": "/Q1_1_1_2_no_done",
+		"questionid": "/Q1_1_1_2_op2_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -235,16 +235,16 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_2_yes_done"
+			"nextstepcontent": "/Q1_1_2_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q1_1_2_no_done"
+			"nextstepcontent": "/Q1_1_2_op2_done"
 		}
 	},
 	{
-		"questionid": "/Q1_1_2_yes_done",
+		"questionid": "/Q1_1_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -256,7 +256,7 @@
 		"finished": "The Data Sharing Agreement or written document should have all the information you need to  decide what you can do with the dataset. If it doesn't, answer No to this question. "
 	},
 	{
-		"questionid": "/Q1_1_2_no_done",
+		"questionid": "/Q1_1_2_op2_done",
 		"questionorigin": [
 			"/",
 			"/Q1_1",
@@ -314,7 +314,7 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_1_yes_done"
+			"nextstepcontent": "/Q2_1_1_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
@@ -323,7 +323,7 @@
 		}
 	},
 	{
-		"questionid": "/Q2_1_1_yes_done",
+		"questionid": "/Q2_1_1_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
@@ -353,12 +353,12 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_1_2_yes_done"
+			"nextstepcontent": "/Q2_1_1_2_op1_done"
 		},
 		"optionid2": {
 			"option": "No",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_1_2_no_done"
+			"nextstepcontent": "/Q2_1_1_2_op2_done"
 		},
 		"optionid3": {
 			"option": "I don't know",
@@ -367,7 +367,7 @@
 		}
 	},
 	{
-		"questionid": "/Q2_1_1_2_yes_done",
+		"questionid": "/Q2_1_1_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
@@ -380,7 +380,7 @@
 		"finished": "If your dataset is publicly available, protected by copyright and does not have any license, the copyright holder has all the rights to reproduce, distribute, display the work publicly, and make derivative works with the dataset. If other people want to use the dataset they will need to contact the copyright holder to ask for permission, or make a fair use assessment (if they are in the United States). For more information about how to make a fair use assessment consult the OSULP library guide https://guides.library.oregonstate.edu/copyright/fairuse . The copyright holder is usually the creator of the creative work, although copyright can be transfered. If you are the creator, you have these rights. There may be several creators, and therefore several people may share the rights. If you signed an agreement with the publisher of the dataset review it to make sure that you did not transfer some of your rights to the publisher. "
 	},
 	{
-		"questionid": "/Q2_1_1_2_no_done",
+		"questionid": "/Q2_1_1_2_op2_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
@@ -481,7 +481,7 @@
 		"optionid1": {
 			"option": "Yes",
 			"nextsteptype": 0,
-			"nextstepcontent": "/Q2_1_2_yes_done"
+			"nextstepcontent": "/Q2_1_2_op1_done"
 		},
 
 		"optionid2": {
@@ -491,7 +491,7 @@
 		}
 	},
 	{
-		"questionid": "/Q2_1_2_yes_done",
+		"questionid": "/Q2_1_2_op1_done",
 		"questionorigin": [
 			"/",
 			"/Q2_1",
