@@ -9,8 +9,9 @@
 .titlename{
   text-decoration: none;
   color: inherit;
-
+  width: 100%;
 }
+
 .titlename:hover{
   text-decoration: none;
   color:inherit;
