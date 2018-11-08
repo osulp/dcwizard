@@ -2,17 +2,17 @@
   "name": "dcwizard",
   "version": "0.1.0",
   "private": true,
-
   "dependencies": {
     "ajv": "^6.5.3",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "jspdf": "^1.4.1",
+    "merge": "^1.2.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^2.1.1",
     "reactstrap": "^6.1.0",
     "serve": "^10.0.1",
     "simplebar": "^3.0.0-beta.4",
@@ -23,5 +23,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

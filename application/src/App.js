@@ -8,7 +8,7 @@ import { Button } from "reactstrap";
 import { ModalHeader } from "reactstrap";
 import { ModalBody } from "reactstrap";
 import SimpleBar from "simplebar-react";
-
+import logo from "./esi_osu_strategicagenda_fig1_01.png";
 import { ModalFooter, Row, Col } from "reactstrap";
 import pdfConverter from "jspdf";
 import data from "./database.json";
@@ -35,7 +35,8 @@ class App extends Component {
     this.state = {
       show: cond,
       tooltipOpen: false,
-      modal: cond1
+      modal: cond1,
+      showLogo: false
     };
   }
   toggleT = () => {
@@ -884,6 +885,7 @@ questionreverse = questionname.reverse();
       "Question-id": q.questionid,
 
       "Question-title": q.questionTitle,
+
       Description: q.finished,
       resources: q.explanationresources,
       links: q.explanationlink
@@ -909,6 +911,7 @@ questionreverse = questionname.reverse();
     oldItems.push(Object.values(newItem)[4]);
     oldItems.push("\n");
     oldItems.push("\n");
+    console.log("empty? ", Object.values(newItem)[5]);
 
     oldItems.push("Resources:");
     oldItems.push("\n");
@@ -922,6 +925,7 @@ questionreverse = questionname.reverse();
     oldItems.push(Object.values(newItem)[6].join("\n"));
     oldItems.push("\n");
     oldItems.push("\n");
+
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
     //var str = JSON.stringify(oldItems.join(""), undefined, 4);
     var str = JSON.stringify(oldItems);
@@ -1013,7 +1017,10 @@ questionreverse = questionname.reverse();
     var countarr = [];
     for (i = 0; i < sessionStorage.length; i++) {
       for (j = 0; j < Object.values(data).length; j++) {
-        if ((sessionStorage.key(i) === Object.values(data)[j].questionid) && (!(Object.values(data)[j].questionid).includes("done") )) {
+        if (
+          sessionStorage.key(i) === Object.values(data)[j].questionid &&
+          !Object.values(data)[j].questionid.includes("done")
+        ) {
           arr.push(i + 1 + ". ");
           arr.push(Object.values(data)[j].questionTitle);
 
@@ -1021,7 +1028,6 @@ questionreverse = questionname.reverse();
           arr.push("\u2192");
           arr.push(" ");
           countarr.push(j);
-
         }
       }
     }
@@ -1223,7 +1229,11 @@ questionreverse = questionname.reverse();
       );
     }
   };
+  handleTitleToggle = () => {
+    this.setState({ showLogo: !this.state.showLogo });
+  };
   render() {
+    const { showLogo } = this.state;
     return (
       <Route>
         <div className="heading">
@@ -1243,9 +1253,16 @@ questionreverse = questionname.reverse();
                   height="100"
                 />
               </a>{" "}
-              <a className="titlename" href="/">
-                {" "}
-                <span className="titlehide"> Data Sharing Wizard</span>
+
+              <a
+                onMouseEnter={this.handleTitleToggle}
+                onMouseLeave={this.handleTitleToggle}
+                className="titlename"
+                href="/"
+              >
+
+                  <span className="titlehide"> Data Sharing Wizard</span>
+          
               </a>
               <p className="contactheader">
                 Questions?<br />
@@ -1273,11 +1290,11 @@ questionreverse = questionname.reverse();
                       <h5> You are done! </h5>
                       <pre className="description">{q.finished}</pre>
                       <div className="bottomcontainer">
-                      <h6> Resources:</h6>
-                      <h6>{this.parseresource(q)}</h6>
+                        <h6> Resources:</h6>
+                        <h6>{this.parseresource(q)}</h6>
 
-                      <h5>Final Steps:</h5>
-                      <p className="finalsteps"> {this.finalsteps(q)}</p>
+                        <h5>Final Steps:</h5>
+                        <p className="finalsteps"> {this.finalsteps(q)}</p>
                       </div>
                     </div>
 
