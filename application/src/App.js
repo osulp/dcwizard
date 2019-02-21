@@ -8,7 +8,6 @@ import { Button } from "reactstrap";
 import { ModalHeader } from "reactstrap";
 import { ModalBody } from "reactstrap";
 import SimpleBar from "simplebar-react";
-import logo from "./esi_osu_strategicagenda_fig1_01.png";
 import { ModalFooter, Row, Col } from "reactstrap";
 import pdfConverter from "jspdf";
 import data from "./database.json";
@@ -36,7 +35,6 @@ class App extends Component {
       show: cond,
       tooltipOpen: false,
       modal: cond1,
-      showLogo: false
     };
   }
   toggleT = () => {
@@ -952,7 +950,7 @@ questionreverse = questionname.reverse();
             this.export_step(q);
           }}
         >
-          Export
+          Save to Log
         </Button>
       </div>
     );
@@ -968,7 +966,7 @@ questionreverse = questionname.reverse();
               this.save_log(q);
             }}
           >
-            Save
+            Download PDF
           </Button>
         </div>
       );
@@ -1036,9 +1034,21 @@ questionreverse = questionname.reverse();
 
     return arr;
   };
+  headingIfempty = q =>{
+    for(var i = 0; i < 16; i ++){
+      if(q.explanationlink[i]===""){
+        return "";
+      }
+      else{
+        return "Resources:";
+      }
+    }
+  }
   parseresource = q => {
+
     return (
       <div>
+        <h6>{this.headingIfempty(q)}</h6>
         <ol reversed className="tabbing">
           <li>
             {" "}
@@ -1046,6 +1056,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[14]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[14]}
             </a>
@@ -1056,6 +1067,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[13]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[13]}
             </a>
@@ -1066,6 +1078,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[12]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[12]}
             </a>
@@ -1076,6 +1089,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[11]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[11]}
             </a>
@@ -1086,6 +1100,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[10]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[10]}
             </a>
@@ -1096,6 +1111,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[9]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[9]}
             </a>
@@ -1106,6 +1122,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[8]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[8]}
             </a>
@@ -1116,6 +1133,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[7]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[7]}
             </a>
@@ -1126,6 +1144,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[6]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[6]}
             </a>
@@ -1136,6 +1155,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[5]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[5]}
             </a>
@@ -1146,6 +1166,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[4]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[4]}
             </a>
@@ -1155,6 +1176,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[3]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[3]}
             </a>
@@ -1165,6 +1187,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[2]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[2]}
             </a>
@@ -1175,6 +1198,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[1]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[1]}
             </a>
@@ -1185,6 +1209,7 @@ questionreverse = questionname.reverse();
               href={q.explanationlink[0]}
               style={{ textDecoration: "underline" }}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {q.explanationresources[0]}
             </a>
@@ -1229,11 +1254,8 @@ questionreverse = questionname.reverse();
       );
     }
   };
-  handleTitleToggle = () => {
-    this.setState({ showLogo: !this.state.showLogo });
-  };
+
   render() {
-    const { showLogo } = this.state;
     return (
       <Route>
         <div className="heading">
@@ -1262,7 +1284,7 @@ questionreverse = questionname.reverse();
               >
 
                   <span className="titlehide"> Data Sharing Wizard</span>
-          
+
               </a>
               <p className="contactheader">
                 Questions?<br />
@@ -1287,13 +1309,12 @@ questionreverse = questionname.reverse();
                     {this.termsagreement(q)}
                     <div className="main-body">
                       {this.title(q)}
-                      <h5> You are done! </h5>
+
                       <pre className="description">{q.finished}</pre>
                       <div className="bottomcontainer">
-                        <h6> Resources:</h6>
+
                         <h6>{this.parseresource(q)}</h6>
 
-                        <h5>Final Steps:</h5>
                         <p className="finalsteps"> {this.finalsteps(q)}</p>
                       </div>
                     </div>
@@ -1301,9 +1322,7 @@ questionreverse = questionname.reverse();
                     <ul className="endbuttons">
                       <li className="new">{this.export_step_button(q)} </li>
                       <li className="new">
-                        <Link to="/">
-                          <Button className="buttonmarg">Home</Button>
-                        </Link>{" "}
+
                       </li>
 
                       <li className="newt">
@@ -1441,7 +1460,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description"> {q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -1500,7 +1518,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description"> {q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -1577,7 +1594,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description">{q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -1672,7 +1688,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description"> {q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -1787,7 +1802,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description"> {q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -1921,7 +1935,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description"> {q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
@@ -2074,7 +2087,6 @@ questionreverse = questionname.reverse();
                         </ul>
                         <h6> Explanation: </h6>{" "}
                         <pre className="description">{q.explanation} </pre>
-                        <h6> Resources:</h6>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                     </div>
