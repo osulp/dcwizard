@@ -623,12 +623,77 @@ class App extends Component {
             data-simplebar-auto-hide="false"
             style={{ height: "350px" }}
           >
+          <h5>Most recent save on: {sessionStorage.getItem("Time")}</h5>
+
             <p id="pdf"> {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
           </SimpleBar>
         </div>
       );
     }
   };
+  timedisplay = q =>{
+    var d = new Date();
+    var day = d.getDate().toString();
+    var monthOrig = d.getMonth()+1;
+    var month = monthOrig.toString();
+    var year = d.getFullYear().toString();
+    var hour = d.getHours();
+    var realHour;
+    if (hour === 0){
+      realHour = 12;
+    }
+    if (hour === 13 || hour === 1){
+      realHour = 1;
+    }
+    if (hour === 14|| hour === 2){
+      realHour = 2;
+    }
+    if (hour === 15|| hour === 3){
+      realHour = 3;
+    }
+    if (hour === 16|| hour === 4){
+      realHour = 4;
+    }
+    if (hour === 17|| hour === 5){
+      realHour = 5;
+    }
+    if (hour === 18|| hour === 6){
+      realHour = 6;
+    }
+    if (hour === 19|| hour === 7){
+      realHour = 7;
+    }
+    if (hour === 20|| hour === 8){
+      realHour = 8;
+    }
+    if (hour === 21|| hour === 9){
+      realHour = 9;
+    }
+    if (hour === 22|| hour === 10){
+      realHour = 10;
+    }
+    if (hour === 23|| hour === 11){
+      realHour = 11;
+    }
+
+
+    var ampm = "";
+    if(hour >= 12){
+      ampm = "PM"
+    }
+    else{
+      ampm = "AM"
+    }
+    var minutes = d.getMinutes();
+    var realMinutes;
+    if(minutes >=0 && minutes < 10){
+      realMinutes = "0" + minutes.toString();
+    }
+    else{
+      realMinutes = minutes.toString();
+    }
+    sessionStorage.setItem("Time",month+"/"+day+"/"+year+" - "+ realHour+":"+realMinutes+" "+ ampm);
+  }
   log = q => {
     var show = {
       display: this.state.show ? "block" : "none"
@@ -636,6 +701,7 @@ class App extends Component {
     var hidden = {
       display: this.state.show ? "none" : "block"
     };
+
     if (window.location.pathname === q.questionid) {
       return (
         <div>
@@ -655,7 +721,6 @@ class App extends Component {
               </Button>
 
               {this.save_log_button(q)}
-
               <h4 className="margin-top">Step Log: </h4>
 
               <div className="logcontainer">{this.show_loginfo(q)}</div>
@@ -947,6 +1012,7 @@ questionreverse = questionname.reverse();
           color="primary"
           className="buttonmarg"
           onClick={() => {
+            this.timedisplay(q);
             this.export_step(q);
           }}
         >
@@ -977,63 +1043,6 @@ questionreverse = questionname.reverse();
     if (sessionStorage.getItem("itemsArray") == null) {
     } else {
       var doc = new pdfConverter();
-      var d = new Date();
-      var day = d.getDate().toString();
-      var monthOrig = d.getMonth()+1;
-      var month = monthOrig.toString();
-      var year = d.getFullYear().toString();
-      var hour = d.getHours();
-      var realHour;
-      if (hour == 0){
-        realHour = 12;
-      }
-      if (hour == 13 || hour == 1){
-        realHour = 1;
-      }
-      if (hour == 14|| hour == 2){
-        realHour = 2;
-      }
-      if (hour == 15|| hour == 3){
-        realHour = 3;
-      }
-      if (hour == 16|| hour == 4){
-        realHour = 4;
-      }
-      if (hour == 17|| hour == 5){
-        realHour = 5;
-      }
-      if (hour == 18|| hour == 6){
-        realHour = 6;
-      }
-      if (hour == 19|| hour == 7){
-        realHour = 7;
-      }
-      if (hour == 20|| hour == 8){
-        realHour = 8;
-      }
-      if (hour == 21|| hour == 9){
-        realHour = 9;
-      }
-      if (hour == 22|| hour == 10){
-        realHour = 10;
-      }
-      if (hour == 23|| hour == 11){
-        realHour = 11;
-      }
-
-
-      var ampm = "";
-      if(hour >= 12){
-        ampm = "PM"
-      }
-      else{
-        ampm = "AM"
-      }
-      var minutes = d.getMinutes();
-      var realMinutes;
-      if(minutes >=0 && minutes < 10){
-        realMinutes = "0" + minutes.toString();
-      }
 
       doc.setFontSize(20);
       doc.text("Digital Copyright Wizard", 15, 11);
@@ -1043,7 +1052,8 @@ questionreverse = questionname.reverse();
       doc.text("Contact the OSU Research Data Services at:", 110, 10);
       doc.text("researchdataservices@oregonstate.edu", 110, 15);
       doc.text("Website: http://dcwizard.library.oregonstate.edu/", 110, 20);
-      doc.text(month+"/"+day+"/"+year+" - "+ realHour+":"+realMinutes+" "+ ampm, 170, 5);
+
+      doc.text("Saved at: " + sessionStorage.getItem("Time"), 170, 5);
 
 
       var splitTitle = doc.splitTextToSize(
