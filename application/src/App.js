@@ -664,7 +664,7 @@ class App extends Component {
                 {this.delete_log_button(q)}
                 <p className="contactlog">
                   Questions?<br />
-                  Contact the OSU Research Data Services at<br />researchdataservices@oregonstate.edu{" "}
+                  Contact the OSU Research Data Services at<br />researchdataservices@oregonstate.edu<br/>Website: http://dcwizard.library.oregonstate.edu/{" "}
                 </p>
               </div>
             </div>
@@ -977,18 +977,78 @@ questionreverse = questionname.reverse();
     if (sessionStorage.getItem("itemsArray") == null) {
     } else {
       var doc = new pdfConverter();
+      var d = new Date();
+      var day = d.getDate().toString();
+      var monthOrig = d.getMonth()+1;
+      var month = monthOrig.toString();
+      var year = d.getFullYear().toString();
+      var hour = d.getHours();
+      var realHour;
+      if (hour == 0){
+        realHour = 12;
+      }
+      if (hour == 13 || hour == 1){
+        realHour = 1;
+      }
+      if (hour == 14|| hour == 2){
+        realHour = 2;
+      }
+      if (hour == 15|| hour == 3){
+        realHour = 3;
+      }
+      if (hour == 16|| hour == 4){
+        realHour = 4;
+      }
+      if (hour == 17|| hour == 5){
+        realHour = 5;
+      }
+      if (hour == 18|| hour == 6){
+        realHour = 6;
+      }
+      if (hour == 19|| hour == 7){
+        realHour = 7;
+      }
+      if (hour == 20|| hour == 8){
+        realHour = 8;
+      }
+      if (hour == 21|| hour == 9){
+        realHour = 9;
+      }
+      if (hour == 22|| hour == 10){
+        realHour = 10;
+      }
+      if (hour == 23|| hour == 11){
+        realHour = 11;
+      }
+
+
+      var ampm = "";
+      if(hour >= 12){
+        ampm = "PM"
+      }
+      else{
+        ampm = "AM"
+      }
+      var minutes = d.getMinutes();
+      var realMinutes;
+      if(minutes >=0 && minutes < 10){
+        realMinutes = "0" + minutes.toString();
+      }
 
       doc.setFontSize(20);
-      doc.text("Digital Copyright Wizard", 5, 10);
+      doc.text("Digital Copyright Wizard", 15, 11);
       doc.setFont("Georgia");
-      doc.setFontSize(14);
+      doc.setFontSize(9);
       doc.text("Questions?", 110, 5);
-      doc.text("Contact the OSU Research Data Services at", 110, 10);
+      doc.text("Contact the OSU Research Data Services at:", 110, 10);
       doc.text("researchdataservices@oregonstate.edu", 110, 15);
+      doc.text("Website: http://dcwizard.library.oregonstate.edu/", 110, 20);
+      doc.text(month+"/"+day+"/"+year+" - "+ realHour+":"+realMinutes+" "+ ampm, 170, 5);
+
 
       var splitTitle = doc.splitTextToSize(
         JSON.parse(sessionStorage.getItem("itemsArray")).join(""),
-        220
+        150
       );
       //fixed by doing .join ""
       //PROBLEM IS THE ARRAY CREATED !!!!RHUWEIHRUIEOWHRUOIEWHR https://stackoverflow.com/questions/45780708/how-do-i-create-multiline-text-and-page-split-in-jspdf
