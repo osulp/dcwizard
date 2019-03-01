@@ -1,3 +1,7 @@
+* {
+
+ font-family: Helvetica !important;
+}
 
 .imgpic{
   width: 250px;
@@ -109,6 +113,7 @@ padding-top: 10px;
 margin-top: 20px;
 
 }
+
 #pdf{
   position: relative;
   font-size: 16px;
@@ -192,15 +197,15 @@ p{
   padding-left: 30px;
   padding-right: 30px;
 
-width: 100%;
-height: 100vh;
+width: 40%;
+height: 100%;
 
 }
 .contactheader{
   font-size: 16px;
   float: right;
   padding-right: 20px;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 .contactlog{
   font-size: 16px;
@@ -217,7 +222,7 @@ height: 100vh;
 }
 .newt{
   display: inline-block;
-  float: right;
+
   margin-right: 7px;
 }
 .endbuttons{
@@ -231,7 +236,11 @@ width: 133px;
   padding-bottom: -20px;
 
 }
+.col-Style{
+  min-width: 200px;
+  white-space: normal;
 
+}
 .bottomcontainer{
   margin-left: 40px;
 }
@@ -342,7 +351,20 @@ width: 133px;
   }
 
 }
-@media only screen and (max-width: 1019px) {
+@media only screen and (max-width: 1044px) {
+  .left-sidebar{
+    float: left;
+    background-color: black;
+    color: white;
+    padding-top:20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 20px;
+
+  }
+
+}
+@media only screen and (max-width: 1028px) {
   .contactheader{
     display: none;
 
@@ -403,6 +425,60 @@ width: 133px;
   }
 
 }
+@media only screen and (max-width: 803px) {
+  .left-sidebar{
+  padding-bottom: 20px;
+    padding-left: 10px;
+    position: inherit;
+    height: auto;
+    bottom: inherit;
+    border-radius: 0;
+  float:none;
+
+  margin-left: auto;
+  margin-top: auto;
+  width: 100%;
+  }
+  .openlog{
+    float: none;
+    background-color: black;
+    color: white;
+
+    font-size: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+  width: 100%;
+  height: 120vh;
+
+  }
+}
+@media only screen and (max-width: 950px) {
+  .left-sidebar{
+  padding-bottom: 20px;
+    padding-left: 10px;
+    position: inherit;
+    height: auto;
+    bottom: inherit;
+    border-radius: 0;
+  float:none;
+
+  margin-left: auto;
+  margin-top: auto;
+  width: 100%;
+  }
+  .openlog{
+    float: none;
+    background-color: black;
+    color: white;
+
+    font-size: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+  width: 100%;
+  height: 120vh;
+
+  }
+}
 @media only screen and (max-width: 655px) {
 
   .mainq{
@@ -453,7 +529,10 @@ width: 100%;
 and (min-device-width : 375px)
 and (max-device-width : 812px)
 and (-webkit-device-pixel-ratio : 3)
-and (orientation : landscape) {  .left-sidebar{
+and (orientation : landscape) {
+
+
+  .left-sidebar{
     padding-bottom: 20px;
         padding-left: 10px;
         position: inherit;
