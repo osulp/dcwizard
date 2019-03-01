@@ -14,6 +14,7 @@ import data from "./database.json";
 
 class App extends Component {
   constructor(props) {
+    //the cond gets a show type variable item which will pop up the Step Log when true.
     var cond = sessionStorage.getItem("show");
     if (cond === null) {
       console.log("was null setting to false");
@@ -21,6 +22,8 @@ class App extends Component {
     } else {
       cond = JSON.parse(cond);
     }
+    //the cond1 gets a mod type variable item which will pop up the Modal at the beginning for terms and conditions when true.
+
     var cond1 = sessionStorage.getItem("mod");
     if (cond1 === null) {
       console.log("was null setting to true");
@@ -38,6 +41,7 @@ class App extends Component {
     };
   }
   toggleT = () => {
+    //This shows the Step log button function
     sessionStorage.setItem("show", true);
     var cond = sessionStorage.getItem("show");
     if (cond === null) {
@@ -55,6 +59,7 @@ class App extends Component {
   };
 
   hideT = () => {
+    //this hides the step log button function
     sessionStorage.setItem("show", false);
     var cond = sessionStorage.getItem("show");
     if (cond === null) {
@@ -67,6 +72,13 @@ class App extends Component {
   };
 
   parsesteps = (q, questionok, questionurl) => {
+    /*******
+    Input: Questionid and questiontitle in JSON.
+    Output: The labels and links on the left side sidebar which are used to traverse through the page.
+    description: This reveals the sidebar links on the left side bar
+
+
+    *******/
     var questionjoin = questionok.reverse();
     var questiontog = questionurl.reverse();
 
@@ -258,6 +270,12 @@ class App extends Component {
     );
   };
   step_highlight1 = questionstep => {
+    /*************
+    Input: questionstep is an array from the questiontog from parsesteps() function
+    Output: returns orange tint in the left sidebar when on step.
+    Description: Any path created is turned to orange on the left hand side
+
+    *******************/
     for (var i = 0; i < questionstep.length; i++) {
       if (window.location.pathname === questionstep[0]) {
         return "#D73F09";
@@ -370,6 +388,13 @@ class App extends Component {
     }
   };
   question_show = (q, type) => {
+    /*******
+    Input: q as in the whole JSON file and type which is a number to show how many question answer options there are.
+
+    Output: To store the questionid in the sessionStorage storage which will store the information to the left side
+    bar when clicking a step-next button. Then once you change your option it will remove the future steps from the left sidebar.
+
+    *****************/
     var i;
     var arr = [];
     if (type === 0) {
@@ -532,6 +557,15 @@ class App extends Component {
     }
   };
   chosen_color_0 = q => {
+  /********
+  Input: q as the the whole json file
+
+  Output: The blue or grey color of the buttons.
+
+  Description: This is detected by checking the sessionStorage key of q.questionid (current Question)
+  and checks if the current question has a number stored in it which corresponds with what button.
+  (0 is the first button, 1 is the second, etc...). This is the same for all chosen_color
+  ********/
     if (sessionStorage.getItem(q.questionid) === "0") {
       return "#007bff";
     } else {
@@ -583,13 +617,25 @@ class App extends Component {
   };
 
   clear_storage = () => {
+    /****
+    Input: Nothing
+    Output: clears the session storage (THIS IS CALLED WHENEVER THE RESET BUTTON IS CLICKED ON THE FINAL PAGE)
+    ****/
     sessionStorage.clear();
     document.location.reload(true);
   };
   title = q => {
-    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
-    //used that to learn about object values
-    //not supported on internet explorer (supported on microsoft edge)
+
+    /*******
+    Input: q as the whole json files
+
+    output: to get the title name in each question type
+    Resources:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values
+    used that to learn about object values
+    not supported on internet explorer (supported on microsoft edge)
+
+    ************/
     if (q.questionid.indexOf("/Q1") >= 0) {
       return (
         <div>
@@ -614,6 +660,9 @@ class App extends Component {
     }
   };
   show_loginfo = q => {
+    /*******************
+    Description: This holds the information in the step log
+    *******************/
     if (sessionStorage.getItem("itemsArray") === null) {
       return;
     } else {
@@ -632,6 +681,10 @@ class App extends Component {
     }
   };
   timedisplay = q =>{
+    /*******************
+    Description: Displays the time to the steplog
+
+    *******************/
     var d = new Date();
     var day = d.getDate().toString();
     var monthOrig = d.getMonth()+1;
@@ -759,42 +812,12 @@ class App extends Component {
   };
 
   traverser(q) {
-    /*
-//  original
-var questionname = []
-var i;
-  var j;
-  for(i = 0; i < q.questionorigin.length; i++){
-    for(j = 0; j< Object.values(data).length;j++){
+    /*****
+    Input: q as whole json file
 
-  if(q.questionorigin[i] === Object.values(data)[j].questionid){
+    Output: The container of the left-sidebar. It holds all the information for the leftsidebar which is the information is given by the function parsesteps()
+    *****/
 
-    questionname.push(Object.values(data)[j].questionTitle)
-
-
-  //console.log("if stored in array "+questionstep)
-  //now that in array parse each step
-
-}
-}
-}
-
-var questionreverse = []
-questionreverse = questionname.reverse();
-
-    return(
-
-<div className="left-sidebar">
-   <h1 className ="title"><h4>Current Step:</h4><h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>{this.parsesteps(q,questionreverse)}
-
-    </h1>
-</div>
-
-  )
-*/
-
-    //working onTHIS 9/20
-    //ask hui about this ufal feature
     var questionname = [];
     var questiontest = [];
 
@@ -827,6 +850,12 @@ questionreverse = questionname.reverse();
   }
 
   export_step = q => {
+    /***********
+    Input: q as in the whole json file
+
+    Output: Saves finalstep and questions to the steplog when save to log is clicked.
+
+    ************/
     var questiontype;
     if (q.questionid.indexOf("/Q1") >= 0) {
       questiontype = Object.values(data)[1].option[0];
@@ -835,7 +864,6 @@ questionreverse = questionname.reverse();
     } else if (q.questionid.indexOf("/Q3") >= 0) {
       questiontype = Object.values(data)[1].option[2];
     }
-    //WORKING ON THIS 8/21/18
     var questionstep = [];
 
     var i;
@@ -943,8 +971,13 @@ else{
     }
 
     //console.log("if stored in array "+questionstep.join(""))
-
+    /****
+    Olditems is used to append to the step log new steps.
+    ****/
     var oldItems = JSON.parse(sessionStorage.getItem("itemsArray")) || [];
+    /*****
+    Newitem is a template when pushing it on th the oldItems array
+    ******/
     var newItem = {
       Question: questiontype,
       "Past Steps": questionstep,
@@ -1012,6 +1045,10 @@ oldItems.push("\n");
     document.location.reload(true);
   };
   output = inp => {
+    /*******************
+    Description: stores item in item array
+
+    *******************/
     //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
     sessionStorage.setItem("itemsArray", inp);
     //    console.log(JSON.parse(sessionStorage.getItem('itemsArray')))
@@ -1051,6 +1088,11 @@ oldItems.push("\n");
   };
 
   save_log = q => {
+    /***********
+    input: q as in the database josn file
+    output: the PDF of the step log
+
+    ************/
     if (sessionStorage.getItem("itemsArray") == null) {
     } else {
       var doc = new pdfConverter();
@@ -1089,7 +1131,11 @@ oldItems.push("\n");
       doc.save("DCwizard.pdf");
     }
   };
+  /*******************
+  Description: This shows the final steps on the finl page to see what steps you've taken to get to the final step
+  *******************/
   finalsteps = q => {
+
     var i;
     var j;
     var arr = [];
@@ -1116,6 +1162,10 @@ oldItems.push("\n");
     return arr;
   };
   headingIfempty = q =>{
+    /*******************
+    Description: This makes sure the resoucres title of each question page is only shown if it has a resource
+
+    *******************/
     for(var i = 0; i < 16; i ++){
       if(q.explanationlink[i]===""){
         return "";
@@ -1126,7 +1176,13 @@ oldItems.push("\n");
     }
   }
   parseresource = q => {
+/******
+input: q as whole database but more importantly eg.		"explanationresources": ["Creative commons licenses"], "explanationlink": ["https://creativecommons.org/licenses/"],
+which will be used to put the resource link and name on each question if the question has Resources
 
+Output: the resources that is shown on each question
+
+******/
     return (
       <div>
         <h6>{this.headingIfempty(q)}</h6>
@@ -1300,6 +1356,10 @@ oldItems.push("\n");
     );
   };
   toggle = () => {
+    /****
+    Input:none
+    Output: terms and agreement modal popup at startup
+    ****/
     sessionStorage.setItem("mod", false);
     var cond1 = sessionStorage.getItem("mod");
     if (cond1 === null) {
@@ -1311,6 +1371,11 @@ oldItems.push("\n");
     this.setState({ modal: cond1 });
   };
   termsagreement = q => {
+    /******
+    Input: q
+    Output: the information in the terms and agreement modal
+
+    ******/
     if (sessionStorage.getItem("mod") === "true") {
       return (
         <div>
@@ -1337,6 +1402,10 @@ oldItems.push("\n");
   };
 
   render() {
+    /*****************
+    Description: main page renderer. renders the whole page
+
+    ********************/
     return (
       <Route>
         <div className="heading">
@@ -1376,6 +1445,11 @@ oldItems.push("\n");
 
           {//http://4dev.tech/2017/12/how-to-load-a-json-file-in-reactjs/
           //learned about data.map here below
+          /*****************
+          data.map(q=>....) the data part of this is named at the top of this code page which is database.json
+          data.map is used to create a struct similar to c++
+          used in react to load the json file in
+          ******************/
           data.map(q => {
             while (q.questionid === window.location.pathname) {
               console.log(sessionStorage.getItem("mod"));
