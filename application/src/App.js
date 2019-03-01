@@ -914,7 +914,7 @@ questionreverse = questionname.reverse();
 
           questionstep.push("\n");
           questionstep.push("\n");
-
+if(    Object.values(data)[j].explanationresources.join("\n") !== ""){
           questionstep.push("Resources:");
           questionstep.push("\n");
 
@@ -929,9 +929,13 @@ questionreverse = questionname.reverse();
           questionstep.push(Object.values(data)[j].explanationlink.join("\n"));
           questionstep.push("\n");
 
-          questionstep.push("\n");
-          questionstep.push("\n");
+}
+else{
 
+}
+
+          questionstep.push("\n");
+          questionstep.push("\n");
           //console.log("if stored in array "+questionstep)
           //now that in array parse each step
         }
@@ -975,6 +979,8 @@ questionreverse = questionname.reverse();
     oldItems.push("\n");
     oldItems.push("\n");
     console.log("empty? ", Object.values(newItem)[5]);
+if(Object.values(newItem)[5].join("\n") !== ""){
+
 
     oldItems.push("Resources:");
     oldItems.push("\n");
@@ -986,9 +992,14 @@ questionreverse = questionname.reverse();
     oldItems.push("Links:");
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[6].join("\n"));
-    oldItems.push("\n");
-    oldItems.push("\n");
+}
 
+
+else{
+
+}
+oldItems.push("\n");
+oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
     //var str = JSON.stringify(oldItems.join(""), undefined, 4);
     var str = JSON.stringify(oldItems);
@@ -1437,13 +1448,15 @@ questionreverse = questionname.reverse();
                     <h3>Click below to start</h3>
                     <div className="bod">
                       <Row>
-                        <Col>
+                        <Col className="col-Style">
                           <Link to={process.env.PUBLIC_URL + q.optionlink[0]}>
                             <Button
                               color="danger"
                               style={{
                                 background: this.chosen_color_0(q),
-                                border: this.chosen_color_0(q)
+                                border: this.chosen_color_0(q),
+                                whiteSpace:"normal"
+
                               }}
                               onClick={() => {
                                 this.question_show(q, 0);
@@ -1455,13 +1468,14 @@ questionreverse = questionname.reverse();
                           <p>{q.questioninfo[0]} </p>
                         </Col>
 
-                        <Col>
+                        <Col className="col-Style">
                           <Link to={process.env.PUBLIC_URL + q.optionlink[1]}>
                             <Button
                               color="danger"
                               style={{
                                 background: this.chosen_color_1(q),
-                                border: this.chosen_color_1(q)
+                                border: this.chosen_color_1(q),
+                                    whiteSpace:"normal"
                               }}
                               onClick={() => {
                                 this.question_show(q, 1);
@@ -1472,13 +1486,14 @@ questionreverse = questionname.reverse();
                           </Link>
                           <p> {q.questioninfo[1]} </p>
                         </Col>
-                        <Col>
+                        <Col className="col-Style">
                           <Link to={process.env.PUBLIC_URL + q.optionlink[2]}>
                             <Button
                               color="danger"
                               style={{
                                 background: this.chosen_color_2(q),
-                                border: this.chosen_color_2(q)
+                                border: this.chosen_color_2(q),
+                                    whiteSpace:"normal"
                               }}
                               onClick={() => {
                                 this.question_show(q, 2);
