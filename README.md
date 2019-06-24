@@ -1,13 +1,21 @@
 # dcwizard
-Data Sharing Wizard is an online tool to help OSU researchers and graduate students make appropriate and real time copyright decisions relating to data sharing and reuse
+Data Sharing Wizard is an online tool to help OSU researchers and graduate students make appropriate and real time copyright decisions relating to data sharing and reuse. It is an application built with React and NodeJS.
 
-## Running
-1. Clone the Repo
-2. cd to ./../dcwizard/application
-3. npm install
-4. npm start
+## File structure
+1. application/build: your final, production-ready build, this directory won’t exist until you run npm build.
+2. application/node_modules: packages installed by NPM.
+3. application/public: static files, files in the public directory will maintain the same file name in production such as index.html, manifest.json, or robots.txt.
+4. application/src: the directory of Wizard, App.js and App.css.
 
-## To push/commit
-1. cd to ./../dcwizard/ (the git files are there) 
-2. git add -A
-3. git commit -m "message"
+## How to build the app
+1. Clone the Repo (git clone)
+2. cd to dcwizard/application
+3. npm run build
+4. troubleshoot: install missing npm modules (npm-install-missing)
+
+## How to deploy the app tp prod
+1. cd to dcwizard/application/build
+2. scp * deploy-php@dcwizard.library.oregonstate.edu:/var/www/dcwizard.library.oregonstate.edu/current
+3. DocumentRoot on prod: set in /etc/httpd/conf/dcwizard_library_oregonstate_edu.conf
+4. log directory: /etc/httpd/logs/dcwizard.library.oregonstate.edu/
+5. prod url: https://dcwizard.library.oregonstate.edu/
