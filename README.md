@@ -13,9 +13,9 @@ Data Sharing Wizard is an online tool to help OSU researchers and graduate stude
 3. npm run build
 4. troubleshoot: install missing npm modules (npm-install-missing)
 
-## How to deploy the app tp prod
+## How to deploy the app to production
 1. cd to dcwizard/application/build
 2. scp * deploy-php@dcwizard.library.oregonstate.edu:/var/www/dcwizard.library.oregonstate.edu/current
 3. DocumentRoot on prod: set in /etc/httpd/conf/dcwizard_library_oregonstate_edu.conf
 4. log directory: /etc/httpd/logs/dcwizard.library.oregonstate.edu/
-5. prod url: https://dcwizard.library.oregonstate.edu/
+5. Production url: https://dcwizard.library.oregonstate.edu/
