@@ -622,7 +622,7 @@ class App extends Component {
     Output: clears the session storage (THIS IS CALLED WHENEVER THE RESET BUTTON IS CLICKED ON THE FINAL PAGE)
     ****/
     sessionStorage.clear();
-    document.location.reload(true);
+    //document.location.reload(true);
   };
   title = q => {
 
@@ -1454,10 +1454,11 @@ Output: the resources that is shown on each question
             while (q.questionid === window.location.pathname) {
               console.log(sessionStorage.getItem("mod"));
               //fix?
+              //error here only if numoptionns isn't set in the json file
               if (q.questionid.indexOf("done") >= 0) {
                 sessionStorage.setItem(q.questionid, "final");
                 return (
-                  <div className="format">
+                  <div key={q.questionid.indexOf("done")} className="format">
                     {this.log(q)}
 
                     {this.traverser(q)}
@@ -1484,7 +1485,7 @@ Output: the resources that is shown on each question
                         {" "}
                         <div>
                           {" "}
-                          <Link to="/">
+                          <Link to={process.env.PUBLIC_URL}  >
                             <Button
                               className="reset"
                               outline
@@ -1512,7 +1513,7 @@ Output: the resources that is shown on each question
               }
               if (window.location.pathname === "/") {
                 return (
-                  <div>
+                  <div key={window.location.pathname}>
                     {this.log(q)}
                     {this.traverser(q)}
 
@@ -1587,9 +1588,10 @@ Output: the resources that is shown on each question
                   </div>
                 );
               } else {
+                console.log("here?")
                 if (q.numoptions === 1) {
                   return (
-                    <div>
+                    <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -1627,7 +1629,7 @@ Output: the resources that is shown on each question
 
                 if (q.numoptions === 2) {
                   return (
-                    <div>
+                    <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -1683,7 +1685,7 @@ Output: the resources that is shown on each question
                   );
                 } else if (q.numoptions === 3) {
                   return (
-                    <div className="format">
+                    <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -1759,7 +1761,7 @@ Output: the resources that is shown on each question
                   );
                 } else if (q.numoptions === 4) {
                   return (
-                    <div className="format">
+                    <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -1853,7 +1855,7 @@ Output: the resources that is shown on each question
                   );
                 } else if (q.numoptions === 5) {
                   return (
-                    <div className="format">
+                    <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -1967,7 +1969,7 @@ Output: the resources that is shown on each question
                   );
                 } else if (q.numoptions === 6) {
                   return (
-                    <div className="format">
+                    <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}
@@ -2100,7 +2102,7 @@ Output: the resources that is shown on each question
                   );
                 } else if (q.numoptions === 7) {
                   return (
-                    <div className="format">
+                    <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
                       {this.title(q)}

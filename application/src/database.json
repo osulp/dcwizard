@@ -48,7 +48,7 @@
 			"nextstepcontent": "/Q1_1_2"
 		}
 	},
-	
+
 	{
 		"questionid": "/Q1_1_1",
 		"question": "Does the data have a license?",
@@ -137,10 +137,10 @@
 		"questionid": "/Q1_1_1_2",
 		"question": "Is the dataset protected by Copyright?",
 		"questionTitle": "Copyright",
+			"numoptions": 2,
 		"explanationresources": ["17 U.S. Code § 102 - Subject matter of copyright: In general. (n.d.).", "Glushko, Bobby. (2011). Copyrightability of Tables, Charts, and Graphs. Michigan Publishing.", "Kristof, C. (2016). Data and Copyright. Bulletin of the Association for Information Science and Technology, 42(6), 20–22.", "Tysver, D. A. (n.d.). Database Legal Protection (BitLaw).", "Feist Publications, Inc., v. Rural Telephone Service Co. (2019). In Wikipedia."
 ],
 		"explanationlink": ["https://www.law.cornell.edu/uscode/text/17/102",  "http://hdl.handle.net/2027.42/83329",  "https://doi.org/10.1002/bul2.2016.1720420607", "https://www.bitlaw.com/copyright/database.html", "https://en.wikipedia.org/w/index.php?title=Feist_Publications,_Inc.,_v._Rural_Telephone_Service_Co.&oldid=911323711"],
-
 			"explanation": "Copyright is intellectual property law that protects original works of authorship. Section 102(b) of the U.S. Copyright Act reads: \"In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery, regardless of the form in which it is described, explained, illustrated, or embodied in such work. (“17 U.S. Code § 102 - Subject matter of copyright”) \"\n\n Courts have found that data such as statistics, dates, weights, measurements, facts, and ideas are uncopyrightable under United States law. (Kristof, 2016). Facts and data aren't copyrightable because they are not \"created\" so much as they are \"discovered.\" For example, if a scientist takes temperature readings at various locations over a period of years, she isn't \"creating\" the data, she's recording the data. She’s recording facts. If she explains the readings (facts), that's original, creative authorship and subject to copyright, but recording natural phenomena in a dataset is not.\" (Glushko, Bobby, 2011) \n\n Even datasets or databases that are arranged or organized in a creative way, like the white pages for example, are not protected by copyright (“Feist Publications, Inc., v. Rural Telephone Service Co.,” 2019). Because of this ruling, databases or datasets are not protected as a compilation under copyright unless there is a “modicum of creativity” in selection, coordination and arrangement (Kristof, 2016). Therefore, the people who produce datasets may protect them with licenses or contracts, which are enforced by state law, and found by courts to be enforceable (Tysver, n.d.). \n\n Some datasets are creative and therefore subject to copyright. For example, a collection of images, or a collection of texts would be protected by copyright.   Examples of non creative datasets: instrument measurements; observational data; tabular, numerical datasets. Examples of creative datasets: collections of photographs taken by people, interviews, drawings, texts.",
 		"optionid1": {
 			"option": "Yes",
@@ -862,13 +862,4 @@
 	         "explanationlink": ["https://hr.oregonstate.edu/sites/hr.oregonstate.edu/files/hristeam/forms/demohire.pdf"],
 	         "finished": "All new hires at OSU are required to sign a Personal Demographic Information form. This form includes a Technology Transfer Agreement that reads \"I hereby acknowledge that Oregon State University (OSU) requires me, as a condition of my employment, to assign to OSU rights to any invention or improvement in technology, computer software tangible research property, and trademarks (Intellectual Property) conceived, invented, or reduced to practice by me, either solely or jointly with others, developed using university facilities, personnel, information or other university resources; and by my signature below, I hereby assign such rights. I understand that additional information can be obtained through the Office for Commercialization and Corporate Development, A312 Kerr Administration Building, (541) 737-3888. I certify that I have read, understand and agree to the Technology Transfer Agreement as stated above.\""
 	     }
-
-
-
-
-
-
-
-
-
 ]
