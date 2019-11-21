@@ -7,6 +7,12 @@ Data Sharing Wizard is an online tool to help OSU researchers and graduate stude
 3. application/public: static files, files in the public directory will maintain the same file name in production such as index.html, manifest.json, or robots.txt.
 4. application/src: the directory of Wizard, App.js and App.css.
 
+## How to run local host
+1. Clone the Repo (git clone)
+2. cd to dcwizard/application
+3. npm start
+
+
 ## How to build the app
 1. Clone the Repo (git clone)
 2. cd to dcwizard/application
