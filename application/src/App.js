@@ -622,6 +622,8 @@ class App extends Component {
     Output: clears the session storage (THIS IS CALLED WHENEVER THE RESET BUTTON IS CLICKED ON THE FINAL PAGE)
     ****/
     sessionStorage.clear();
+    sessionStorage.setItem("mod", false);
+    //We set the warning popup modal to false because we assume the user already read the modal if they clicked reset
     //document.location.reload(true);
   };
   title = q => {
@@ -692,7 +694,7 @@ class App extends Component {
     var year = d.getFullYear().toString();
     var hour = d.getHours();
     var realHour;
-    if (hour === 0){
+    if (hour === 0||hour === 12){
       realHour = 12;
     }
     if (hour === 13 || hour === 1){
@@ -757,7 +759,7 @@ class App extends Component {
 
     if (window.location.pathname === q.questionid) {
       return (
-        <div>
+        <div   className="openlogcontainer">
           <Button
             outline
             color="info"
@@ -1106,7 +1108,7 @@ oldItems.push("\n");
       doc.text("researchdataservices@oregonstate.edu", 110, 15);
       doc.text("Website: http://dcwizard.library.oregonstate.edu/", 110, 20);
 
-      doc.text("Saved at: " + sessionStorage.getItem("Time"), 170, 5);
+      doc.text("Saved at: " + sessionStorage.getItem("Time"), 165, 5);
 
 
       var splitTitle = doc.splitTextToSize(
@@ -1136,30 +1138,33 @@ oldItems.push("\n");
   *******************/
   finalsteps = q => {
 
-    var i;
-    var j;
+
+
     var arr = [];
-    var countarr = [];
-    for (i = 0; i < sessionStorage.length; i++) {
-      for (j = 0; j < Object.values(data).length; j++) {
-        if (
-          sessionStorage.key(i) === Object.values(data)[j].questionid &&
-          !Object.values(data)[j].questionid.includes("done")
-        ) {
-          arr.push(i + 1 + ". ");
-          arr.push(Object.values(data)[j].questionTitle);
+    var counter = 0;
+    //new
 
-          arr.push(" ");
-          arr.push("\u2192");
-          arr.push(" ");
-          countarr.push(j);
+
+        for (var j = 0; j < Object.values(data).length; j++) {
+        
+          for (var k = 0; k < sessionStorage.length; k++) {
+            if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
+              counter++;
+              arr.push(counter  + ". ");
+              arr.push(Object.values(data)[j].questionTitle);
+              arr.push(" \u2192 ");
+
+            }
+
+          }
         }
-      }
-    }
-    arr.push(countarr.length + 1 + ". ");
-    arr.push(q.questionTitle);
+arr.pop();
+//removes the last arrow
 
-    return arr;
+        return arr;
+
+//new
+
   };
   headingIfempty = q =>{
     /*******************
