@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { Component } from "react";
-
 import { Route, Link } from "react-router-dom";
 import { Tooltip } from "reactstrap";
 import { Modal } from "reactstrap";
@@ -661,27 +660,7 @@ class App extends Component {
       );
     }
   };
-  show_loginfo = q => {
-    /*******************
-    Description: This holds the information in the step log
-    *******************/
-    if (sessionStorage.getItem("itemsArray") === null) {
-      return;
-    } else {
-      return (
-        <div>
-          <SimpleBar
-            data-simplebar-auto-hide="false"
-            style={{ height: "350px" }}
-          >
-          <h5>Most recent save on: {sessionStorage.getItem("Time")}</h5>
 
-            <p id="pdf"> {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
-          </SimpleBar>
-        </div>
-      );
-    }
-  };
   timedisplay = q =>{
     /*******************
     Description: Displays the time to the steplog
@@ -767,21 +746,19 @@ class App extends Component {
             className="Restart"
             onClick={this.toggleT}
           >
-            Show Step Log
+            Show FAQ
           </Button>
           <div className="openlog" style={show}>
             <div className="log">
               <Button style={show} className="Hide_but" onClick={this.hideT}>
-                Hide Step Log
+                Hide FAQ
               </Button>
 
-              {this.save_log_button(q)}
-              <h4 className="margin-top">Step Log: </h4>
 
-              <div className="logcontainer">{this.show_loginfo(q)}</div>
+              <h4 className="margin-top">FAQ: </h4>
 
               <div>
-                {this.delete_log_button(q)}
+
                 <p className="contactlog">
                   Questions?<br />
                   Contact the OSU Research Data Services at<br />researchdataservices@oregonstate.edu<br/>Website: http://dcwizard.library.oregonstate.edu/{" "}
@@ -789,25 +766,6 @@ class App extends Component {
               </div>
             </div>
           </div>
-        </div>
-      );
-    }
-  };
-  delete_log_button = q => {
-    if (sessionStorage.getItem("itemsArray") == null) {
-    } else {
-      return (
-        <div>
-          <Button
-            outline
-            color="danger"
-            onClick={() => {
-              sessionStorage.removeItem("itemsArray");
-              document.location.reload(true);
-            }}
-          >
-            Clear Log
-          </Button>
         </div>
       );
     }
@@ -843,7 +801,7 @@ class App extends Component {
     return (
       <div className="left-sidebar">
         <div className="title">
-          <h4>Current Step:</h4>
+
           <h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>
           {this.parsesteps(q, questionreverse, questionurl)}
         </div>
@@ -858,6 +816,7 @@ class App extends Component {
     Output: Saves finalstep and questions to the steplog when save to log is clicked.
 
     ************/
+    sessionStorage.removeItem("itemsArray");
     var questiontype;
     if (q.questionid.indexOf("/Q1") >= 0) {
       questiontype = Object.values(data)[1].option[0];
@@ -1041,10 +1000,12 @@ oldItems.push("\n");
     this.output(str);
     //sessionStorage.setItem('itemsArray', JSON.stringify(oldItems,null, 2));
 
-    var cond = sessionStorage.setItem("show", true);
+//dont need two lines before since we arent saving to log any more
+  //  var cond = sessionStorage.setItem("show", true);
 
-    this.setState({ show: cond });
-    document.location.reload(true);
+  //  this.setState({ show: cond });
+    this.save_log(q);
+
   };
   output = inp => {
     /*******************
@@ -1064,30 +1025,14 @@ oldItems.push("\n");
           onClick={() => {
             this.timedisplay(q);
             this.export_step(q);
+
           }}
         >
-          Save to Log
-        </Button>
+Download to PDF        </Button>
       </div>
     );
   };
-  save_log_button = q => {
-    if (sessionStorage.getItem("itemsArray") == null) {
-    } else {
-      return (
-        <div>
-          <Button
-            color="primary"
-            onClick={() => {
-              this.save_log(q);
-            }}
-          >
-            Download PDF
-          </Button>
-        </div>
-      );
-    }
-  };
+
 
   save_log = q => {
     /***********
@@ -1146,7 +1091,7 @@ oldItems.push("\n");
 
 
         for (var j = 0; j < Object.values(data).length; j++) {
-        
+
           for (var k = 0; k < sessionStorage.length; k++) {
             if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
               counter++;
@@ -1468,18 +1413,27 @@ Output: the resources that is shown on each question
 
                     {this.traverser(q)}
                     {this.termsagreement(q)}
-                    <div className="main-body">
+                    <div className="Main-Body">
                       {this.title(q)}
+                      <div className="mainq">
 
-                      <pre className="description">{q.finished}</pre>
+                            <h6> Explanation: </h6>{" "}
+
+                      <div className="description">{q.finished}</div>
+
+</div>
                       <div className="bottomcontainer">
 
                         <h6>{this.parseresource(q)}</h6>
 
                         <p className="finalsteps"> {this.finalsteps(q)}</p>
                       </div>
-                    </div>
-
+                      <h5>This is the end of this question thread. You can now:</h5>
+                  <ul>
+                  <li>Save content to pdf with the blue button.</li>
+                  <li>Navigate to previous questions using the black navigation bar on the left</li>
+                  <li>Press the reset button to start a new question thread</li>
+                  </ul>
                     <ul className="endbuttons">
                       <li className="new">{this.export_step_button(q)} </li>
                       <li className="new">
@@ -1513,6 +1467,8 @@ Output: the resources that is shown on each question
                         </div>{" "}
                       </li>
                     </ul>
+                    </div>
+
                   </div>
                 );
               }
@@ -1523,10 +1479,10 @@ Output: the resources that is shown on each question
                     {this.traverser(q)}
 
                     {this.termsagreement(q)}
-
+<div className="Main-Body">
                     <h4>Question about Data Usage?</h4>
                     <h3>Click below to start</h3>
-                    <div className="bod">
+  <div className="bod">
                       <Row>
                         <Col className="col-Style">
                           <Link to={process.env.PUBLIC_URL + q.optionlink[0]}>
@@ -1586,9 +1542,10 @@ Output: the resources that is shown on each question
                         </Col>
                       </Row>
                       <div className="warning">
-                        <h5> Warning!</h5>
-                        <p>{q.warninginfo} </p>
+                        <h5>Tutorial:</h5>
+
                       </div>
+                    </div>
                     </div>
                   </div>
                 );
@@ -1599,6 +1556,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1628,6 +1587,7 @@ Output: the resources that is shown on each question
                         <pre className="description"> {q.explanation} </pre>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                      </div>
                     </div>
                   );
                 }
@@ -1637,6 +1597,7 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1683,8 +1644,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
@@ -1693,6 +1655,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1759,9 +1723,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description">{q.explanation} </pre>
+                        <div className="description">{q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 4) {
@@ -1769,6 +1734,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1853,8 +1820,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
@@ -1863,6 +1831,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1967,9 +1937,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 6) {
@@ -1977,6 +1948,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -2100,9 +2073,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 7) {
@@ -2110,6 +2084,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -2252,8 +2228,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description">{q.explanation} </pre>
+                        <div className="description">{q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );

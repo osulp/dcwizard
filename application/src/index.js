@@ -12,12 +12,12 @@ import './bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
-<div className="fullback">
+<div>
 
 
 
 <BrowserRouter>
-<App/>
+<App className="fullback" />
 </BrowserRouter>
 </div>,
   document.getElementById("root")

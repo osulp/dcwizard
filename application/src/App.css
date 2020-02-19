@@ -59,9 +59,7 @@ padding-top: 10px;
 }
 
 
-.fullback{
 
-}
 
 .title{
   font-size: 25px;
@@ -70,40 +68,30 @@ padding-top: 10px;
 
 
 }
-.test{  float: left;
-  background-color: black;
-  color: white;
-  padding-top:20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-right: 20px;
-  height: 130vh;
-  /*fix for later
-  height: 100%;
-  position: fixed;
-  */
-  bottom: 0;}
+
 .left-sidebar{
-  float: left;
+  left:0px;
+
   background-color: black;
   color: white;
-  padding-top:20px;
-  padding-left: 30px;
-  padding-bottom: 10px;
-  padding-right: 30px;
+  padding-top:10px;
+  padding-left: 10px;
+
+  padding-right: 10px;
   margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 20px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
 
-  border-radius: 15%;
-  /*fix for later
+
+position: absolute;
+
+
   height: 100%;
-  position: fixed;
-  */
 
+
+}
+.fullback{
+  min-height: 100%;
+     height: auto !important;
+     height: 100%;
 
 }
 .margin-top{
@@ -113,7 +101,10 @@ padding-top: 10px;
 margin-top: 20px;
 
 }
+.Main-Body{
+  margin-left: 320px;
 
+}
 #pdf{
   position: relative;
   font-size: 16px;
@@ -131,11 +122,6 @@ max-width: 1400px;
 }
 
 .description{
-white-space: pre-line;     /* Since CSS 2.1 */
-     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-     white-space: -pre-wrap;      /* Opera 4-6 */
-     white-space: -o-pre-wrap;    /* Opera 7 */
-     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 font-family: Georgia;
 font-size: 14px;
 
@@ -184,7 +170,7 @@ p{
 }
 .mainq{
   margin-top: 20px;
-  margin-left: 350px;
+
   margin-right: 75px;
   max-width: 1000px;
 }
@@ -337,6 +323,7 @@ width: 133px;
 }
 
 
+
 @media only screen and (max-width: 1044px) {
   .left-sidebar{
     float: left;
@@ -348,20 +335,10 @@ width: 133px;
     margin-right: 20px;
 
   }
-
-}
-@media only screen and (max-width: 1044px) {
-  .left-sidebar{
-    float: left;
-    background-color: black;
-    color: white;
-    padding-top:20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-right: 20px;
+  .Main-Body{
+    margin-left: 0px;
 
   }
-
 }
 @media only screen and (max-width: 1028px) {
   .contactheader{
