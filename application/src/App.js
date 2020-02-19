@@ -758,7 +758,26 @@ class App extends Component {
               <h4 className="margin-top">FAQ: </h4>
 
               <div>
+              <SimpleBar
+                         data-simplebar-auto-hide="false"
+                         style={{ height: "350px" }}
+                       >
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
 
+                       <div>FAQ info...</div>
+
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+
+                       </SimpleBar>
                 <p className="contactlog">
                   Questions?<br />
                   Contact the OSU Research Data Services at<br />researchdataservices@oregonstate.edu<br/>Website: http://dcwizard.library.oregonstate.edu/{" "}
@@ -899,7 +918,19 @@ class App extends Component {
           }
           questionstep.push("\n");
 
-          questionstep.push(Object.values(data)[j].explanation);
+          var fixedString =   Object.values(data)[j].explanation.replace(/[\u0100-\uffff]/g, function(ch) {
+  switch (ch) {
+    case '“':
+    case '”�':
+      return '"';
+    case '’':
+    case '‘':
+      return "'";
+    default:
+      return '';
+  }
+});
+          questionstep.push(fixedString);
 
           questionstep.push("\n");
           questionstep.push("\n");
