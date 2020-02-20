@@ -49,7 +49,10 @@ color:  white;
 list-style: none;
 padding: 0;
 }
+.sidebarSteps{
 
+    padding-left:  16px;
+}
 .q-title{
 margin-bottom: 50px;
 padding-top: 10px;
@@ -79,7 +82,8 @@ padding-top: 10px;
 
   padding-right: 10px;
   margin-right: 20px;
-
+  min-width: 181px;
+max-width: 191px;
 
 position: absolute;
 
@@ -102,8 +106,8 @@ margin-top: 20px;
 
 }
 .Main-Body{
-  margin-left: 320px;
 
+  margin-left: 250px;
 }
 #pdf{
   position: relative;

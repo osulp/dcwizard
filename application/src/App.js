@@ -78,192 +78,206 @@ class App extends Component {
 
 
     *******/
-    var questionjoin = questionok.reverse();
-    var questiontog = questionurl.reverse();
-
+    var questionjoin = questionok;
+    var questiontog = questionurl
+    var question14 = questiontog[14] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[14]}
+        style={{
+          color: this.step_highlight15(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[14]}
+      </Link>
+    </li>)
+    var question13 = questiontog[13] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[13]}
+        style={{
+          color: this.step_highlight14(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[13]}
+      </Link>
+    </li>)
+    var question12 = questiontog[12] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[12]}
+        style={{
+          color: this.step_highlight13(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[12]}
+      </Link>
+    </li>)
+    var question11 = questiontog[11] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[11]}
+        style={{
+          color: this.step_highlight12(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[11]}
+      </Link>
+    </li>)
+    var question10 = questiontog[10] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[10]}
+        style={{
+          color: this.step_highlight11(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[10]}
+      </Link>
+    </li>)
+    var question9 = questiontog[9] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[9]}
+        style={{
+          color: this.step_highlight10(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[9]}
+      </Link>
+    </li>)
+    var question8 = questiontog[8] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[8]}
+        style={{
+          color: this.step_highlight9(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[8]}
+      </Link>
+    </li>)
+    var question7 = questiontog[7] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[7]}
+        style={{
+          color: this.step_highlight8(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[7]}
+      </Link>
+    </li>)
+    var question6 = questiontog[6] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[6]}
+        style={{
+          color: this.step_highlight7(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[6]}
+      </Link>
+    </li>)
+    var question5 = questiontog[5] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[5]}
+        style={{
+          color: this.step_highlight6(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[5]}
+      </Link>
+    </li>)
+    var question4 = questiontog[4] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[4]}
+        style={{
+          color: this.step_highlight5(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[4]}
+      </Link>
+    </li>)
+    var question3 = questiontog[3] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[3]}
+        style={{
+          color: this.step_highlight4(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[3]}
+      </Link>
+    </li>)
+    var question2 = questiontog[2] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[2]}
+        style={{
+          color: this.step_highlight3(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[2]}
+      </Link>
+    </li>)
+    var question1 = questiontog[1] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[1]}
+        style={{
+          color: this.step_highlight2(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[1]}
+      </Link>
+    </li>)
+    var question0 = questiontog[0] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[0]}
+        style={{
+          color: this.step_highlight1(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[0]}
+      </Link>
+    </li>)
     return (
       <div>
-        <ol reversed className="tabbing">
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[14]}
-              style={{
-                color: this.step_highlight15(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[14]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[13]}
-              style={{
-                color: this.step_highlight14(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[13]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[12]}
-              style={{
-                color: this.step_highlight13(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[12]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[11]}
-              style={{
-                color: this.step_highlight12(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[11]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[10]}
-              style={{
-                color: this.step_highlight11(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[10]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[9]}
-              style={{
-                color: this.step_highlight10(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[9]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[8]}
-              style={{
-                color: this.step_highlight9(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[8]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[7]}
-              style={{
-                color: this.step_highlight8(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[7]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[6]}
-              style={{
-                color: this.step_highlight7(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[6]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[5]}
-              style={{
-                color: this.step_highlight6(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[5]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[4]}
-              style={{
-                color: this.step_highlight5(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[4]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[3]}
-              style={{
-                color: this.step_highlight4(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[3]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[2]}
-              style={{
-                color: this.step_highlight3(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[2]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[1]}
-              style={{
-                color: this.step_highlight2(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[1]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[0]}
-              style={{
-                color: this.step_highlight1(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[0]}
-            </Link>
-          </li>
+        <ol  className="sidebarSteps">
+          {question14}
+          {question13}
+          {question12}
+          {question11}
+          {question10}
+          {question9}
+          {question8}
+          {question7}
+          {question6}
+          {question5}
+          {question4}
+          {question3}
+          {question2}
+          {question1}
+          {question0}
         </ol>
       </div>
     );
@@ -642,13 +656,18 @@ class App extends Component {
         <div>
           {" "}
           <h4 className="q-title">Topic: {Object.values(data)[1].option[0]}</h4>
+          <h4 >Question Title: {q.questionTitle}</h4>
+
         </div>
       );
     } else if (q.questionid.indexOf("/Q2") >= 0) {
       return (
         <div>
           {" "}
+
           <h4 className="q-title">Topic: {Object.values(data)[1].option[1]}</h4>
+          <h4 >Question Title: {q.questionTitle}</h4>
+
         </div>
       );
     } else if (q.questionid.indexOf("/Q3") >= 0) {
@@ -656,6 +675,8 @@ class App extends Component {
         <div>
           {" "}
           <h4 className="q-title">Topic: {Object.values(data)[1].option[2]}</h4>
+          <h4 >Question Title: {q.questionTitle}</h4>
+
         </div>
       );
     }
@@ -821,8 +842,8 @@ class App extends Component {
       <div className="left-sidebar">
         <div className="title">
 
-          <h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>
-          {this.parsesteps(q, questionreverse, questionurl)}
+      <h4>Steps:</h4>
+          <div style={{fontSize:"20px"}}>{this.parsesteps(q, questionreverse, questionurl)}</div>
         </div>
       </div>
     );
@@ -1459,7 +1480,7 @@ Output: the resources that is shown on each question
 
                         <p className="finalsteps"> {this.finalsteps(q)}</p>
                       </div>
-                      <h5>This is the end of this question thread. You can now:</h5>
+                      <h5>This is the end of this question thread. You can either:</h5>
                   <ul>
                   <li>Save content to pdf with the blue button.</li>
                   <li>Navigate to previous questions using the black navigation bar on the left</li>
