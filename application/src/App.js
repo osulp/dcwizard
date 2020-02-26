@@ -1029,10 +1029,6 @@ if(Object.values(newItem)[5].join("\n") !== ""){
     oldItems.push(Object.values(newItem)[6].join("\n"));
 }
 
-
-else{
-
-}
 oldItems.push("\n");
 oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
@@ -1146,7 +1142,7 @@ oldItems.push("\n");
 
 
         for (var j = 0; j < Object.values(data).length; j++) {
-        
+
           for (var k = 0; k < sessionStorage.length; k++) {
             if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
               counter++;
