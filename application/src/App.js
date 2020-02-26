@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { Component } from "react";
-
 import { Route, Link } from "react-router-dom";
 import { Tooltip } from "reactstrap";
 import { Modal } from "reactstrap";
@@ -79,192 +78,206 @@ class App extends Component {
 
 
     *******/
-    var questionjoin = questionok.reverse();
-    var questiontog = questionurl.reverse();
-
+    var questionjoin = questionok;
+    var questiontog = questionurl
+    var question14 = questiontog[14] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[14]}
+        style={{
+          color: this.step_highlight15(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[14]}
+      </Link>
+    </li>)
+    var question13 = questiontog[13] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[13]}
+        style={{
+          color: this.step_highlight14(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[13]}
+      </Link>
+    </li>)
+    var question12 = questiontog[12] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[12]}
+        style={{
+          color: this.step_highlight13(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[12]}
+      </Link>
+    </li>)
+    var question11 = questiontog[11] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[11]}
+        style={{
+          color: this.step_highlight12(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[11]}
+      </Link>
+    </li>)
+    var question10 = questiontog[10] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[10]}
+        style={{
+          color: this.step_highlight11(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[10]}
+      </Link>
+    </li>)
+    var question9 = questiontog[9] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[9]}
+        style={{
+          color: this.step_highlight10(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[9]}
+      </Link>
+    </li>)
+    var question8 = questiontog[8] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[8]}
+        style={{
+          color: this.step_highlight9(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[8]}
+      </Link>
+    </li>)
+    var question7 = questiontog[7] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[7]}
+        style={{
+          color: this.step_highlight8(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[7]}
+      </Link>
+    </li>)
+    var question6 = questiontog[6] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[6]}
+        style={{
+          color: this.step_highlight7(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[6]}
+      </Link>
+    </li>)
+    var question5 = questiontog[5] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[5]}
+        style={{
+          color: this.step_highlight6(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[5]}
+      </Link>
+    </li>)
+    var question4 = questiontog[4] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[4]}
+        style={{
+          color: this.step_highlight5(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[4]}
+      </Link>
+    </li>)
+    var question3 = questiontog[3] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[3]}
+        style={{
+          color: this.step_highlight4(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[3]}
+      </Link>
+    </li>)
+    var question2 = questiontog[2] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[2]}
+        style={{
+          color: this.step_highlight3(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[2]}
+      </Link>
+    </li>)
+    var question1 = questiontog[1] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[1]}
+        style={{
+          color: this.step_highlight2(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[1]}
+      </Link>
+    </li>)
+    var question0 = questiontog[0] === undefined ? (""):(<li>
+      {" "}
+      <Link
+        to={process.env.PUBLIC_URL + questiontog[0]}
+        style={{
+          color: this.step_highlight1(questiontog),
+          textDecoration: "underline"
+        }}
+      >
+        {questionjoin[0]}
+      </Link>
+    </li>)
     return (
       <div>
-        <ol reversed className="tabbing">
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[14]}
-              style={{
-                color: this.step_highlight15(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[14]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[13]}
-              style={{
-                color: this.step_highlight14(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[13]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[12]}
-              style={{
-                color: this.step_highlight13(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[12]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[11]}
-              style={{
-                color: this.step_highlight12(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[11]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[10]}
-              style={{
-                color: this.step_highlight11(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[10]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[9]}
-              style={{
-                color: this.step_highlight10(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[9]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[8]}
-              style={{
-                color: this.step_highlight9(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[8]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[7]}
-              style={{
-                color: this.step_highlight8(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[7]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[6]}
-              style={{
-                color: this.step_highlight7(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[6]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[5]}
-              style={{
-                color: this.step_highlight6(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[5]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[4]}
-              style={{
-                color: this.step_highlight5(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[4]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[3]}
-              style={{
-                color: this.step_highlight4(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[3]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[2]}
-              style={{
-                color: this.step_highlight3(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[2]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[1]}
-              style={{
-                color: this.step_highlight2(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[1]}
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              to={process.env.PUBLIC_URL + questiontog[0]}
-              style={{
-                color: this.step_highlight1(questiontog),
-                textDecoration: "underline"
-              }}
-            >
-              {questionjoin[0]}
-            </Link>
-          </li>
+        <ol  className="sidebarSteps">
+          {question14}
+          {question13}
+          {question12}
+          {question11}
+          {question10}
+          {question9}
+          {question8}
+          {question7}
+          {question6}
+          {question5}
+          {question4}
+          {question3}
+          {question2}
+          {question1}
+          {question0}
         </ol>
       </div>
     );
@@ -643,13 +656,18 @@ class App extends Component {
         <div>
           {" "}
           <h4 className="q-title">Topic: {Object.values(data)[1].option[0]}</h4>
+          <h4 >Question Title: {q.questionTitle}</h4>
+
         </div>
       );
     } else if (q.questionid.indexOf("/Q2") >= 0) {
       return (
         <div>
           {" "}
+
           <h4 className="q-title">Topic: {Object.values(data)[1].option[1]}</h4>
+          <h4 >Question Title: {q.questionTitle}</h4>
+
         </div>
       );
     } else if (q.questionid.indexOf("/Q3") >= 0) {
@@ -657,31 +675,13 @@ class App extends Component {
         <div>
           {" "}
           <h4 className="q-title">Topic: {Object.values(data)[1].option[2]}</h4>
-        </div>
-      );
-    }
-  };
-  show_loginfo = q => {
-    /*******************
-    Description: This holds the information in the step log
-    *******************/
-    if (sessionStorage.getItem("itemsArray") === null) {
-      return;
-    } else {
-      return (
-        <div>
-          <SimpleBar
-            data-simplebar-auto-hide="false"
-            style={{ height: "350px" }}
-          >
-          <h5>Most recent save on: {sessionStorage.getItem("Time")}</h5>
+          <h4 >Question Title: {q.questionTitle}</h4>
 
-            <p id="pdf"> {JSON.parse(sessionStorage.getItem("itemsArray"))}</p>
-          </SimpleBar>
         </div>
       );
     }
   };
+
   timedisplay = q =>{
     /*******************
     Description: Displays the time to the steplog
@@ -767,21 +767,38 @@ class App extends Component {
             className="Restart"
             onClick={this.toggleT}
           >
-            Show Step Log
+            Show FAQ
           </Button>
           <div className="openlog" style={show}>
             <div className="log">
               <Button style={show} className="Hide_but" onClick={this.hideT}>
-                Hide Step Log
+                Hide FAQ
               </Button>
 
-              {this.save_log_button(q)}
-              <h4 className="margin-top">Step Log: </h4>
 
-              <div className="logcontainer">{this.show_loginfo(q)}</div>
+              <h4 className="margin-top">FAQ: </h4>
 
               <div>
-                {this.delete_log_button(q)}
+              <SimpleBar
+                         data-simplebar-auto-hide="false"
+                         style={{ height: "350px" }}
+                       >
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+
+                       <div>FAQ info...</div>
+
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+                       <div>FAQ info...</div>
+
+                       </SimpleBar>
                 <p className="contactlog">
                   Questions?<br />
                   Contact the OSU Research Data Services at<br />researchdataservices@oregonstate.edu<br/>Website: http://dcwizard.library.oregonstate.edu/{" "}
@@ -789,25 +806,6 @@ class App extends Component {
               </div>
             </div>
           </div>
-        </div>
-      );
-    }
-  };
-  delete_log_button = q => {
-    if (sessionStorage.getItem("itemsArray") == null) {
-    } else {
-      return (
-        <div>
-          <Button
-            outline
-            color="danger"
-            onClick={() => {
-              sessionStorage.removeItem("itemsArray");
-              document.location.reload(true);
-            }}
-          >
-            Clear Log
-          </Button>
         </div>
       );
     }
@@ -843,9 +841,9 @@ class App extends Component {
     return (
       <div className="left-sidebar">
         <div className="title">
-          <h4>Current Step:</h4>
-          <h4 className="color">{q.questionTitle}</h4> <h4>Previous Steps:</h4>
-          {this.parsesteps(q, questionreverse, questionurl)}
+
+      <h4>Steps:</h4>
+          <div style={{fontSize:"20px"}}>{this.parsesteps(q, questionreverse, questionurl)}</div>
         </div>
       </div>
     );
@@ -858,6 +856,9 @@ class App extends Component {
     Output: Saves finalstep and questions to the steplog when save to log is clicked.
 
     ************/
+    var i;
+    var j;
+    sessionStorage.removeItem("itemsArray");
     var questiontype;
     if (q.questionid.indexOf("/Q1") >= 0) {
       questiontype = Object.values(data)[1].option[0];
@@ -867,9 +868,7 @@ class App extends Component {
       questiontype = Object.values(data)[1].option[2];
     }
     var questionstep = [];
-
-    var i;
-    var j;
+    var counter = 0;
     for (i = 0; i < sessionStorage.length; i++) {
       for (j = 0; j < Object.values(data).length; j++) {
         if (
@@ -877,11 +876,29 @@ class App extends Component {
           sessionStorage.key(i) !== "/" &&
           !sessionStorage.key(i).includes("done")
         ) {
-          questionstep.push(Object.values(data)[j].questionid);
+          var countermax = counter+2;
+counter++;
+        }
+      }
+    }
+    counter++;
+
+
+    for (i = 0; i < sessionStorage.length; i++) {
+      for (j = 0; j < Object.values(data).length; j++) {
+        if (
+          sessionStorage.key(i) === Object.values(data)[j].questionid &&
+          sessionStorage.key(i) !== "/" &&
+          !sessionStorage.key(i).includes("done")
+        ) {
+          counter--;
+  console.log("Link: " +window.location.origin+Object.values(data)[j].questionid);
+
+          questionstep.push("Link: " +window.location.origin+Object.values(data)[j].questionid);
           questionstep.push("\n");
 
           questionstep.push("\n");
-          questionstep.push(Object.values(data)[j].questionTitle);
+          questionstep.push("Number " + counter+ ": "+Object.values(data)[j].questionTitle);
           questionstep.push("\n");
 
           questionstep.push("Question: " + Object.values(data)[j].question);
@@ -940,7 +957,19 @@ class App extends Component {
           }
           questionstep.push("\n");
 
-          questionstep.push(Object.values(data)[j].explanation);
+          var fixedString =   Object.values(data)[j].explanation.replace(/[\u0100-\uffff]/g, function(ch) {
+  switch (ch) {
+    case '“':
+    case '”�':
+      return '"';
+    case '’':
+    case '‘':
+      return "'";
+    default:
+      return '';
+  }
+});
+          questionstep.push(fixedString);
 
           questionstep.push("\n");
           questionstep.push("\n");
@@ -960,9 +989,7 @@ if(    Object.values(data)[j].explanationresources.join("\n") !== ""){
           questionstep.push("\n");
 
 }
-else{
 
-}
 
           questionstep.push("\n");
           questionstep.push("\n");
@@ -980,29 +1007,38 @@ else{
     /*****
     Newitem is a template when pushing it on th the oldItems array
     ******/
+    var fixedString2 =   q.finished.replace(/[\u0100-\uffff]/g, function(ch) {
+switch (ch) {
+case '“':
+case '”�':
+return '"';
+case '’':
+case '‘':
+return "'";
+default:
+return '';
+}
+});
     var newItem = {
       Question: questiontype,
       "Past Steps": questionstep,
 
-      "Question-id": q.questionid,
+      "Question-id": "Link: "+window.location.origin+q.questionid,
 
-      "Question-title": q.questionTitle,
+      "Question-title": "Number " + countermax +": "+q.questionTitle,
 
-      Description: q.finished,
+      Description: fixedString2,
       resources: q.explanationresources,
       links: q.explanationlink
     };
 
     oldItems.push(
-      "_______________________________________________________________________"
+      "______________________________________________________________________________________________"
     );
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[0]);
     oldItems.push("\n");
-    oldItems.push("\n");
-    oldItems.push(Object.values(newItem)[1].join(""));
-    //   console.log(Object.values(newItem)[1].join(""))
-    oldItems.push("\n");
+  oldItems.push("\n");
     //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
     oldItems.push(Object.values(newItem)[2]);
     oldItems.push("\n");
@@ -1028,8 +1064,15 @@ if(Object.values(newItem)[5].join("\n") !== ""){
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[6].join("\n"));
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65b8e2b6fc920ed543f2f4c99680c177e316bb0a
 oldItems.push("\n");
+  oldItems.push("\n");
+oldItems.push(Object.values(newItem)[1].join(""));
+//   console.log(Object.values(newItem)[1].join(""))
+
 oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
     //var str = JSON.stringify(oldItems.join(""), undefined, 4);
@@ -1037,10 +1080,12 @@ oldItems.push("\n");
     this.output(str);
     //sessionStorage.setItem('itemsArray', JSON.stringify(oldItems,null, 2));
 
-    var cond = sessionStorage.setItem("show", true);
+//dont need two lines before since we arent saving to log any more
+  //  var cond = sessionStorage.setItem("show", true);
 
-    this.setState({ show: cond });
-    document.location.reload(true);
+  //  this.setState({ show: cond });
+    this.save_log(q);
+
   };
   output = inp => {
     /*******************
@@ -1060,30 +1105,14 @@ oldItems.push("\n");
           onClick={() => {
             this.timedisplay(q);
             this.export_step(q);
+
           }}
         >
-          Save to Log
-        </Button>
+Save to PDF        </Button>
       </div>
     );
   };
-  save_log_button = q => {
-    if (sessionStorage.getItem("itemsArray") == null) {
-    } else {
-      return (
-        <div>
-          <Button
-            color="primary"
-            onClick={() => {
-              this.save_log(q);
-            }}
-          >
-            Download PDF
-          </Button>
-        </div>
-      );
-    }
-  };
+
 
   save_log = q => {
     /***********
@@ -1126,21 +1155,13 @@ oldItems.push("\n");
 
         y = y + 5;
       }
-      doc.save("DCwizard.pdf");
-    }
-  };
-  /*******************
-  Description: This shows the final steps on the finl page to see what steps you've taken to get to the final step
-  *******************/
-  finalsteps = q => {
+      var arr =[];
+      for (var j = 0; j < Object.values(data).length; j++) {
 
+        for (var k = 0; k < sessionStorage.length; k++) {
+          if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
 
-
-    var arr = [];
-    var counter = 0;
-    //new
-
-
+<<<<<<< HEAD
         for (var j = 0; j < Object.values(data).length; j++) {
 
           for (var k = 0; k < sessionStorage.length; k++) {
@@ -1149,19 +1170,22 @@ oldItems.push("\n");
               arr.push(counter  + ". ");
               arr.push(Object.values(data)[j].questionTitle);
               arr.push(" \u2192 ");
+=======
+            arr.push(Object.values(data)[j].questionTitle);
+>>>>>>> 65b8e2b6fc920ed543f2f4c99680c177e316bb0a
 
-            }
 
           }
+
         }
-arr.pop();
-//removes the last arrow
-
-        return arr;
-
-//new
-
+      }
+      var lastQuestionName;
+      lastQuestionName = arr[arr.length-2].replace(/\s/g,"_");
+      lastQuestionName = lastQuestionName.replace('?',"");
+      doc.save("dcwizard_" +lastQuestionName +".pdf");
+    }
   };
+
   headingIfempty = q =>{
     /*******************
     Description: This makes sure the resoucres title of each question page is only shown if it has a resource
@@ -1403,6 +1427,7 @@ Output: the resources that is shown on each question
   };
 
   render() {
+
     /*****************
     Description: main page renderer. renders the whole page
 
@@ -1464,18 +1489,15 @@ Output: the resources that is shown on each question
 
                     {this.traverser(q)}
                     {this.termsagreement(q)}
-                    <div className="main-body">
+                    <div className="Main-Body">
                       {this.title(q)}
-
-                      <pre className="description">{q.finished}</pre>
-                      <div className="bottomcontainer">
-
-                        <h6>{this.parseresource(q)}</h6>
-
-                        <p className="finalsteps"> {this.finalsteps(q)}</p>
-                      </div>
-                    </div>
-
+                      <div className="mainq">
+                      <h5>This is the end of this question thread. You can either:</h5>
+                  <ul>
+                  <li>Save content to pdf with the blue button.</li>
+                  <li>Navigate to previous questions using the black navigation bar on the left</li>
+                  <li>Press the reset button to start a new question thread</li>
+                  </ul>
                     <ul className="endbuttons">
                       <li className="new">{this.export_step_button(q)} </li>
                       <li className="new">
@@ -1509,6 +1531,19 @@ Output: the resources that is shown on each question
                         </div>{" "}
                       </li>
                     </ul>
+                            <h6> Explanation: </h6>{" "}
+
+                      <div className="description">{q.finished}</div>
+
+</div>
+                      <div className="bottomcontainer">
+
+                        <h6>{this.parseresource(q)}</h6>
+
+                      </div>
+
+                    </div>
+
                   </div>
                 );
               }
@@ -1519,10 +1554,10 @@ Output: the resources that is shown on each question
                     {this.traverser(q)}
 
                     {this.termsagreement(q)}
-
+<div className="Main-Body">
                     <h4>Question about Data Usage?</h4>
                     <h3>Click below to start</h3>
-                    <div className="bod">
+  <div className="bod">
                       <Row>
                         <Col className="col-Style">
                           <Link to={process.env.PUBLIC_URL + q.optionlink[0]}>
@@ -1582,9 +1617,10 @@ Output: the resources that is shown on each question
                         </Col>
                       </Row>
                       <div className="warning">
-                        <h5> Warning!</h5>
-                        <p>{q.warninginfo} </p>
+                        <h5>Tutorial:</h5>
+
                       </div>
+                    </div>
                     </div>
                   </div>
                 );
@@ -1595,6 +1631,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1621,8 +1659,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
@@ -1633,6 +1672,7 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions}>
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1679,8 +1719,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
@@ -1689,6 +1730,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1755,9 +1798,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description">{q.explanation} </pre>
+                        <div className="description">{q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 4) {
@@ -1765,6 +1809,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1849,8 +1895,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
@@ -1859,6 +1906,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -1963,9 +2012,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 6) {
@@ -1973,6 +2023,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -2096,9 +2148,10 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
+                    </div>
                     </div>
                   );
                 } else if (q.numoptions === 7) {
@@ -2106,6 +2159,8 @@ Output: the resources that is shown on each question
                     <div key={q.numoptions} className="format">
                       {this.log(q)}
                       {this.traverser(q)}
+                      <div className="Main-Body">
+
                       {this.title(q)}
                       {this.termsagreement(q)}
                       <div className="mainq">
@@ -2248,8 +2303,9 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description">{q.explanation} </pre>
+                        <div className="description">{q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
+                      </div>
                       </div>
                     </div>
                   );
