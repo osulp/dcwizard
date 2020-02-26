@@ -883,7 +883,7 @@ counter++;
     }
     counter++;
 
-
+var c = 0;
     for (i = 0; i < sessionStorage.length; i++) {
       for (j = 0; j < Object.values(data).length; j++) {
         if (
@@ -891,14 +891,15 @@ counter++;
           sessionStorage.key(i) !== "/" &&
           !sessionStorage.key(i).includes("done")
         ) {
-          counter--;
+
+          c++;
   console.log("Link: " +window.location.origin+Object.values(data)[j].questionid);
 
           questionstep.push("Link: " +window.location.origin+Object.values(data)[j].questionid);
           questionstep.push("\n");
 
           questionstep.push("\n");
-          questionstep.push("Number " + counter+ ": "+Object.values(data)[j].questionTitle);
+          questionstep.push("Number " + c+ ": "+Object.values(data)[j].questionTitle);
           questionstep.push("\n");
 
           questionstep.push("Question: " + Object.values(data)[j].question);
@@ -1039,6 +1040,9 @@ return '';
     oldItems.push(Object.values(newItem)[0]);
     oldItems.push("\n");
   oldItems.push("\n");
+  oldItems.push(Object.values(newItem)[1].join(""));
+  //   console.log(Object.values(newItem)[1].join(""))
+
     //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
     oldItems.push(Object.values(newItem)[2]);
     oldItems.push("\n");
@@ -1064,14 +1068,8 @@ if(Object.values(newItem)[5].join("\n") !== ""){
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[6].join("\n"));
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 65b8e2b6fc920ed543f2f4c99680c177e316bb0a
 oldItems.push("\n");
   oldItems.push("\n");
-oldItems.push(Object.values(newItem)[1].join(""));
-//   console.log(Object.values(newItem)[1].join(""))
 
 oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
@@ -1161,18 +1159,7 @@ Save to PDF        </Button>
         for (var k = 0; k < sessionStorage.length; k++) {
           if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
 
-<<<<<<< HEAD
-        for (var j = 0; j < Object.values(data).length; j++) {
-
-          for (var k = 0; k < sessionStorage.length; k++) {
-            if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
-              counter++;
-              arr.push(counter  + ". ");
-              arr.push(Object.values(data)[j].questionTitle);
-              arr.push(" \u2192 ");
-=======
             arr.push(Object.values(data)[j].questionTitle);
->>>>>>> 65b8e2b6fc920ed543f2f4c99680c177e316bb0a
 
 
           }
