@@ -856,6 +856,8 @@ class App extends Component {
     Output: Saves finalstep and questions to the steplog when save to log is clicked.
 
     ************/
+    var i;
+    var j;
     sessionStorage.removeItem("itemsArray");
     var questiontype;
     if (q.questionid.indexOf("/Q1") >= 0) {
@@ -866,9 +868,7 @@ class App extends Component {
       questiontype = Object.values(data)[1].option[2];
     }
     var questionstep = [];
-
-    var i;
-    var j;
+    var counter = 0;
     for (i = 0; i < sessionStorage.length; i++) {
       for (j = 0; j < Object.values(data).length; j++) {
         if (
@@ -876,11 +876,29 @@ class App extends Component {
           sessionStorage.key(i) !== "/" &&
           !sessionStorage.key(i).includes("done")
         ) {
-          questionstep.push(Object.values(data)[j].questionid);
+          var countermax = counter+2;
+counter++;
+        }
+      }
+    }
+    counter++;
+
+
+    for (i = 0; i < sessionStorage.length; i++) {
+      for (j = 0; j < Object.values(data).length; j++) {
+        if (
+          sessionStorage.key(i) === Object.values(data)[j].questionid &&
+          sessionStorage.key(i) !== "/" &&
+          !sessionStorage.key(i).includes("done")
+        ) {
+          counter--;
+  console.log("Link: " +window.location.origin+Object.values(data)[j].questionid);
+
+          questionstep.push("Link: " +window.location.origin+Object.values(data)[j].questionid);
           questionstep.push("\n");
 
           questionstep.push("\n");
-          questionstep.push(Object.values(data)[j].questionTitle);
+          questionstep.push("Number " + counter+ ": "+Object.values(data)[j].questionTitle);
           questionstep.push("\n");
 
           questionstep.push("Question: " + Object.values(data)[j].question);
@@ -971,9 +989,7 @@ if(    Object.values(data)[j].explanationresources.join("\n") !== ""){
           questionstep.push("\n");
 
 }
-else{
 
-}
 
           questionstep.push("\n");
           questionstep.push("\n");
@@ -991,29 +1007,38 @@ else{
     /*****
     Newitem is a template when pushing it on th the oldItems array
     ******/
+    var fixedString2 =   q.finished.replace(/[\u0100-\uffff]/g, function(ch) {
+switch (ch) {
+case '“':
+case '”�':
+return '"';
+case '’':
+case '‘':
+return "'";
+default:
+return '';
+}
+});
     var newItem = {
       Question: questiontype,
       "Past Steps": questionstep,
 
-      "Question-id": q.questionid,
+      "Question-id": "Link: "+window.location.origin+q.questionid,
 
-      "Question-title": q.questionTitle,
+      "Question-title": "Number " + countermax +": "+q.questionTitle,
 
-      Description: q.finished,
+      Description: fixedString2,
       resources: q.explanationresources,
       links: q.explanationlink
     };
 
     oldItems.push(
-      "_______________________________________________________________________"
+      "______________________________________________________________________________________________"
     );
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[0]);
     oldItems.push("\n");
-    oldItems.push("\n");
-    oldItems.push(Object.values(newItem)[1].join(""));
-    //   console.log(Object.values(newItem)[1].join(""))
-    oldItems.push("\n");
+  oldItems.push("\n");
     //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
     oldItems.push(Object.values(newItem)[2]);
     oldItems.push("\n");
@@ -1039,12 +1064,11 @@ if(Object.values(newItem)[5].join("\n") !== ""){
     oldItems.push("\n");
     oldItems.push(Object.values(newItem)[6].join("\n"));
 }
-
-
-else{
-
-}
 oldItems.push("\n");
+  oldItems.push("\n");
+oldItems.push(Object.values(newItem)[1].join(""));
+//   console.log(Object.values(newItem)[1].join(""))
+
 oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
     //var str = JSON.stringify(oldItems.join(""), undefined, 4);
@@ -1080,7 +1104,7 @@ oldItems.push("\n");
 
           }}
         >
-Download to PDF        </Button>
+Save to PDF        </Button>
       </div>
     );
   };
@@ -1127,42 +1151,26 @@ Download to PDF        </Button>
 
         y = y + 5;
       }
-      doc.save("DCwizard.pdf");
-    }
-  };
-  /*******************
-  Description: This shows the final steps on the finl page to see what steps you've taken to get to the final step
-  *******************/
-  finalsteps = q => {
+      var arr =[];
+      for (var j = 0; j < Object.values(data).length; j++) {
 
+        for (var k = 0; k < sessionStorage.length; k++) {
+          if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
 
+            arr.push(Object.values(data)[j].questionTitle);
 
-    var arr = [];
-    var counter = 0;
-    //new
-
-
-        for (var j = 0; j < Object.values(data).length; j++) {
-
-          for (var k = 0; k < sessionStorage.length; k++) {
-            if (Object.values(data)[j].questionid === sessionStorage.key(k)) {
-              counter++;
-              arr.push(counter  + ". ");
-              arr.push(Object.values(data)[j].questionTitle);
-              arr.push(" \u2192 ");
-
-            }
 
           }
+
         }
-arr.pop();
-//removes the last arrow
-
-        return arr;
-
-//new
-
+      }
+      var lastQuestionName;
+      lastQuestionName = arr[arr.length-2].replace(/\s/g,"_");
+      lastQuestionName = lastQuestionName.replace('?',"");
+      doc.save("dcwizard_" +lastQuestionName +".pdf");
+    }
   };
+
   headingIfempty = q =>{
     /*******************
     Description: This makes sure the resoucres title of each question page is only shown if it has a resource
@@ -1404,6 +1412,7 @@ Output: the resources that is shown on each question
   };
 
   render() {
+
     /*****************
     Description: main page renderer. renders the whole page
 
@@ -1468,18 +1477,6 @@ Output: the resources that is shown on each question
                     <div className="Main-Body">
                       {this.title(q)}
                       <div className="mainq">
-
-                            <h6> Explanation: </h6>{" "}
-
-                      <div className="description">{q.finished}</div>
-
-</div>
-                      <div className="bottomcontainer">
-
-                        <h6>{this.parseresource(q)}</h6>
-
-                        <p className="finalsteps"> {this.finalsteps(q)}</p>
-                      </div>
                       <h5>This is the end of this question thread. You can either:</h5>
                   <ul>
                   <li>Save content to pdf with the blue button.</li>
@@ -1519,6 +1516,17 @@ Output: the resources that is shown on each question
                         </div>{" "}
                       </li>
                     </ul>
+                            <h6> Explanation: </h6>{" "}
+
+                      <div className="description">{q.finished}</div>
+
+</div>
+                      <div className="bottomcontainer">
+
+                        <h6>{this.parseresource(q)}</h6>
+
+                      </div>
+
                     </div>
 
                   </div>
@@ -1636,7 +1644,7 @@ Output: the resources that is shown on each question
                           </li>
                         </ul>
                         <h6> Explanation: </h6>{" "}
-                        <pre className="description"> {q.explanation} </pre>
+                        <div className="description"> {q.explanation} </div>
                         <h6>{this.parseresource(q)}</h6>
                       </div>
                       </div>
