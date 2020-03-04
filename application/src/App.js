@@ -867,9 +867,11 @@ back_button = (q,questionurl) => {
 }
 
 next_button = (q,questionurl) => {
+  console.log(questionurl.length)
   var temp=questionurl.indexOf(window.location.pathname);
-  var future = questionurl[temp-1];
-  if(!window.location.pathname.includes("done")){
+  var check = temp-1;
+  var future = questionurl[check];
+  if(!window.location.pathname.includes("done")&& check>=0){
     return (<Link to={process.env.PUBLIC_URL + future}><Button color="primary" >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button></Link>);
   }
   else{
