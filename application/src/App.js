@@ -859,6 +859,11 @@ back_button = (q,questionurl) => {
     return (<Link to={process.env.PUBLIC_URL + past}>
 <Button onClick={()=>{console.log(questionurl)}} color="primary"><FaArrowLeft style={{paddingTop:"7px",fontSize:"20px"}}/>Back</Button></Link>);
   }
+  else{
+    return (
+<Button disabled ><FaArrowLeft style={{paddingTop:"7px",fontSize:"20px"}}/>Back</Button>);
+
+  }
 }
 
 next_button = (q,questionurl) => {
@@ -866,6 +871,10 @@ next_button = (q,questionurl) => {
   var future = questionurl[temp-1];
   if(!window.location.pathname.includes("done")){
     return (<Link to={process.env.PUBLIC_URL + future}><Button color="primary" >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button></Link>);
+  }
+  else{
+    return (<Button  disabled  >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button>);
+
   }
 }
   export_step = q => {
