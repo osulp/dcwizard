@@ -924,12 +924,13 @@ var c = 0;
 
           c++;
   console.log("Link: " +window.location.origin+Object.values(data)[j].questionid);
+  questionstep.push("Number " + c+ ": "+Object.values(data)[j].questionTitle);
 
+          questionstep.push("\n");
+
+          questionstep.push("\n");
           questionstep.push("Link: " +window.location.origin+Object.values(data)[j].questionid);
-          questionstep.push("\n");
 
-          questionstep.push("\n");
-          questionstep.push("Number " + c+ ": "+Object.values(data)[j].questionTitle);
           questionstep.push("\n");
 
           questionstep.push("Question: " + Object.values(data)[j].question);
@@ -1022,8 +1023,10 @@ if(    Object.values(data)[j].explanationresources.join("\n") !== ""){
 }
 
 
-          questionstep.push("\n");
-          questionstep.push("\n");
+
+          questionstep.push(  "______________________________________________________________________________________________"
+);
+
           //console.log("if stored in array "+questionstep)
           //now that in array parse each step
         }
