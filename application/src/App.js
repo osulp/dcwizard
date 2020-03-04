@@ -8,8 +8,11 @@ import { ModalHeader } from "reactstrap";
 import { ModalBody } from "reactstrap";
 import SimpleBar from "simplebar-react";
 import { ModalFooter, Row, Col } from "reactstrap";
+import { FaArrowLeft,FaArrowRight } from 'react-icons/fa';
+import { createBrowserHistory } from "history";
 import pdfConverter from "jspdf";
 import data from "./database.json";
+const history = createBrowserHistory();
 
 class App extends Component {
   constructor(props) {
@@ -841,6 +844,7 @@ class App extends Component {
     return (
       <div className="left-sidebar">
         <div className="title">
+ {this.back_button(q,questionurl)} {this.next_button(q,questionurl)}
 
       <h4>Steps:</h4>
           <div style={{fontSize:"20px"}}>{this.parsesteps(q, questionreverse, questionurl)}</div>
@@ -848,7 +852,22 @@ class App extends Component {
       </div>
     );
   }
+back_button = (q,questionurl) => {
+  if(window.location.pathname !== "/"){
+    var temp=questionurl.indexOf(window.location.pathname);
+    var past = questionurl[temp+1];
+    return (<Link to={process.env.PUBLIC_URL + past}>
+<Button onClick={()=>{console.log(questionurl)}} color="primary"><FaArrowLeft style={{paddingTop:"7px",fontSize:"20px"}}/>Back</Button></Link>);
+  }
+}
 
+next_button = (q,questionurl) => {
+  var temp=questionurl.indexOf(window.location.pathname);
+  var future = questionurl[temp-1];
+  if(!window.location.pathname.includes("done")){
+    return (<Link to={process.env.PUBLIC_URL + future}><Button color="primary" >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button></Link>);
+  }
+}
   export_step = q => {
     /***********
     Input: q as in the whole json file
@@ -1132,6 +1151,7 @@ Save to PDF        </Button>
       doc.text("Website: http://dcwizard.library.oregonstate.edu/", 110, 20);
 
       doc.text("Saved at: " + sessionStorage.getItem("Time"), 165, 5);
+
 
 
       var splitTitle = doc.splitTextToSize(
