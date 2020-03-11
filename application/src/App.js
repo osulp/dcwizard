@@ -9,10 +9,9 @@ import { ModalBody } from "reactstrap";
 import SimpleBar from "simplebar-react";
 import { ModalFooter, Row, Col } from "reactstrap";
 import { FaArrowLeft,FaArrowRight } from 'react-icons/fa';
-import { createBrowserHistory } from "history";
+
 import pdfConverter from "jspdf";
 import data from "./database.json";
-const history = createBrowserHistory();
 
 class App extends Component {
   constructor(props) {
@@ -786,21 +785,13 @@ class App extends Component {
                          data-simplebar-auto-hide="false"
                          style={{ height: "350px" }}
                        >
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-
-                       <div>FAQ info...</div>
-
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-                       <div>FAQ info...</div>
-
+                       <ul style={{fontSize:"15px"}}>
+                       <li>Purpose: Be able to accurately find the correct license(s) for your needs. </li>
+                       <li>How to navigate: Click through the main page buttons and use the side bar back and forward buttons/links to go through the questions. </li>
+                       <li>What am I saving: A PDF that will give you all the steps, questions, and answers you need for the correct license(s).</li>
+                       <li>How to save: Click the "Save to PDF" button at the final step.</li>
+                       <li>Contact information: Contact the OSU Research Data Services at researchdataservices@oregonstate.edu</li>
+                       </ul>
                        </SimpleBar>
                 <p className="contactlog">
                   Questions?<br />
@@ -1639,7 +1630,13 @@ Output: the resources that is shown on each question
                       </Row>
                       <div className="warning">
                         <h5>Tutorial:</h5>
-
+                        <ul style={{fontSize:"15px"}}>
+                        <li>Purpose: Be able to accurately find the correct license(s) for your needs. </li>
+                        <li>How to navigate: Click through the main page buttons and use the side bar back and forward buttons/links to go through the questions. </li>
+                        <li>What am I saving: A PDF that will give you all the steps, questions, and answers you need for the correct license(s).</li>
+                        <li>How to save: Click the "Save to PDF" button at the final step.</li>
+                        <li>Contact information: Contact the OSU Research Data Services at researchdataservices@oregonstate.edu</li>
+                        </ul>
                       </div>
                     </div>
                     </div>
