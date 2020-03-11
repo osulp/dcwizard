@@ -8,8 +8,11 @@ import { ModalHeader } from "reactstrap";
 import { ModalBody } from "reactstrap";
 import SimpleBar from "simplebar-react";
 import { ModalFooter, Row, Col } from "reactstrap";
+import { FaArrowLeft,FaArrowRight } from 'react-icons/fa';
+import { createBrowserHistory } from "history";
 import pdfConverter from "jspdf";
 import data from "./database.json";
+const history = createBrowserHistory();
 
 class App extends Component {
   constructor(props) {
@@ -841,6 +844,7 @@ class App extends Component {
     return (
       <div className="left-sidebar">
         <div className="title">
+ {this.back_button(q,questionurl)} {this.next_button(q,questionurl)}
 
       <h4>Steps:</h4>
           <div style={{fontSize:"20px"}}>{this.parsesteps(q, questionreverse, questionurl)}</div>
@@ -848,7 +852,33 @@ class App extends Component {
       </div>
     );
   }
+back_button = (q,questionurl) => {
+  if(window.location.pathname !== "/"){
+    var temp=questionurl.indexOf(window.location.pathname);
+    var past = questionurl[temp+1];
+    return (<Link to={process.env.PUBLIC_URL + past}>
+<Button onClick={()=>{console.log(questionurl)}} color="primary"><FaArrowLeft style={{paddingTop:"7px",fontSize:"20px"}}/>Back</Button></Link>);
+  }
+  else{
+    return (
+<Button disabled ><FaArrowLeft style={{paddingTop:"7px",fontSize:"20px"}}/>Back</Button>);
 
+  }
+}
+
+next_button = (q,questionurl) => {
+  console.log(questionurl.length)
+  var temp=questionurl.indexOf(window.location.pathname);
+  var check = temp-1;
+  var future = questionurl[check];
+  if(!window.location.pathname.includes("done")&& check>=0){
+    return (<Link to={process.env.PUBLIC_URL + future}><Button color="primary" >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button></Link>);
+  }
+  else{
+    return (<Button  disabled  >Next<FaArrowRight style={{paddingTop:"7px",fontSize:"20px"}}/></Button>);
+
+  }
+}
   export_step = q => {
     /***********
     Input: q as in the whole json file
@@ -883,7 +913,7 @@ counter++;
     }
     counter++;
 
-
+var c = 0;
     for (i = 0; i < sessionStorage.length; i++) {
       for (j = 0; j < Object.values(data).length; j++) {
         if (
@@ -891,14 +921,16 @@ counter++;
           sessionStorage.key(i) !== "/" &&
           !sessionStorage.key(i).includes("done")
         ) {
-          counter--;
+
+          c++;
   console.log("Link: " +window.location.origin+Object.values(data)[j].questionid);
+  questionstep.push("Number " + c+ ": "+Object.values(data)[j].questionTitle);
 
+          questionstep.push("\n");
+
+          questionstep.push("\n");
           questionstep.push("Link: " +window.location.origin+Object.values(data)[j].questionid);
-          questionstep.push("\n");
 
-          questionstep.push("\n");
-          questionstep.push("Number " + counter+ ": "+Object.values(data)[j].questionTitle);
           questionstep.push("\n");
 
           questionstep.push("Question: " + Object.values(data)[j].question);
@@ -991,8 +1023,10 @@ if(    Object.values(data)[j].explanationresources.join("\n") !== ""){
 }
 
 
-          questionstep.push("\n");
-          questionstep.push("\n");
+
+          questionstep.push(  "______________________________________________________________________________________________"
+);
+
           //console.log("if stored in array "+questionstep)
           //now that in array parse each step
         }
@@ -1039,6 +1073,9 @@ return '';
     oldItems.push(Object.values(newItem)[0]);
     oldItems.push("\n");
   oldItems.push("\n");
+  oldItems.push(Object.values(newItem)[1].join(""));
+  //   console.log(Object.values(newItem)[1].join(""))
+
     //PROBLEM IS HERE 8/27 ^^^^^^^^^ fixed by adding join statement in json.parse
     oldItems.push(Object.values(newItem)[2]);
     oldItems.push("\n");
@@ -1066,8 +1103,6 @@ if(Object.values(newItem)[5].join("\n") !== ""){
 }
 oldItems.push("\n");
   oldItems.push("\n");
-oldItems.push(Object.values(newItem)[1].join(""));
-//   console.log(Object.values(newItem)[1].join(""))
 
 oldItems.push("\n");
     //solved formatting issue with https://stackoverflow.com/questions/4253367/how-to-escape-a-json-string-containing-newline-characters-using-javascript
@@ -1130,6 +1165,7 @@ Save to PDF        </Button>
       doc.text("Website: http://dcwizard.library.oregonstate.edu/", 110, 20);
 
       doc.text("Saved at: " + sessionStorage.getItem("Time"), 165, 5);
+
 
 
       var splitTitle = doc.splitTextToSize(
