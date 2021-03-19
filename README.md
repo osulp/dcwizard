@@ -32,6 +32,7 @@ Data Sharing Wizard is an online tool to help OSU researchers and graduate stude
 * Finished Type: This data type is for the last step of a question path.
 
 This guide provides a detailed instruction on how to customize the JSON data: https://docs.google.com/document/d/16wi463cTQMSnkNnVxauIiXO5Zs0R6trixd0OInLSjYM/edit?usp=sharing
+
 2. The second step of reuse will be customizing the Wizard application for your needs. The Wizard application includes two major files: 
 * App.css: The style sheet used to define the web site.
 * App.js: The main program written in the React JavaScript library.
