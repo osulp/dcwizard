@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   docker: circleci/docker@1.2.1
-  kubernetes: circleci/kubernetes@0.11.0
+  kubernetes: circleci/kubernetes@1.3.0
 jobs:
   build_and_push:
     executor:
@@ -40,37 +40,40 @@ jobs:
           root: /tmp/workspace
           paths:
               - env-vars
-  deploy:
-    parameters:
-      namespace:
-        type: string
-        default: 'apps-test'
-    executor:
-      name: 'docker/docker'
-    steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - run:
-          name: Fetch deployed version
-          command: cat /tmp/workspace/env-vars >> $BASH_ENV
-      - kubernetes/install-kubectl
-      - kubernetes/install-kubeconfig
-      - kubernetes/update-container-image:
-          container-image-updates: "dcwizard=registry.library.oregonstate.edu/dcwizard:$TAG"
-          get-rollout-status: true
-          record: true
-          resource-name: deployment/dcwizard
-          namespace: << parameters.namespace >>
-      - run:
-          name: Restart nginx and update static files
-          command: kubectl -n << parameters.namespace >> rollout restart deployment dcwizard
+  # Disable the deploy step 20220112
+  #deploy:
+  #  parameters:
+  #    namespace:
+  #      type: string
+  #      default: 'apps-test'
+  #  executor:
+  #    name: 'docker/docker'
+  #  steps:
+  #    - attach_workspace:
+  #        at: /tmp/workspace
+  #    - run:
+  #        name: Fetch deployed version
+  #        command: cat /tmp/workspace/env-vars >> $BASH_ENV
+  #    - kubernetes/install-kubectl
+  #    - kubernetes/install-kubeconfig
+  #    - kubernetes/update-container-image:
+  #        container-image-updates: "dcwizard=registry.library.oregonstate.edu/dcwizard:$TAG"
+  #        get-rollout-status: true
+  #        record: true
+  #        dry-run: none
+  #        resource-name: deployment/dcwizard
+  #        namespace: << parameters.namespace >>
+  #    - run:
+  #        name: Restart nginx and update static files
+  #        command: kubectl -n << parameters.namespace >> rollout restart deployment dcwizard
+
 workflows:
   ci:
     jobs:
       - build_and_push
-      - deploy:
-          requires:
-            - build_and_push
+  #    - deploy:
+  #        requires:
+  #          - build_and_push
           #filters:
           #  branches:
           #    only: main
