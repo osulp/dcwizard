@@ -24,6 +24,13 @@ RUN cd /build && npm install && npm install react-scripts && npm run build
 # Build the container to serve our app
 FROM alpine:latest AS app
 
+# Install base packages
+RUN apk --no-cache update && \
+  apk add --no-cache bash \
+    nginx \
+    vim && \
+  rm -rf /etc/nginx/http.d
+
 # Copy output from npm run build to nginx document root
 COPY --from=builder /build/build /usr/share/nginx/html
 
