@@ -1,25 +1,31 @@
 # Dockerfile for registry.library.oregonstate.edu/dcwizard
-FROM alpine:latest
+
+# Build the builder container
+#   install nodejs + npm
+#   copy source to /build
+#   run npm commands to generate output in /build/build for copying to app
+FROM alpine:latest AS builder
 
 # Install base packages
 RUN apk --no-cache update && \
   apk add --no-cache bash \
-    curl \
-    nginx \
     nodejs \
-    npm \
-    vim
+    npm 
 
-# Clear out NGINX junk
-# Create the /app directory tree
-RUN rm -rf /etc/nginx/http.d && mkdir -p /app/build && chown -R nginx:nginx /app
+# Create the /build directory tree
+RUN mkdir -p /build
 
-# Copy Primo data into /app
-#COPY --chown=nginx:nginx ./package-lock.json /app/package-lock.json
-COPY --chown=nginx:nginx ./application/ /app/build/
+# Copy app source to /build
+COPY ./application/ /build/
 
 # Build the app
-#RUN cd /app/build && npm install && npm install react-scripts &&  npm run build
+RUN cd /build && npm install && npm install react-scripts && npm run build
+
+# Build the container to serve our app
+FROM alpine:latest AS app
+
+# Copy output from npm run build to nginx document root
+COPY --from=builder /build/build /usr/share/nginx/html
 
 # Copy nginx config
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
