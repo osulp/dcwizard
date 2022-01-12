@@ -1,0 +1,79 @@
+version: 2.1
+orbs:
+  docker: circleci/docker@1.2.1
+  kubernetes: circleci/kubernetes@1.3.0
+jobs:
+  build_and_push:
+    executor:
+      name: 'docker/docker'
+    environment:
+      DOCKER_LOGIN: admin
+      DOCKER_PASSWORD: admin
+    steps:
+      - checkout
+      - run:
+          name: Generate deployed version
+          command: |
+            mkdir -p /tmp/workspace
+            #export APP_VERSION=$(cat composer.lock | grep -A1 \"drupal/core\" | grep \"version\" | cut -d ':' -f 2 | sed "s/[\", ]//g")
+            export DATETIME=$(date "+%Y%m%d%H%M")
+            export GIT_SHORT_HASH=$(git rev-parse --short HEAD)
+            export GIT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD | sed -e 's/\//-/g' | sed -e 's/_/-/g')
+            echo "export GIT_BRANCH_NAME=$GIT_BRANCH_NAME" >> /tmp/workspace/env-vars
+            #echo export TAG="${GIT_BRANCH_NAME}-$DATETIME-${APP_VERSION}-${GIT_SHORT_HASH}" >> /tmp/workspace/env-vars
+            echo export TAG="${GIT_BRANCH_NAME}-$DATETIME-${GIT_SHORT_HASH}" >> /tmp/workspace/env-vars
+            cat /tmp/workspace/env-vars >> $BASH_ENV
+      - setup_remote_docker:
+          version: 20.10.2
+      - docker/check:
+          registry: registry.library.oregonstate.edu
+      - docker/build:
+          registry: registry.library.oregonstate.edu
+          #extra_build_args: --build-arg PHP_TAG=<< parameters.php_version >>-<< parameters.image_version >>
+          image: dcwizard
+          tag: $TAG,${GIT_BRANCH_NAME}-latest
+      - docker/push:
+          registry: registry.library.oregonstate.edu
+          image: dcwizard
+          tag: $TAG,${GIT_BRANCH_NAME}-latest
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+              - env-vars
+  # Disable the deploy step 20220112
+  #deploy:
+  #  parameters:
+  #    namespace:
+  #      type: string
+  #      default: 'apps-test'
+  #  executor:
+  #    name: 'docker/docker'
+  #  steps:
+  #    - attach_workspace:
+  #        at: /tmp/workspace
+  #    - run:
+  #        name: Fetch deployed version
+  #        command: cat /tmp/workspace/env-vars >> $BASH_ENV
+  #    - kubernetes/install-kubectl
+  #    - kubernetes/install-kubeconfig
+  #    - kubernetes/update-container-image:
+  #        container-image-updates: "dcwizard=registry.library.oregonstate.edu/dcwizard:$TAG"
+  #        get-rollout-status: true
+  #        record: true
+  #        dry-run: none
+  #        resource-name: deployment/dcwizard
+  #        namespace: << parameters.namespace >>
+  #    - run:
+  #        name: Restart nginx and update static files
+  #        command: kubectl -n << parameters.namespace >> rollout restart deployment dcwizard
+
+workflows:
+  ci:
+    jobs:
+      - build_and_push
+  #    - deploy:
+  #        requires:
+  #          - build_and_push
+          #filters:
+          #  branches:
+          #    only: main
